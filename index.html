@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <link rel="favicon" href="./favicon.ico" type="image/x-icon" sizes="16x16">
     <title>fio archive</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
 
     
     <style>
@@ -68,6 +70,86 @@
 </head>
 
 <body>
+    
+    <script>
+        var vw = window.innerWidth;
+        var vh = window.innerHeight;
+        let x = Math.random() * 0.5 - 0.00000001;
+        let y = Math.random() * 0.5 - 0.00000001;
+        let z = Math.ceil(Math.random() * 4);
+        let color = '#ffd800';
+        let texts = '튀르키예\n아이스크림'
+        let x1 = 0;
+        let y1 = 0;
+        let tar_x1 = 0;
+        let tar_y1 = 0;
+        let easing = 0.1;
+        let colorset = ['#ffd800', '#6dffff', '#ff93d1', '#ffffff', '#aeff3f']
+
+
+
+
+        var size = document.getElementById("size");
+        window.onresize = function(event) {
+            vw = window.innerWidth*0.8
+            vh = window.innerHeight*0.8
+        }
+
+
+        function setup() {
+            
+
+
+        }
+
+        function draw() {
+            createCanvas(vw, vh)
+            background('#0075ff');
+            fill(color)
+            noStroke()
+
+            x1 = (x + (z + 1) % 2 * 0.5) * vw
+            y1 = (y + Math.round(z * 0.25) * 0.5) * vh
+
+
+            if (mouseX > x1 - 100 && mouseX < x1 + 100 && mouseY > y1 - 100 && mouseY < y1 + 100) {
+
+
+                tar_x1 = x1
+                tar_y1 = y1
+                z = (z + Math.ceil(Math.random() * 3)) % 4;
+                x = Math.random() * 0.5 - 0.00000001;
+                y = Math.random() * 0.5 - 0.00000001;
+                
+                //여기에 다른 변수들 랜덤시키는 코드//
+
+            }
+
+            tar_x1 = tar_x1 + (x1 - tar_x1) * easing
+            tar_y1 = tar_y1 + (y1 - tar_y1) * easing
+
+
+            textWidth(32)
+            textSize(18)
+            textAlign(CENTER);
+            textStyle(BOLD);
+            text(texts,tar_x1, tar_y1);
+            
+            
+            
+            if(mouseIsPressed ==true && mouseX > x1 - 140 && mouseX < x1 + 140 && mouseY > y1 - 140 && mouseY < y1 + 140){
+                color=colorset[Math.round(Math.random()*4)]
+                
+            }
+
+
+
+
+
+        }
+
+    </script>
+    
 
     <div class="content">
         <p>
@@ -83,6 +165,9 @@
     <footer>
         <a href="https://www.instagram.com/fio_press/" target="blank">@fiopress</a>
     </footer>
+    
+    
+    
 
 </body>
 
