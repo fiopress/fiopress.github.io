@@ -5,28 +5,28 @@
     <meta charset="UTF-8">
     <link rel="favicon" href="./favicon.ico" type="image/x-icon" sizes="16x16">
     <title>fio archive</title>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
 
-    
-    <style>
-        
-        main{
-            position: absolute;
-            top:0;
-            left:0;
-            
-                        z-index: -1;
 
+    <style>
+        main {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;    
         }
-        body{
-/*            색상 변수*/
+
+        body {
+            /*            색상 변수*/
             --bgcolor: #0075ff;
             --linkcolor: #ffffff;
-            
-            background-image: url(https://i.pinimg.com/564x/55/4c/31/554c318ca7b6c83ce7578b4db0e43901.jpg);
-            background:  var(--bgcolor);˙
+            background: var(--bgcolor);
+            cursor: grab;
+
+            ˙
         }
+
         div.content {
             display: flex;
             justify-content: center;
@@ -54,6 +54,8 @@
         }
 
         p {
+                        cursor: default;
+
             line-height: 1.4em;
         }
 
@@ -62,24 +64,25 @@
             font-size: 0.8em;
             margin: 0.1em;
         }
+
         .invisible {
             visibility: hidden;
         }
-        
+
         footer {
             text-align: center;
-            font-size: 1em;
+            font-size: 0.8em;
             margin-top: -1em;
         }
 
     </style>
-    
-        
+
+
 
 </head>
 
 <body>
-    
+
     <script>
         var vw = window.innerWidth;
         var vh = window.innerHeight;
@@ -94,29 +97,33 @@
         let tar_y1 = 0;
         let easing = 0.1;
         let colorset = ['#ffd800', '#6dffff', '#ff93d1', '#ffffff', '#aeff3f']
+        var score = 0;
+        var scoretext = '\n🍦'
 
 
 
 
         var size = document.getElementById("size");
         window.onresize = function(event) {
-            vw = window.innerWidth*0.8
-            vh = window.innerHeight*0.8
+            vw = window.innerWidth * 0.8
+            vh = window.innerHeight * 0.8
         }
 
 
         function setup() {
-            
+
 
 
         }
 
         function draw() {
+            
             createCanvas(vw, vh)
             background(0, 0, 0, 0);
             fill(color)
             noStroke()
 
+            
             x1 = (x + (z + 1) % 2 * 0.5) * vw
             y1 = (y + Math.round(z * 0.25) * 0.5) * vh
 
@@ -129,7 +136,7 @@
                 z = (z + Math.ceil(Math.random() * 3)) % 4;
                 x = Math.random() * 0.5 - 0.00000001;
                 y = Math.random() * 0.5 - 0.00000001;
-                
+
                 //여기에 다른 변수들 랜덤시키는 코드//
 
             }
@@ -142,13 +149,23 @@
             textSize(18)
             textAlign(CENTER);
             textStyle(BOLD);
-            text(texts,tar_x1, tar_y1);
-            
-            
-            
-            if(mouseIsPressed ==true && mouseX > x1 - 140 && mouseX < x1 + 140 && mouseY > y1 - 140 && mouseY < y1 + 140){
-                color=colorset[Math.round(Math.random()*4)]
-                
+            text(texts, tar_x1, tar_y1);
+            textSize(14)
+            text(scoretext + Math.round(score*0.1), tar_x1, tar_y1+24)
+
+
+            if (mouseIsPressed == true && mouseX > x1 - 140 && mouseX < x1 + 140 && mouseY > y1 - 140 && mouseY < y1 + 140) {
+                color = colorset[Math.round(Math.random() * 4)]
+                score = score + 1
+
+
+            }
+
+            function mouseClicked() {
+                fill(30)
+                ellipse(mouseX, mouseY, 5, 5);
+                // prevent default
+                return false;
             }
 
 
@@ -158,7 +175,7 @@
         }
 
     </script>
-    
+
 
     <div class="content">
         <p>
@@ -174,9 +191,9 @@
     <footer>
         <a href="https://www.instagram.com/fio_press/" target="blank">@fiopress</a>
     </footer>
-    
-    
-    
+
+
+
 
 </body>
 
