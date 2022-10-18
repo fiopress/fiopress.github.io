@@ -99,9 +99,8 @@
         let colorset = ['#ffd800', '#6dffff', '#ff93d1', '#ffffff', '#aeff3f']
         var score = 0;
         var scoretext = '\n🍦'
-
-
-
+                let degree = 0;
+        let target_degree = 0;
 
         var size = document.getElementById("size");
         window.onresize = function(event) {
@@ -109,49 +108,45 @@
             vh = window.innerHeight * 0.8
         }
 
-
         function setup() {
-
-
-
+                        angleMode(DEGREES);
         }
 
         function draw() {
-            
             createCanvas(vw, vh)
             background(0, 0, 0, 0);
             fill(color)
             noStroke()
 
-            
+            //텍스트 초기 위치//
             x1 = (x + (z + 1) % 2 * 0.5) * vw
             y1 = (y + Math.round(z * 0.25) * 0.5) * vh
 
 
             if (mouseX > x1 - 100 && mouseX < x1 + 100 && mouseY > y1 - 100 && mouseY < y1 + 100) {
-
-
                 tar_x1 = x1
                 tar_y1 = y1
                 z = (z + Math.ceil(Math.random() * 3)) % 4;
                 x = Math.random() * 0.5 - 0.00000001;
                 y = Math.random() * 0.5 - 0.00000001;
-
-                //여기에 다른 변수들 랜덤시키는 코드//
-
+                target_degree = 180 * Math.round(Math.random());
             }
 
+            //이지잉//
             tar_x1 = tar_x1 + (x1 - tar_x1) * easing
             tar_y1 = tar_y1 + (y1 - tar_y1) * easing
+            degree = degree + (target_degree - degree)*0.3
 
-
+            //텍스트//
             textWidth(32)
             textSize(18)
             textAlign(CENTER);
             textStyle(BOLD);
-            text(texts, tar_x1, tar_y1);
+            translate(tar_x1, tar_y1)
+            rotate(degree)
+            text(texts, 0, 0);
             textSize(14)
-            text(scoretext + Math.round(score*0.1), tar_x1, tar_y1+24)
+            text(scoretext + Math.round(score * 0.1), 0, 24)
 
 
             if (mouseIsPressed == true && mouseX > x1 - 140 && mouseX < x1 + 140 && mouseY > y1 - 140 && mouseY < y1 + 140) {
@@ -160,14 +155,6 @@
 
 
             }
-
-            function mouseClicked() {
-                fill(30)
-                ellipse(mouseX, mouseY, 5, 5);
-                // prevent default
-                return false;
-            }
-
 
 
 
