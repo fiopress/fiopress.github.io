@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="favicon" href="./favicon.ico" type="image/x-icon" sizes="16x16">
-    <title>fio archive</title>
+    <title>🗄fio Cabinet</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
 
@@ -17,12 +17,13 @@
             top: 0;
             left: 0;
             z-index: -1;
+
         }
 
         body {
             /*            색상 변수*/
             --bgcolor: #0075ff;
-            --linkcolor: #ffffff;
+            --linkcolor: #ffff00;
             background: var(--bgcolor);
             cursor: grab;
 
@@ -36,11 +37,19 @@
             min-height: 94vh;
             text-align: center;
         }
+        
+                section {
+            font-size: 0.7em;
+            color: var(--linkcolor);
+        }
+        
+
+
 
         /*링크*/
         a:link,
         a:visited {
-            color: #000000;
+            color: #ffffff;
             text-decoration: none;
             cursor: auto;
         }
@@ -52,7 +61,7 @@
 
         a:link:active,
         a:visited:active {
-            color: var(--linkcolor);
+            color: #ffffff;
         }
 
         p {
@@ -62,39 +71,24 @@
 
         /*주석*/
         sup {
-            font-size: 0.8em;
+            font-size: 0.75em;
             margin: 0.1em;
         }
+
 
         .invisible {
             visibility: hidden;
         }
+        .speaker {
+                color: var(--linkcolor)
+            }
 
-        footer {
-            text-align: center;
-            font-size: 1em;
-            margin-top: -0.5em;
-        }
 
         @media (max-width: 400px) {
             p {
                 font-size: 0.8em;
-                                margin-top: 0.4em;
-
+                margin-top: 0.4em;
             }
-
-            footer {
-                margin-top: -2em;
-            }
-
-            a:hover {
-                color: #000000;
-            }
-              a:visited:active {
-            color: #000000;
-        }
-
-
         }
 
         @media (max-width: 800px) {
@@ -102,20 +96,14 @@
                 font-size: 0.9em;
             }
 
-            footer {
-                                font-size: 0.9em;
 
-                margin-top: -3em;
-
-            }
-             a:visited:active {
-            color: #000000;
+        }
+         footer {
+            font-size: 0.7em;
+             color: white;
         }
 
-            a:hover {
-                color: #000000;
-            }
-        }
+
     </style>
 
 
@@ -180,14 +168,13 @@
 
             //텍스트//
             textWidth(32)
-            textSize(17)
+            textSize(14)
             textAlign(CENTER);
-            textStyle(BOLD);
             translate(tar_x1, tar_y1)
             rotate(degree)
             text(texts, 0, 0);
             textSize(14)
-            text(scoretext + Math.round(score * 0.1), 0, 24)
+            text(scoretext + Math.round(score * 0.1), 0, 18)
 
 
             if (mouseIsPressed == true && mouseX > x1 - 140 && mouseX < x1 + 140 && mouseY > y1 - 140 && mouseY < y1 + 140) {
@@ -199,20 +186,32 @@
 
         }
     </script>
+    <section>
+
+<a href="./FAQ.html" target="blank"> 자주 물을 질문들 Frequently Asked Questions</a>
+        
+
+
+    </section>
+
 
 
     <div class="content">
         <p>
-            <a href="https://docs.google.com/spreadsheets/d/1Do-K4l4KYEGG9Fp8UhL248hJg5BigUGK14fzZ5aFBXY/edit?usp=sharing" target="blank"><sup class="invisible sup">1</sup>우리는 누구인가?<sup>1</sup></a>
+            <a href="https://docs.google.com/spreadsheets/d/1Do-K4l4KYEGG9Fp8UhL248hJg5BigUGK14fzZ5aFBXY/edit?usp=sharing" target="blank"><sup class="invisible sup">1</sup>우리는 어디서 왔고, 무엇이며, 어디로 가는가<sup>1</sup></a>
             <br>
+            <sub class="speaker">-Paul Gauguin, ünlü ressam-</sub>
+            <br>
+            <a class='invisible'>padding</a>
 
         </p>
     </div>
 
-
-    <footer>
-        <a href="https://www.instagram.com/fio_press/" target="blank">@fiopress</a>
-    </footer>
+<footer>
+ <br>
+  <a href="#footer" style="font-size: 1.2em; line-height: 1em;">↓</a><br>
+   우리에게 하고픈 말이 있다면... <a href="https://www.instagram.com/fio_press/" target="blank" name="footer">| @fio_press | </a><a href="mailto:iof0081@gmail.com">iof0081@gmail.com | </a><a href="https://docs.google.com/forms/d/e/1FAIpQLSfjSoSc63isRv5Y1dBknZl_sufzC2PIGKDX6E-P-LOaBETOGQ/viewform?usp=sf_link">구글 설문지 |</a> 로 연락주라.
+</footer>
 
 
 
