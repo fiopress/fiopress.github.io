@@ -17,22 +17,20 @@
             top: 0;
             left: 0;
             z-index: -1;
-
         }
 
         body {
             /*            색상 변수*/
             --bgcolor: #0075ff;
             --linkcolor: #89fd7f;
-            background-image: url('sen3.png');
-            /*             background: var(--bgcolor);
-             */
-            background-size: cover;
-              background-position: center;
-
+            background-color: var(--bgcolor);
             cursor: grab;
+        }
 
-            ˙
+        body:active {
+            background-image: url('sen3.png');
+            background-position: center;
+            background-size: cover;
         }
 
         div.content {
@@ -46,8 +44,6 @@
         section {
             font-size: 0.7em;
         }
-
-
 
 
         /*링크*/
@@ -100,19 +96,18 @@
             p {
                 font-size: 0.9em;
             }
-
-
         }
 
         footer {
             font-size: 0.7em;
             color: white !important;
         }
-        footer a{
-                        color: white !important;
 
+        footer a {
+            color: white !important;
         }
-        footer a:hover{
+
+        footer a:hover {
             color: var(--linkcolor) !important;
         }
 
@@ -145,8 +140,8 @@
 
         var size = document.getElementById("size");
         window.onresize = function(event) {
-            vw = window.innerWidth * 0.8
-            vh = window.innerHeight * 0.8
+            vw = window.innerWidth
+            vh = window.innerHeight
         }
 
         function setup() {
@@ -198,17 +193,10 @@
 
 
         }
-
     </script>
     <section>
-
         <a href="./FAQ.html"> 자주 물을 질문들 Frequently Asked Questions</a>
-
-
-
     </section>
-
-
 
     <div class="content">
         <p>
@@ -224,12 +212,10 @@
     <footer>
         <br>
         <a href="#footer" style="font-size: 1.2em; line-height: 1em;">↓</a><br>
-        우리에게 하고픈 말이 있다면... | <a href="https://www.instagram.com/fio_press/" target="blank" name="footer"> @fio_press </a>| <a href="mailto:iof0081@gmail.com">iof0081@gmail.com </a>| <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjSoSc63isRv5Y1dBknZl_sufzC2PIGKDX6E-P-LOaBETOGQ/viewform?usp=sf_link">구글 설문지 </a>| 로 연락주라.
+        우리에게 하고픈 말이 있다면... | <a href="https://www.instagram.com/fio_press/" target="blank" name="footer"> @fio_press </a>| <a href="mailto:iof0081@gmail.com">iof0081@gmail.com </a>| <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjSoSc63isRv5Y1dBknZl_sufzC2PIGKDX6E-P-LOaBETOGQ/viewform?usp=sf_link">구글 설문지 </a>| 로 연락바라.
     </footer>
 
 
 
 
-</body>
-
-</html>
+</body></html>
