@@ -90,6 +90,11 @@
                 font-size: 0.8em;
                 margin-top: 0.4em;
             }
+            body:active{
+                background-image: url('sen5.png'); 
+                background-position: 61.7% 40%; 
+                background-size: cover;
+            }
         }
 
         @media (max-width: 800px) {
@@ -116,7 +121,8 @@
             top: 60%;
             left: 70%;
             width: 28%;
-            height: 30%;          
+            height: 30%;
+            
             
         }
 
@@ -234,13 +240,13 @@
         if(vw/vh > 0.68){
         hide.style.cssText = " background-image: url('sen5.png'); background-position: center; background-size: cover;"
         } else {
-           hide.style.cssText = "background-image: url('sen5.png'); background-position: 61.7% 40%; background-size: cover;"
+           hide.style.cssText = "background-image: ; background-position: ; background-size: ;"        
             
         }
     }
     
     function hides(){
-hide.style.cssText = " background-image: ; background-position: ; background-size: ;"        
+hide.style.cssText = "background-image: ; background-position: ; background-size: ;"        
     }
     
     
