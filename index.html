@@ -31,11 +31,6 @@
             cursor: grab;
         }
 
-        body:active {
-            background-image: url('sen5.png');
-            background-position: center;
-            background-size: cover;
-        }
 
         div.content {
             display: flex;
@@ -115,6 +110,17 @@
         footer a:hover {
             color: var(--linkcolor) !important;
         }
+        
+        .pad{
+            position:absolute;
+            top: 60%;
+            left: 70%;
+            width: 28%;
+            height: 30%;
+            background-color: white;
+            
+            
+        }
 
     </style>
 
@@ -193,10 +199,7 @@
             if (mouseIsPressed == true && mouseX > x1 - 140 && mouseX < x1 + 140 && mouseY > y1 - 140 && mouseY < y1 + 140) {
                 score = score + 1
             }
-
-
-
-
+        
         }
     </script>
     <section>
@@ -219,7 +222,33 @@
         <a href="#footer" style="font-size: 1.2em; line-height: 1em;">↓</a><br>
         우리에게 하고픈 말이 있다면... | <a href="https://www.instagram.com/fio_press/" target="blank" name="footer"> @fio_press </a>| <a href="mailto:iof0081@gmail.com">iof0081@gmail.com </a>| <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjSoSc63isRv5Y1dBknZl_sufzC2PIGKDX6E-P-LOaBETOGQ/viewform?usp=sf_link">구글 설문지 </a>| 로 연락바라.
     </footer>
+    
+    <div class="pad" onmousedown="unhide()" onmouseup="hides()">   </div>
 
+<script>
+    var hide = document.querySelector('body');
+    var screenWidth = screen.availWidth;
+    console.log(vw)
+    console.log(vh)
+    
+    function unhide(){
+        
+        if(vw/vh > 0.68){
+        hide.style.cssText = " background-image: url('sen5.png'); background-position: center; background-size: cover;"
+        } else {
+           hide.style.cssText = "background-image: url('sen5.png'); background-position: 61.7% 40%; background-size: cover;"
+            
+        }
+    }
+    
+    function hides(){
+hide.style.cssText = " background-image: ; background-position: ; background-size: ;"        
+    }
+    
+    
+    
+    
+    </script>
 
 
 
