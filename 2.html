@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="favicon" href="./favicon.ico" type="image/x-icon" sizes="16x16">
-        <title>fio cabinet</title>
+    <title>fio cabinet</title>
     <meta name="description" content="fio press에서 운영하는 전시 공간입니다.">
     <meta name="distrubution" content="fio press">
     <meta name="location" content="seoul">
@@ -39,10 +39,12 @@
             font-size: 0.7em;
             display: flex;
         }
-	a{           
-	    color: #ffffff;
 
-	    }
+        a {
+            color: #ffffff;
+
+        }
+
         a:link,
         a:visited {
             color: #ffffff;
@@ -77,17 +79,30 @@
             color: var(--linkcolor);
         }
 
-        @media (max-width: 400px) {
+        @media (max-width: 431px) {
             p {
                 font-size: 0.8em;
                 margin-top: 0.4em;
+                visibility: hidden;
             }
+
+            .container {
+                visibility: hidden;
+            }
+
+            .noticebg{
+            visibility: hidden;
+
+            }
+
         }
 
         @media (max-width: 800px) {
             p {
                 font-size: 0.9em;
+
             }
+
         }
 
         footer {
@@ -114,6 +129,8 @@
             width: 400px;
             height: 400px;
             min-height: 400px;
+                        z-index: 3;
+
         }
 
         .path {
@@ -125,6 +142,7 @@
             visibility: hidden;
             margin-top: 2px;
         }
+
         .starter {
             position: absolute;
             background: var(--linecolor);
@@ -133,6 +151,7 @@
             width: 10px;
             height: 10px;
         }
+
         .end {
             position: absolute;
             background: var(--linecolor);
@@ -142,6 +161,7 @@
             height: 10px;
             visibility: hidden;
         }
+
         #startText {
             position: relative;
             text-align: center;
@@ -150,6 +170,7 @@
             font-size: 0.8em;
             color: #ffffff;
         }
+
         .clock {
             color: var(--linkcolor);
             position: absolute;
@@ -164,18 +185,46 @@
         .starter:hover+#Layer_1 {
             visibility: visible;
         }
+
         #Layer_1:hover {
             visibility: visible;
         }
+
         #Layer_1:hover+.end {
             visibility: visible;
         }
+
         .end:hover {
             visibility: visible;
         }
+
         .starter:hover~.end {
             visibility: visible;
         }
+
+        .notice{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 270px;
+            transform: translate(-50%, -50%);
+            color: var(--linkcolor);
+            line-height: 130%;
+            font-size: 1em;
+        }
+        pre{
+         z-index: -5
+
+        }
+        .noticebg{
+            position: absolute;
+            top:6%;
+            width:290px;
+            height:90%;
+            background-color: var(--bgcolor);
+            z-index: 1;
+        }
+
     </style>
 </head>
 
@@ -199,6 +248,39 @@
     <section>
         <a href="./FAQ.html"> 자주 물을 질문들 Frequently Asked Questions</a>
     </section>
+    <div class="notice">
+    <pre>
+    
+    
+안녕하세요 독자 여러분. fio팀입니다.
+    잘 지내시나요?
+<u>현재 모바일 기기로 접속하신 모양이네요?</u>
+[아니라면 브라우저 크기가 너무 작지는 않은가요?]
+유감스럽게도 모바일 환경에서는 미술관 접속이 
+    불가합니다.
+이 사이트를 제대로 이용하려면 
+    <u>마우스</u>가 필요해서요.
+사실 터치로도 구현할 방법이 있긴 한데, 
+기술력이 딸려서 포기했습니다. 넓은 마음으로 
+이해해주시면 감사하겠습니다.
+
+.. 그리고 어차피 미술관을 구글 시트로 만들어서 
+휴대폰으로 보면 무척 짜증날 겁니다.
+    ‘컴퓨터로의 접속’은 여러분도 저희도 
+모두 행복해지는 길입니다.
+    행복합시다.
+
+영국의 왕립과학협회(RSA)에서 발표한 
+자료에 따르면<sup class="footnote" style="color: aqua">[1]</sup>, 모바일 사용자가 
+데스크톱 전용 웹사이트를 PC 환경에서 다시 
+방문할 확률은 <u>3.2%</u>에 불과하다고 합니다. 
+여러분은 과연 [ 다를까요? | 3.2%일까요? | 
+귀찮으실까요? | 멋지십니다. | 고맙습니다. | 
+      <span style="color: aqua">사랑합니다.]</span>        
+       </pre>
+               <div class="noticebg"></div>
+
+            </div>
 
     <div class="content">
         <p>
@@ -209,7 +291,7 @@
             <a class='invisibleText'>padding</a>
         </p>
     </div>
-    
+
     <footer>
         <br>
         <br>
@@ -256,6 +338,11 @@
         function final() {
             alert('가 아니라 접속 코드: fio cab')
         }
+        var vw = window.innerWidth;
+        var vh = window.innerHeight;
+
+
+        console.log(vw, vh)
 
     </script>
 
