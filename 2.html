@@ -224,6 +224,14 @@
             background-color: var(--bgcolor);
             z-index: 1;
         }
+        .footnotevis{
+                        visibility: hidden;
+
+        }
+        
+        .footnote:hover, .footnote:active ~.footnotevis {
+            visibility: visible;
+        }
 
     </style>
 </head>
@@ -252,6 +260,7 @@
     <pre>
     
     
+    
 안녕하세요 독자 여러분. fio팀입니다.
     잘 지내시나요?
 <u>현재 모바일 기기로 접속하신 모양이네요?</u>
@@ -276,7 +285,9 @@
 방문할 확률은 <u>3.2%</u>에 불과하다고 합니다. 
 여러분은 과연 [ 다를까요? | 3.2%일까요? | 
 귀찮으실까요? | 멋지십니다. | 고맙습니다. | 
-      <span style="color: aqua">사랑합니다.]</span>        
+      <span style="color: aqua">사랑합니다.]</span> 
+       
+<sup class="footnotevis" style="color: aqua">[1]구라입니다. 그런 자료 없습니다. </sup>      
        </pre>
                <div class="noticebg"></div>
 
