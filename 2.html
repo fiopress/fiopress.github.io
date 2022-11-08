@@ -63,7 +63,7 @@
 
         p {
             line-height: 1.2em;
-            z-index: 999;
+            z-index: 0;
         }
 
         sup {
@@ -250,7 +250,7 @@
         transform: translate(-50%, -50%);
         width: 150%;
         height: 200%;
-        border-radius: 1px;
+        border-radius: 5px;
         }
 
         .footnote:hover,
@@ -262,11 +262,14 @@
             position: absolute;
             top: 0px;
             visibility: hidden;
+            color: white;
+            font-size: 0.8em;
         }
         
         #Layer_1:hover~.texts {
             visibility: visible;
         }
+        
         
 
     </style>
@@ -366,7 +369,7 @@
      
      v.addEventListener('mousemove', mousemove);
      
-     var talks = ['웅성웅성', '임마', '야', '이', '자식', '구', '라치지', '마라', '응?', '왜새치기해?']
+     var talks = ['(웅성웅성)어머 이게 누구 전시라고?', '우리 다 본 다음에 뭐 먹으러 갈까', '너 전번에 쿠팡에서 주문하라 한 거 했어?', '배고프다', '자기야 자기는 이래서 문제야', '주차장 무료주차이려나요..?', '마라탕 먹고 싶다', '어 저기 유병재 아냐? 대박 은근 미술에 관심있나봐', '사진찍어달라 할까?', '이 작가는 날 얼마나 흥분시킬지 후후..']
         var num = [0, 1, 2, 3, 4, 5, 6, 7, 8]
         num.sort(() => Math.random() - 0.5);
 
@@ -413,9 +416,6 @@
             document.querySelector('.nine').innerHTML = talks[num[8]];
         }
         
-        
-        
-        
     console.log(
     "clientX: ", x, 
     "clientY:", y)
@@ -435,10 +435,14 @@
             var divClock = document.getElementById("divClock");
 
             var result = (currentDate - connectedDate) / 1000;
+            if(result<999){
 
             divClock.innerText = "record: " + result + "s";
 
             setTimeout(showClock, 66);
+            } else{
+                divClock.innerText = "record: timeover"
+            }
         }
 
         let a = ['you received the king?', 'ㅋ', '아 제대로 좀 해봐~', '화이팅~ 다시 하면 또 성공해버질지도 모르지~', '٩(`･ω･´)و ҉*']
