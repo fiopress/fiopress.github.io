@@ -140,6 +140,7 @@
             width: 400px;
             height: 400px;
             min-height: 400px;
+            margin-top: -23px;
             z-index: 3;
 
         }
@@ -328,7 +329,6 @@
 <body onload="showClock(); hideCounter()" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
 
     <div class="container" onmousemove>
-       
         <p id="startText">waiting line</p>
         <div class="starter" ontouchstart="tablethide()"></div>
         <svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 25 400 400" style="enable-background:new 0 0 400 400;" xml:space="preserve">
@@ -455,7 +455,7 @@
         if(x<120&&x>30&&y<150&&y>140){
             document.querySelector('.three').innerHTML = "";
             document.querySelector('.four').innerHTML = talks[num[3]];
-            document.querySelector('.four').style.left = 10 + "px"
+            document.querySelector('.four').style.left = 25 + "px"
             document.querySelector('.four').style.top = 123 + "px"
             
         }
