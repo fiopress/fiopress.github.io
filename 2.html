@@ -150,6 +150,18 @@
             left: 195px;
             width: 10px;
             height: 10px;
+            
+        }
+        .starter::after{
+            content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 200%;
+        height: 200%;
+        border-radius: 5px;
+            
         }
 
         .end {
@@ -229,6 +241,16 @@
         .footnotevis {
             visibility: hidden;
 
+        }
+        .footnote::after{
+            content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 150%;
+        height: 200%;
+        border-radius: 1px;
         }
 
         .footnote:hover,
