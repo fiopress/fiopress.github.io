@@ -163,7 +163,6 @@
             left: 195px;
             width: 10px;
             height: 10px;
-            visibility: hidden;
             
         }
         .starter::after{
@@ -543,17 +542,12 @@
         setTimeout (function hideCounter(){
             document.querySelector('#counter').style.visibility = "hidden";
             document.querySelector('#countnum').style.visibility = "hidden";
-            if(vw<430){
-                    document.querySelector('.starter').style.visibility = "hidden";
-
-            }else{
-            document.querySelector('.starter').style.visibility = "visible";    
-            }
+           
             
         }, 2900)
 
         
-        let a = ['어머 어머 지금 새치기하시는 거예요?', '다시 줄서야겠네 ㅋ', '줄 좀 똑바로 섭시다 참 내', '화이팅~ 다시 하면 또 성공해버질지도 모르지~', '٩(`･ω･´)و ҉* ㅋ']
+        let a = ['어머 어머 지금 새치기하시는 거예요?', '다시 줄서야겠네 ㅋ', '줄 좀 똑바로 섭시다 참 내', '화이팅~ 다시 하면 또 성공해버질지도 모르지~', '٩(`･ω･´)و ҉*']
         var alertmessage = a[Math.floor(Math.random() * 5)]
 
         function visible() {
