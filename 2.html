@@ -90,8 +90,8 @@
                 visibility: hidden;
             }
 
-            .noticebg{
-            visibility: hidden;
+            .noticebg {
+                visibility: hidden;
 
             }
 
@@ -129,7 +129,7 @@
             width: 400px;
             height: 400px;
             min-height: 400px;
-                        z-index: 3;
+            z-index: 3;
 
         }
 
@@ -174,11 +174,11 @@
         .clock {
             color: var(--linkcolor);
             position: absolute;
-            left: 51%;
+            left: 53%;
             top: -5.9%;
             transform: translate(-50%, -50%);
             text-align: left;
-            width: 7em;
+            width: 8em;
             font-size: 0.8em;
         }
 
@@ -202,7 +202,7 @@
             visibility: visible;
         }
 
-        .notice{
+        .notice {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -212,26 +212,40 @@
             line-height: 130%;
             font-size: 1em;
         }
-        pre{
-         z-index: -5
 
+        pre {
+            z-index: -5
         }
-        .noticebg{
+
+        .noticebg {
             position: absolute;
-            top:6%;
-            width:290px;
-            height:90%;
+            top: 6%;
+            width: 290px;
+            height: 90%;
             background-color: var(--bgcolor);
             z-index: 1;
         }
-        .footnotevis{
-                        visibility: hidden;
+
+        .footnotevis {
+            visibility: hidden;
 
         }
-        
-        .footnote:hover, .footnote:active ~.footnotevis {
+
+        .footnote:hover,
+        .footnote:active~.footnotevis {
             visibility: visible;
         }
+        
+        .texts{
+            position: absolute;
+            top: 0px;
+            visibility: hidden;
+        }
+        
+        #Layer_1:hover~.texts {
+            visibility: visible;
+        }
+        
 
     </style>
 </head>
@@ -239,9 +253,11 @@
 
 
 <body onload="showClock()">
-    <div class="container">
+
+    <div class="container" onmousemove>
+       
         <p id="startText">waiting line</p>
-        <div class="starter"></div>
+        <div class="starter" ontouchstart="tablethide()"></div>
         <svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 25 400 400" style="enable-background:new 0 0 400 400;" xml:space="preserve">
             <polygon class="path toggle" points="350,250.52 40,250.52 40,175.52 120,175.52 130,175.52 130,165.52 130,110.52 195,110.52 205,110.52 
 	205,100.52 205,35.52 195,35.52 195,100.52 130,100.52 120,100.52 120,110.52 120,165.52 40,165.52 30,165.52 30,175.52 30,250.52 
@@ -250,6 +266,17 @@
         </svg>
         <div class="end" onmouseover="final()"></div>
         <div id="divClock" class="clock"></div>
+        <div class="texts">
+            <div class="mumbles one"></div>
+            <div class="mumbles two"></div>
+            <div class="mumbles three"></div>
+            <div class="mumbles four"></div>
+            <div class="mumbles five"></div>
+            <div class="mumbles six"></div>
+            <div class="mumbles seven"></div>
+            <div class="mumbles eight"></div>
+            <div class="mumbles nine"></div>
+        </div>
     </div>
 
 
@@ -257,11 +284,11 @@
         <a href="./FAQ.html"> 자주 물을 질문들 Frequently Asked Questions</a>
     </section>
     <div class="notice">
-    <pre>
-    
-    
-    
-    
+        <pre>
+
+
+
+
 안녕하세요 독자 여러분. fio팀입니다.
     잘 지내시나요?
 <u>현재 모바일 기기로 접속하신 모양이네요?</u>
@@ -290,9 +317,9 @@
        
 <sup class="footnotevis" style="color: aqua">[1]구라입니다. 그런 자료 없습니다. </sup>      
        </pre>
-               <div class="noticebg"></div>
+        <div class="noticebg"></div>
 
-            </div>
+    </div>
 
     <div class="content">
         <p>
@@ -310,24 +337,76 @@
         <a href="#footer" style="font-size: 1.2em; line-height: 1em;">↓</a><br>
         우리에게 하고픈 말이 있다면... | <a href="https://www.instagram.com/fio_press/" target="blank" name="footer"> @fio_press </a>| <a href="mailto:iof0081@gmail.com">iof0081@gmail.com </a>| <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjSoSc63isRv5Y1dBknZl_sufzC2PIGKDX6E-P-LOaBETOGQ/viewform?usp=sf_link">구글 설문지 </a>| 로 연락바라.
     </footer>
-
-    <!--  <script>
-        const docuE = document.documentElement;
-        const newCursor = document.getElementById("cursor");
-        let posX = 0;
-        let posY = 0;
-        document.addEventListener('DOMContentLoaded', () => {document.body.onmousemove = function(e) {
-                posX = e.clientX + "px";
-                posY = e.clientY + "px";
     
-                newCursor.style.left = posX;
-                newCursor.style.top = posY;
+ <script>
+     
+     var v = document.querySelector('#Layer_1')
+     
+     v.addEventListener('mousemove', mousemove);
+     
+     var talks = ['웅성웅성', '임마', '야', '이', '자식', '구', '라치지', '마라', '응?', '왜새치기해?']
+        var num = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+        num.sort(() => Math.random() - 0.5);
+
+    function mousemove(event){
+        var x = event.offsetX
+        var y = event.offsetY
+        
+        
+        console.log(talks[num[1]])
+        
+        if( x<205&&x>195&&y>13&&y<85){
+            document.querySelector('.one').innerHTML = talks[num[0]]
             }
-        })
-    </script> -->
+        if(x<194&&x>120&&y<85&&y>75){
+            document.querySelector('.one').innerHTML = "";
+            document.querySelector('.two').innerHTML = talks[num[1]]
+        }
+        if(x<130&&x>120&&y<150&&y>85){
+            document.querySelector('.two').innerHTML = "";
+            document.querySelector('.three').innerHTML = talks[num[2]];
+        }
+        if(x<120&&x>30&&y<150&&y>140){
+            document.querySelector('.three').innerHTML = "";
+            document.querySelector('.four').innerHTML = talks[num[3]];
+        }
+         if(x<40&&x>30&&y<235&&y>150){
+            document.querySelector('.four').innerHTML = "";
+            document.querySelector('.five').innerHTML = talks[num[4]];
+        }
+        if(x<360&&x>40&&y<235&&y>225){
+            document.querySelector('.five').innerHTML = "";
+            document.querySelector('.six').innerHTML = talks[num[5]];
+        }
+        if(x<360&&x>350&&y<310&&y>235){
+            document.querySelector('.six').innerHTML = "";
+            document.querySelector('.seven').innerHTML = talks[num[6]];
+        }
+         if(x<350&&x>195&&y<310&&y>300){
+            document.querySelector('.seven').innerHTML = "";
+            document.querySelector('.eight').innerHTML = talks[num[7]];
+        }
+        if(x<205&&x>195&&y<384&&y>310){
+            document.querySelector('.eight').innerHTML = "";
+            document.querySelector('.nine').innerHTML = talks[num[8]];
+        }
+        
+        
+        
+        
+    console.log(
+    "clientX: ", x, 
+    "clientY:", y)
+        
+}
+
+    </script>
 
     <script>
         var connectedDate = new Date();
+        
+
+        
 
         function showClock() {
             var currentDate = new Date();
@@ -352,23 +431,43 @@
         }
         var vw = window.innerWidth;
         var vh = window.innerHeight;
-
-
-        console.log(vw, vh)
-
         
-        function foothide(){
-           document.getElementsByClassName("footnotevis").style.visibility = "hidden";      
-            
+        function foothide() {
+            document.getElementsByClassName("footnotevis").style.visibility = "hidden";
+
+        }
+
+        function footshow() {
+            document.getElementsByClassName("footnotevis").style.visibility = "visible";
         }
         
-        function footshow(){
-document.getElementsByClassName("footnotevis").style.visibility = "visible";      
-            
-            
+        function tablethide(){
+             document.querySelector('p').style.visibility = "hidden";
+            document.querySelector('.container').style.visibility = "hidden";
+            document.querySelector('.noticebg').style.visibility = "hidden";
         }
+        
+
+       
 
     </script>
+    
+       <!--  <script>
+        const docuE = document.documentElement;
+        const newCursor = document.getElementById("cursor");
+        let posX = 0;
+        let posY = 0;
+        document.addEventListener('DOMContentLoaded', () => {document.body.onmousemove = function(e) {
+                posX = e.clientX + "px";
+                posY = e.clientY + "px";
+    
+                newCursor.style.left = posX;
+                newCursor.style.top = posY;
+            }
+        })
+    </script> -->
+    
+    
 
 </body>
 
