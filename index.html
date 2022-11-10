@@ -33,10 +33,11 @@
 
 
         div.content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 94vh;
+            position: absolute;
+            display: inline-block;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
         }
 
@@ -93,6 +94,10 @@
                 margin-top: 0.4em;
             }
             .pad{visibility: hidden;}
+            footer{
+                bottom: -2.5em;
+                font-size: 0.7em;
+            }
 
 
         }
@@ -101,13 +106,23 @@
             p {
                 font-size: 0.9em;
             }
+            footer{
+                bottom: -2.5em;
+                font-size: 0.7em;
+            }
 
 
         }
 
         footer {
+             margin-top: -1em;
             font-size: 0.7em;
             color: white !important;
+            position: absolute;
+            display: inline-block;
+            bottom: -1.2em;
+            left: 10px;
+            transform: translate(0%, 0%);
         }
 
         footer a {
