@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <link rel="favicon" href="./favicon.ico" type="image/x-icon" sizes="16x16">
@@ -10,44 +9,36 @@
     <meta name="location" content="seoul">
     <meta name="keywords" content="fio, 프로젝트룸, 이거뭐냐">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
-
-
     <style>
         main {
             position: absolute;
             top: 0;
-            left: 0;
+            left: -30px;
             z-index: -1;
-        }
 
+        }
         body {
             /*            색상 변수*/
             --bgcolor: #0075ff;
             --linkcolor: #89fd7f;
             background-color: var(--bgcolor);
             cursor: grab;
+            
         }
-
-
-        div.content {
+        .content {
             position: absolute;
-            display: inline-block;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
         }
-
         section {
             font-size: 0.7em;
         }
         a{
             color: #ffffff;
         }
-
         /*링크*/
         a:link,
         a:visited {
@@ -55,65 +46,43 @@
             text-decoration: none;
             cursor: auto;
         }
-
         a:link,
         a:hover {
             color: var(--linkcolor);
         }
-
         a:link:active,
         a:visited:active {
             color: #ffffff;
         }
-
         p {
             cursor: default;
             line-height: 1.2em;
-
         }
-
         /*주석*/
         sup {
             font-size: 0.75em;
             margin: 0.1em;
         }
-
-
         .invisible {
             visibility: hidden;
         }
-
         .speaker {
             color: var(--linkcolor)
         }
-
-
         @media (max-width: 431px) {
             p {
                 font-size: 0.8em;
                 margin-top: 0.4em;
             }
             .pad{visibility: hidden;}
-            footer{
-                bottom: -2.5em;
-                font-size: 0.7em;
-            }
 
 
         }
-
         @media (max-width: 800px) {
             p {
                 font-size: 0.9em;
             }
-            footer{
-                bottom: -2.5em;
-                font-size: 0.7em;
-            }
-
-
         }
-
         footer {
              margin-top: -1em;
             font-size: 0.7em;
@@ -124,11 +93,9 @@
             left: 10px;
             transform: translate(0%, 0%);
         }
-
         footer a {
             color: white !important;
         }
-
         footer a:hover {
             color: var(--linkcolor) !important;
         }
@@ -146,15 +113,14 @@
                 user-select: none;
             
         }
-
+        .size{
+            width: 1px;
+            height: 1px;
+            margin-top: 100vh;
+        }
     </style>
-
-
-
 </head>
-
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
-
     <script>
         var vw = window.innerWidth;
         var vh = window.innerHeight;
@@ -173,28 +139,22 @@
         var scoretext = '\n🍦'
         let degree = 0;
         let target_degree = 0;
-
         var size = document.getElementById("size");
         window.onresize = function(event) {
             vw = window.innerWidth
             vh = window.innerHeight
         }
-
         function setup() {
             angleMode(DEGREES);
         }
-
         function draw() {
             createCanvas(vw, vh)
             background(0, 0, 0, 0);
             fill(color)
             noStroke()
-
             //텍스트 초기 위치//
             x1 = (x + (z + 1) % 2 * 0.5) * vw
             y1 = (y + Math.round(z * 0.25) * 0.5) * vh
-
-
             if (mouseX > x1 - 100 && mouseX < x1 + 100 && mouseY > y1 - 100 && mouseY < y1 + 100) {
                 tar_x1 = x1
                 tar_y1 = y1
@@ -203,12 +163,10 @@
                 y = Math.random() * 0.5 - 0.00000001;
                 target_degree = 180 * Math.round(Math.random());
             }
-
             //이지잉//
             tar_x1 = tar_x1 + (x1 - tar_x1) * easing
             tar_y1 = tar_y1 + (y1 - tar_y1) * easing
             degree = degree + (target_degree - degree) * 0.15
-
             //텍스트//
             textWidth(32)
             textSize(14)
@@ -219,8 +177,6 @@
             text(texts, 0, 0);
             textSize(14)
             text(scoretext + Math.round(score * 0.1), 0, 18)
-
-
             if (mouseIsPressed == true && mouseX > x1 - 140 && mouseX < x1 + 140 && mouseY > y1 - 140 && mouseY < y1 + 140) {
                 score = score + 1
             }
@@ -230,7 +186,6 @@
     <section>
         <a href="./FAQ"> 자주 물을 질문들 Frequently Asked Questions</a>
     </section>
-
     <div class="content">
         <p>
             <a href="https://docs.google.com/spreadsheets/d/1Do-K4l4KYEGG9Fp8UhL248hJg5BigUGK14fzZ5aFBXY/edit?usp=sharing" target="blank"><sup class="invisible sup">1</sup>우리는 어디서 왔고, 무엇이며, 어디로 가는가<sup>1</sup></a>
@@ -238,28 +193,30 @@
             <sub class="speaker">-Paul Gauguin, ünlü ressam-</sub>
             <br>
             <a class='invisible'>padding</a>
-
         </p>
     </div>
-
     <footer>
         <br>
         <a href="#footer" style="font-size: 1.2em; line-height: 1em;">↓</a><br>
         우리에게 하고픈 말이 있다면... | <a href="https://www.instagram.com/fio_press/" target="blank" name="footer"> @fio_press </a>| <a href="mailto:iof0081@gmail.com">iof0081@gmail.com </a>| <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjSoSc63isRv5Y1dBknZl_sufzC2PIGKDX6E-P-LOaBETOGQ/viewform?usp=sf_link">구글 설문지 </a>| 로 연락바라.
     </footer>
+    <div class="size"></div>
     
     <div class="pad" onmousedown="unhide()" onmouseup="hides()" ontouchstart="unhide()" ontouchend="hide()">   </div>
-
 <script>
     var hide = document.querySelector('body');
     var screenWidth = screen.availWidth;
-    console.log(vw)
-    console.log(vh)
     
     function unhide(){
         
-        if(vw/vh > 0.68){
-        hide.style.cssText = " background-image: url('sen5.png'); background-position: center; background-size: cover;"
+        if(vw >431 ){
+            if(vw/vh>0.68){
+        hide.style.cssText = "background-image: url('sen5.png'); background-position: center; background-size: cover;"
+            }else {
+            hide.style.cssText = "background-image: url('sen5.png'); background-position: 60% 10%; background-size: cover;"
+
+            }
+            
         } else {
            hide.style.cssText = "background-image: ; background-position: ; background-size: ;"        
             
@@ -274,7 +231,4 @@ hide.style.cssText = "background-image: ; background-position: ; background-size
     
     
     </script>
-
-
-
 </body></html>
