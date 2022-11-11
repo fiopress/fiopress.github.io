@@ -91,8 +91,8 @@
         footer a:hover {
             color: var(--linkcolor) !important;
         }
-        
-        
+
+
         .notice {
             position: absolute;
             top: 50%;
@@ -141,8 +141,8 @@
             visibility: visible;
         }
 
-        
-        
+
+
 
         .svgContainer {
             position: absolute;
@@ -175,6 +175,7 @@
             height: 10px;
 
         }
+
         .starter::after {
             content: "";
             position: absolute;
@@ -185,7 +186,7 @@
             height: 200%;
             border-radius: 5px;
         }
-        
+
         .starter:hover+#svgLine {
             visibility: visible;
         }
@@ -205,7 +206,7 @@
         .starter:hover~.end {
             visibility: visible;
         }
-        
+
 
         .end {
             position: absolute;
@@ -236,7 +237,7 @@
             width: 8em;
             font-size: 0.8em;
         }
-        
+
         #counter {
             position: absolute;
             left: 50vw;
@@ -265,14 +266,15 @@
             z-index: 1;
 
         }
-        
-        
+
+
 
         .texts {
             visibility: hidden;
             color: #909090;
             font-size: 0.8em;
         }
+
         #svgLine:hover~.texts {
             visibility: visible;
         }
@@ -283,15 +285,15 @@
             }
 
             10% {
-                transform: translate(-0.3px, -0,6px) rotate(-0.4deg);
+                transform: translate(-0.3px, -0, 6px) rotate(-0.4deg);
             }
 
             20% {
-                transform: translate(-0,6px, 0px) rotate(0.4deg);
+                transform: translate(-0, 6px, 0px) rotate(0.4deg);
             }
 
             30% {
-                transform: translate(0,6px, 0,6px) rotate(0deg);
+                transform: translate(0, 6px, 0, 6px) rotate(0deg);
             }
 
             40% {
@@ -299,15 +301,15 @@
             }
 
             50% {
-                transform: translate(-0.3px, 0,6px) rotate(-0.4deg);
+                transform: translate(-0.3px, 0, 6px) rotate(-0.4deg);
             }
 
             60% {
-                transform: translate(-0,6px, 0.3px) rotate(0deg);
+                transform: translate(-0, 6px, 0.3px) rotate(0deg);
             }
 
             70% {
-                transform: translate(0,6px, 0.3px) rotate(-0.4deg);
+                transform: translate(0, 6px, 0.3px) rotate(-0.4deg);
             }
 
             80% {
@@ -315,11 +317,11 @@
             }
 
             90% {
-                transform: translate(0.3px, 0,6px) rotate(0deg);
+                transform: translate(0.3px, 0, 6px) rotate(0deg);
             }
 
             100% {
-                transform: translate(0.3px, -0,6px) rotate(-0.4deg);
+                transform: translate(0.3px, -0, 6px) rotate(-0.4deg);
             }
         }
 
@@ -341,21 +343,24 @@
 
         }
 
-        
-        
+
+
         @media (max-width: 432px) {
             .mainSentenceP {
                 font-size: 0.8em;
                 margin-top: 0.4em;
                 visibility: hidden;
             }
-            footer{
+
+            footer {
                 bottom: -2.5em;
                 font-size: 0.7em;
             }
+
             .svgContainer {
                 visibility: hidden;
             }
+
             .noticebg {
                 visibility: hidden;
             }
@@ -367,22 +372,24 @@
             #countnum {
                 visibility: hidden;
             }
+
             .starter {
                 visibility: hidden;
             }
         }
 
         @media (max-width: 800px) {
-            .mainSentenceP {font-size: 0.9em;
+            .mainSentenceP {
+                font-size: 0.9em;
             }
-             footer{
+
+            footer {
                 bottom: -2.5em;
                 font-size: 0.7em;
             }
 
         }
-        
-        
+
     </style>
 </head>
 
@@ -403,6 +410,7 @@
         <div id="counter"></div>
         <div id="countnum"></div>
         <div id="divClock" class="clock"></div>
+        <div id="recordClock" class="clock"></div>
         <div class="texts">
             <div class="mumbles one"></div>
             <div class="mumbles two"></div>
@@ -477,6 +485,8 @@
     </footer>
 
     <script>
+        
+        
         var v = document.querySelector('#svgLine')
 
         v.addEventListener('mousemove', mousemove);
@@ -551,13 +561,13 @@
                 document.querySelector('.eight').style.left = 210 + "px"
                 document.querySelector('.eight').style.top = 317 + "px"
             }
-            if (x < 205 && x > 195 && y < 384 && y > 310) {
+            if (x < 205 && x > 195 && y < 383 && y > 310) {
                 document.querySelector('.eight').innerHTML = "";
                 document.querySelector('.nine').innerHTML = talks[num[8]];
                 document.querySelector('.nine').style.left = 210 + "px"
                 document.querySelector('.nine').style.top = 370 + "px"
             }
-            if (x < 205 && x > 195 && y < 386 && y > 383) {
+            if (x < 250 && x > 150 && y < 600 && y > 383) {
                 document.querySelector('.path').onmouseout = null;
             }
 
@@ -565,17 +575,17 @@
                 "clientX: ", x,
                 "clientY:", y)
         }
-        
+
         var vw = window.innerWidth;
         var vh = window.innerHeight;
         var connectedDate = new Date();
+        var divClock = document.getElementById("divClock");
 
 
 
 
         function showClock() {
             var currentDate = new Date();
-            var divClock = document.getElementById("divClock");
 
             var result = (currentDate - connectedDate) / 1000;
             if (result < 999) {
@@ -604,16 +614,57 @@
         }, 2900)
 
 
-        let a = ['어머 어머 지금 새치기하시는 거예요?', '다시 줄서야겠네 ㅋ', '줄 좀 똑바로 섭시다 참 내', '화이팅~ 다시 하면 또 성공해버질지도 모르지~', '٩(`･ω･´)و ҉*']
+        let a = ['어머 어머 지금 새치기하시는 거예요?', '다시 줄서야겠네 ㅋ', '줄 좀 똑바로 섭시다 참 내', '화이팅~ 다시 하면 또 성공해버질지도 모르지~', '']
         var alertmessage = a[Math.floor(Math.random() * 5)]
 
         function visible() {
             alert(alertmessage)
         }
 
+
         function final() {
+            
+            var currentDate = new Date();
+
+            var result = (currentDate - connectedDate) / 1000;
+             document.querySelector('.path').onmouseout = null;
+           
+           
+        result = result - 2.95
+                result = Math.round(result * 1000) / 1000
+            document.querySelector('#recordClock').innerHTML = "record: " + result + "s"
+            
+            
+            document.querySelector('.starter').style.visibility = "hidden";
+            document.querySelector('.end').style.visibility = "hidden";
+
+            
+            
+            
             alert('축하해. 이건 너에게만 열어주는 비밀 통로야...')
-		window.open("https://docs.google.com/spreadsheets/d/1Do-K4l4KYEGG9Fp8UhL248hJg5BigUGK14fzZ5aFBXY/edit?usp=sharing","전시장으로...", "fullscreen = yes");
+           
+           
+            var pop = window.open("https://docs.google.com/spreadsheets/d/1Do-K4l4KYEGG9Fp8UhL248hJg5BigUGK14fzZ5aFBXY/edit?usp=sharing", "전시장으로...", "width=" + screen.width + ', height= ' + screen.height);
+            
+    try { 
+        pop.focus(); 
+    } catch(e){ 
+        alert( "..라고 할 뻔 했지만 유감스럽게도 팝업이 차단되어 있네요 ㅠㅠ. 팝업 차단을 해제한 후 다시 도전해주셔야 할 것 같습니다 힝." ); 
+    }
+            
+            
+            
+            document.querySelector('#startText').innerHTML = "(*^ｰ^)/ﾟ･:*:･｡축하｡･:*:･ﾟ＼(^ｰ^*)"
+            
+            document.querySelector('body').onload = null;
+            
+            document.querySelector('#divClock').style. visibility = "hidden";
+            
+            
+            
+    
+            
+
         }
 
 
@@ -632,7 +683,11 @@
             document.querySelector('.noticebg').style.visibility = "hidden";
             document.querySelector('#svgLine').style.visibility = "hidden";
             document.querySelector('.end').style.visibility = "hidden";
+             
+           
+        
         }
+
     </script>
 
     <!--  <script>
@@ -652,4 +707,6 @@
 
 
 
-</body></html>
+</body>
+
+</html>
