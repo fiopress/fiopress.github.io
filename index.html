@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <link rel="favicon" href="./favicon.ico" type="image/x-icon" sizes="16x16">
@@ -14,18 +15,21 @@
         main {
             position: absolute;
             top: 0;
-            left: 0px;
+            left: 0;
             z-index: -1;
 
         }
+
         body {
             /*            색상 변수*/
             --bgcolor: #0075ff;
             --linkcolor: #89fd7f;
             background-color: var(--bgcolor);
             cursor: grab;
-            
+            height: 100vh;
+
         }
+
         .content {
             position: absolute;
             top: 50%;
@@ -34,12 +38,15 @@
             text-align: center;
             width: 300px;
         }
+
         section {
             font-size: 0.7em;
         }
-        a{
+
+        a {
             color: #ffffff;
         }
+
         /*링크*/
         a:link,
         a:visited {
@@ -47,50 +54,60 @@
             text-decoration: none;
             cursor: auto;
         }
+
         a:link,
         a:hover {
             color: var(--linkcolor);
         }
+
         a:link:active,
         a:visited:active {
             color: #ffffff;
         }
+
         p {
             cursor: default;
             line-height: 1.2em;
-            width: 100%;            
+            width: 100%;
         }
 
 
-        
-        
+
+
         /*주석*/
         sup {
             font-size: 0.75em;
             margin: 0.1em;
         }
+
         .invisible {
             visibility: hidden;
         }
+
         .speaker {
             color: var(--linkcolor)
         }
+
         @media (max-width: 431px) {
             p {
                 font-size: 0.8em;
                 margin-top: 0.4em;
             }
-            .pad{visibility: hidden;}
 
+            .pad {
+                visibility: hidden;
+            }
 
         }
+
         @media (max-width: 800px) {
             p {
                 font-size: 0.9em;
             }
         }
+
         footer {
-             margin-top: -1em;
+            margin-top: -1em;
             font-size: 0.7em;
             color: white !important;
             position: absolute;
@@ -99,37 +116,62 @@
             left: 10px;
             transform: translate(0%, 0%);
         }
+
         footer a {
             color: white !important;
         }
+
         footer a:hover {
             color: var(--linkcolor) !important;
         }
-        
-        .pad{
-            position:absolute;
+
+        .pad {
+            position: absolute;
             top: 60%;
             left: 70%;
             width: 28%;
             height: 30%;
             -ms-user-select: none;
-                -moz-user-select: -moz-none;
-                -webkit-user-select: none;
-                -khtml-user-select: none;
-                user-select: none;
+            -moz-user-select: -moz-none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            user-select: none;
+        }
+
+        #sentence {
+            animation: blink-effect 10s step-end infinite;
+
+        }
+
+        @keyframes blink-effect {
             
+            
+            
+            
+            35% {
+                color: var(--linkcolor)                
+            }
+            39%{
+                color: white;   
+
+            }
+            44% {
+                color: var(--linkcolor)                
+            }
+          48%{
+                color: white;   
+
+            }
+           
         }
-        .size{
-            width: 1px;
-            height: 1px;
-            margin-top: 100vh;
-        }
+
     </style>
 </head>
+
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
     <script>
-        var vw = window.innerWidth;
-        var vh = window.innerHeight;
+        var vw = document.documentElement.clientWidth;
+        var vh = document.documentElement.clientHeight;
         let x = Math.random() * 0.5 - 0.00000001;
         let y = Math.random() * 0.5 - 0.00000001;
         let z = Math.ceil(Math.random() * 4);
@@ -145,14 +187,15 @@
         var scoretext = '\n🍦'
         let degree = 0;
         let target_degree = 0;
-        var size = document.getElementById("size");
         window.onresize = function(event) {
-            vw = window.innerWidth
-            vh = window.innerHeight
+            vw = document.documentElement.clientWidth;
+            vh = document.documentElement.clientHeight;
         }
+
         function setup() {
             angleMode(DEGREES);
         }
+
         function draw() {
             createCanvas(vw, vh)
             background(0, 0, 0, 0);
@@ -186,15 +229,16 @@
             if (mouseIsPressed == true && mouseX > x1 - 140 && mouseX < x1 + 140 && mouseY > y1 - 140 && mouseY < y1 + 140) {
                 score = score + 1
             }
-        
+
         }
+
     </script>
     <section>
         <a href="./FAQ"> 자주 물을 질문들 Frequently Asked Questions</a>
     </section>
     <div class="content">
         <p>
-            <a href="./fio%20interview.pdf" target="blank"><sup class="invisible sup">1</sup>우리는 어디서 왔고, 무엇이며, 어디로 가는가<sup>1</sup></a>
+            <a href="./fio%20interview.pdf" target="blank" id="sentence"><sup class="invisible sup">1</sup>우리는 어디서 왔고, 무엇이며, 어디로 가는가<sup>1</sup></a>
             <br>
             <sub class="speaker">-Paul Gauguin, ünlü ressam-</sub>
             <br>
@@ -203,38 +247,36 @@
     </div>
     <footer>
         <br>
-        <a class = "sentence" href="#footer" style="font-size: 1.2em; line-height: 1em;">↓</a><br>
-        우리에게 하고픈 말이 있다면... | <a href="https://www.instagram.com/fio_press/" target="blank" name="footer"> @fio_press </a>| <a href="mailto:iof0081@gmail.com">iof0081@gmail.com </a>| <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjSoSc63isRv5Y1dBknZl_sufzC2PIGKDX6E-P-LOaBETOGQ/viewform?usp=sf_link">구글 설문지 </a>| 로 연락바라.
+        <a class="sentence" href="#footer" style="font-size: 1.2em; line-height: 1em;">↓</a><br>
+        하고픈 말은 | <a href="https://www.instagram.com/fio_press/" target="blank" name="footer"> @fio_press </a>| <a href="mailto:iof0081@gmail.com">iof0081@gmail.com </a>| <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjSoSc63isRv5Y1dBknZl_sufzC2PIGKDX6E-P-LOaBETOGQ/viewform?usp=sf_link">구글설문지 </a>| 로 전달해줘.
     </footer>
     <div class="size"></div>
-    
-    <div class="pad" onmousedown="unhide()" onmouseup="hides()" ontouchstart="unhide()" ontouchend="hide()">   </div>
-<script>
-    var hide = document.querySelector('body');
-    var screenWidth = screen.availWidth;
-    
-    function unhide(){
-        
-        if(vw >431 ){
-            if(vw/vh>0.68){
-        hide.style.cssText = "background-image: url('sen5.png'); background-position: center; background-size: cover;"
-            }else {
-            hide.style.cssText = "background-image: url('sen5.png'); background-position: 60% 10%; background-size: cover;"
+
+    <div class="pad" onmousedown="unhide()" onmouseup="hides()" ontouchstart="unhide()" ontouchend="hide()"> </div>
+    <script>
+        var hide = document.querySelector('body');
+
+        function unhide() {
+
+            if (vw > 431) {
+                if (vw / vh > 0.68) {
+                    hide.style.cssText = "background-image: url('sen5.png'); background-position: center; background-size: cover;"
+                } else {
+                    hide.style.cssText = "background-image: url('sen5.png'); background-position: 60% 10%; background-size: cover;"
+
+                }
+
+            } else {
+                hide.style.cssText = "background-image: ; background-position: ; background-size: ;"
 
             }
-            
-        } else {
-           hide.style.cssText = "background-image: ; background-position: ; background-size: ;"        
-            
         }
-    }
-    
-    function hides(){
-hide.style.cssText = "background-image: ; background-position: ; background-size: ;"        
-    }
-    
-    
-    
-    
+
+        function hides() {
+            hide.style.cssText = "background-image: ; background-position: ; background-size: ;"
+        }
+
     </script>
-</body></html>
+</body>
+
+</html>
