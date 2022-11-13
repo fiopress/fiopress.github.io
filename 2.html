@@ -93,6 +93,7 @@
 
         .notice {
             position: absolute;
+            z-index: -1;
             top: 50%;
             left: 50%;
             width: 272px;
@@ -103,7 +104,8 @@
         }
 
         pre {
-            z-index: -5 -ms-user-select: none;
+            z-index: -5;
+            -ms-user-select: none;
             -moz-user-select: -moz-none;
             -webkit-user-select: none;
             -khtml-user-select: none;
@@ -130,7 +132,7 @@
             top: 50%;
             transform: translate(-50%, -50%);
             width: 150%;
-            height: 80%;
+            height: 90%;
             border-radius: 5px;
         }
 
@@ -373,6 +375,9 @@
 
             .starter {
                 visibility: hidden;
+            }
+            .FAQ{
+                z-index:999;!important
             }
         }
 
