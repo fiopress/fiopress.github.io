@@ -3,11 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="favicon" href="./favicon.ico" type="image/x-icon" sizes="16x16">
-        <title>fio cabinet</title>
-    <meta name="description" content="fio press에서 운영하는 전시 공간입니다.">
-    <meta name="distrubution" content="fio press">
-    <meta name="location" content="seoul">
-    <meta name="keywords" content="fio, 프로젝트룸, 이거뭐냐">
+    <title>🗄fio Cabinet</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
 
@@ -16,30 +12,43 @@
     <style>
         body{
             font-family: sans-serif;
-            background: #000000;
-            color: white;
+            background: #121212;
+            color: #959592;
             margin: 2em;
             margin-top: 4em;
         }
         
         h1{
-            font-size: 1em;
-            margin-bottom: -0.75em;
+            font-size: 0.88em;
+            font-weight: 900;
+            margin-bottom: -0.74em;
+            color: #b2a323;
+            padding: 0;
+                        letter-spacing: 0.3px;
+
+            
         }
         p{
             width: 30vw;
-            min-width: 250px;
+            letter-spacing: 0.3px;
+
+            font-weight: 550;
+            font-size: 0.9em;
+
+
+            min-width: 280px;
             text-align: justify;
-            line-height: 1.35em;
+            line-height: 1.47em;
+            padding-bottom: 0.5em;
         }
                 a:link,
         a:visited {
-            color: #ffffff;
+            color: #959592;
             text-decoration: none;
         }
         a{
             text-decoration: overline;
-            text-decoration-color: white;
+            text-decoration-color: #959592;
             font-size: 0.8em;
 
         }
@@ -47,32 +56,142 @@
             position: fixed;
             bottom: -2vh;
             right: 1vw;
+            
                 
             
         }
+        
+        .hide{
+            color: #b2a323;
+            font-weight: 500;
+            display: none;
+        }
+        #more1::after{
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 60%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 10%;
+            border-radius: 5px;
+        }
+        
     
     </style>
 </head>
 <body>
     
+    
     <a href="https://fiopress.github.io/"> 돌아가기 </a>
 
-<h1>Q. 너네 뭐 하는 애들이야?</h1>
+<h1><br>Q. 너네 뭐 하는 애들이야?</h1>
 <p>
 A. fio는 예비 창작자들의 창작 실험실이야. 우리는 새로운 영감을 탐구하고, 만들고, 공유하는 집단이 되고자 해.</p>
 
 <h1>Q. fio는 무슨 뜻이야?</h1>
-<p>A. fio는 편집 기법 fade in&out에서 따온 이름이야. 영화처럼 이질적인 장면(Scene)들을 부드럽게 연결해서 색다른 의미를 만들어내겠다는 뜻을 담고 있어.</p>
+<p>A. fio는 편집 기법 fade in & out에서 따온 이름이야. 영화처럼 이질적인 장면(Scene)들을 부드럽게 연결해서 색다른 의미를 만들어내겠다는 뜻을 담고 있어.</p>
 
 <h1>Q. fio는 어떻게 읽어?</h1>
 <p>A. 에프아이오.</p>
+
+<h1>Q. 이번 시즌 주제는 뭐야?</h1>
+<p>A.  ‘전시’에 관한 논란들.
+전시를 주제 삼은 이유는 전시가 진짜 문제가 많기 때문이야.
+예컨대… <u id="more1" onclick="unhide()" ontouchend="unhide()">[더 보기]</u>
+<span class="hide">
+전시란 무엇인가?
+우리는 어떤 공간까지 전시공간이라 부를 수 있는가?
+[동묘시장을 전시장이라 부를 수 있는가. 백화점은. SNS는. 한편, 지하철 미술관은 ‘진짜’ 미술관인가.]
+
+‘진열’과 ‘전시’의 차이는 무엇인가?
+‘극장’과 ‘전시장’의 차이는 무엇인가? [둘 다 우리에게 일방적으로 무언가를 보여주는 공간이라는 점에서. 한편, 우리는 전시장에서 퍼포먼스와 영상을 작품으로서 관람한다.]
+
+왜 우리는 전시장에서 엄숙해지는가?
+왜 우리는 미술관에서 감정을 숨기려 할까? 과거는 물론이고 동시대에도 여전히 많은 미술 작품이 어떤 감정을 자아내기 위해 고안된 장치들이 대다수임에도 불구하고.
+‘미술관은 재수 없다’는 이미지는 어떻게 벗어날 수 있을까? [사실 미술관 사람들은 은연중에 그런 인식을 즐기는 게 아닐까 변태처럼.]
+
+왜 우리는 전시하는가? 왜 우리는 전시라는 짓을 하기 시작했냐는 말이다.
+왜 미술 전시는 다른 거의 모든 전시의 전형이 되었는가?
+
+
+
+
+전시장-미술관을 실제로 운영하는 일은 결국 부동산 문제와 떼려야 뗄 수 없는 문제 아닐까? 
+전시장을 비평하기 위해 우리는 부동산을 공부해야 하는 건 아닐까? 
+[구겐하임 미술관은 헐값이던 주변 땅값을 꽤 올렸고, 소규모 대안 공간들은 싼 임대료를 찾아 습한 지하로, 찾기도 힘든 구석진 을지로 3층 건물로 숨어들어간다.]
+왜 아무것도 차린 것 없는 [심지어 그런 텅 빈 공간을 지향하는] 전시장은 대여비가 이렇게나 비싼가?
+
+‘준비된 관객’이라는 말이 있다.[이게 브레히트가 처음 한 말인지, 랑시에르가 처음 한 말인지 헷갈리지만] 작가는 자신의 작품을 관람하기에 적합한 교양, 적합한 관심사를 지닌 관객을 찾아가야 하는가? 아니면 적어도 미술관에 전시할 작품은 불특정 다수를 일단 염두에 두고 제작되어야 하는가.
+
+대체 도슨트는 왜 필요하게 됐을까? 왜 우리는 설명을 들어야만 작품을 이해할까, 심지어 그것이 셀럽 오브 셀럽인 피카소의 것이더라도.
+
+전시에서 텍스트를 완전 빼버릴 수는 없을까? [절대 설명문을 읽기 귀찮아서가 아니다.]
+
+관객은 작품을 완전무결한 완성품으로 여기는 경향이 있다. 큐레이터는[또 작가는] 자신의 의도 실현 실패를 명시해야 할까. 솔직히 우리의 의도를 100% 실현한 작품을 만들기란 불가능에 가까운 일이다. 모든 작품은 조금씩 실패한다. 그럼에도 그러한 실패를 밝히지 않는 일은 관객에 대한 기만이라 부를 수 있을까?
+
+전시장은 작품 관람에 얼마나 큰 영향을 끼치는가. 한번 실험해보자. 같은 이미지를 
+1. 공간의 크기를 달리하여
+2. 배경음악을 달리하여
+3. 작품 해설을 달리 적어
+4. 전시장의 층고를 달리하여[지하 1층, 1층, 2층, 3층 (…)]
+5. 사진 허용 여부를 달리하여[사진을 찍어도 되는 작품과 사진 찍기를 금지하는 작품을 볼 때 우리는 다른 태도를 취하게 되는가] 전시한다면 관람 경험은 어떻게 달라지는가?
+달리 말해, 큐레토리얼 실천은 작품과 별개로 우리의  관람 경험을 어디까지 조작할 수 있는가?
+
+전시할 목적으로 제작되지 않은 물체를 전시물로 변용할 때 생기는 문제들을 탐구해보자. 
+가령, 많은 상업 포스터들은 별도로 이름[제목]을 부여받지 않는다. 우리가 위대한 그래픽디자이너의 회고전을 연다고 할 때, 그 포스터의 캡션들에는 어떤 제목을 붙여야 하나?
+소개 글을 쓸 때 [작가, 전시 제목, 전시장]은 어떤 순서로 써야 할까. [뭐가 더 중요할까.]
+    
+    
+</span>
+모험심을 자극하는 문제들이 산더미 같이 쌓여 있어서 이 문제들을 풀어나가는 것만으로도 무척 재미있을 것 같더라고.
+</p>
+
+<h1>Q. 어떤 방식으로 진행할 예정이야?</h1>
+<p>A. 문장 놀리기. 논란이 되는 문장들을 최선을 다해 놀려보는 거야. 하이 코미디(high-comedy)랄까…?
+미술 분야는 워낙 논의가 깊다 보니 진지한 논박 따위는 애초에 불가능하리라 생각해서 전략적으로 가벼움을 추구하게 됐어. 그리고 무엇보다 우리는 개그를 사랑하기 때문에…</p>
+
+<h1>Q. 이번 프로젝트 목표가 뭐야?</h1>
+<p>A. 사람들과 많은 이야기를 나누고 싶어. 이야기할 게 진짜 많거든. 서로 생각을 교환하면서 함께 즐거워하고 싶어. 쉽지 않은 일인데 꼭 해내고 싶다.
+음… 그런 의미에서 이번 프로젝트는 그러한 대화의 포문을 여는 초대장이 되길 바라. 화두를 제공한달지. 우리는 이렇게 생각했어요. 당신은요? 말을 건네는.</p>
+
+<h1>Q. 어렴풋이 상상한 목적지가 있다면?</h1>
+<p>A. <br>(수빈) 무목적 목적하기 <br>
+(희연) 아직 끝나지 않은 결과물 [계속 만들어가는] <br>
+(지호) 토막토막 파편들을 조합한 꼴라주</p>
+
+<h1>Q. 바람이 있다면?</h1>
+<p>A. 균형 잘 지키면서 끝까지 즐겁게 완주하고 싶다.</p>
+
+<h1>Q. 이번 프로젝트에 임하는 자세는?</h1>
+<p>A. 우리끼리는 ‘홍건적 무브먼트’라고 정의내리긴 했는데, 부담 없이, 재미있게 무모한 시도들을 하고자 해. 많은 [가벼운] 실험을, 그러나 치밀한 탐구에 기반하여 진행하고, 그 과정에서 즐겁게 많이 배웠으면 좋겠다.</p>
 <pre>
-              (계속...)
+              (계속...)<br>
 
 </pre>
-              
-              <a href="https://fiopress.github.io/"><image class="logo" src="./logo.png" style="width: 100px;"></image></a>
+<a href="https://fiopress.github.io/"><image class="logo" src="./logo.png" style="width: 100px;"></image></a>
    
+   
+   <script>
+       var z = 0;
+    function unhide(){
+        if (z==0){
+        document.querySelector('.hide').style.display = "contents";
+            z+=1;
+            console.log(z)
+            }
+        else if(z==1){
+            document.querySelector('.hide').style.display = "none";
+            z=0;
+            console.log(z)
+
+        }
+        
+           
+
+    }
+    
+    </script>
    
     
 </body>
