@@ -1,0 +1,43 @@
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+main{
+  z-index:-99;
+}
+.container{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+left: 4vw;
+}
+.box{
+  position: absolute;
+  width: 1vw;
+  height: 100vh;
+  background-color: #141414;
+   
+}
+.one{
+  left: 10vw;
+  top: 0;
+}
+.two{
+  left: 33.63vw;
+  top: 0;
+}
+.three{
+  left: 57.32vw;
+  top: 0;
+}
+.four{
+  left: 81vw;
+  top: 0;
+}
+
