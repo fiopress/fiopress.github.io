@@ -11,6 +11,7 @@
     <meta name="keywords" content="fio, 프로젝트룸, 이거뭐냐">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
 
 
     <style>
@@ -49,6 +50,7 @@
             color: #ffffff;
             text-decoration: none;
         }
+
         a:hover {
             color: var(--linkcolor);
         }
@@ -187,17 +189,20 @@
             border-radius: 5px;
         }
 
-        .starter:hover+#svgLine {
+        .starter:hover~#svgLine {
             visibility: visible;
         }
+        
 
         #svgLine:hover {
             visibility: visible;
         }
 
-        #svgLine:hover+.end {
+        #svgLine:hover~.end {
             visibility: visible;
         }
+        
+        
 
         .end:hover {
             visibility: visible;
@@ -206,6 +211,9 @@
         .starter:hover~.end {
             visibility: visible;
         }
+
+
+
 
 
         .end {
@@ -253,7 +261,7 @@
 
         #countnum {
             position: absolute;
-            left: 49.8%;
+            left: 49.7%;
             top: 5%;
             padding: 10px;
             color: var(--linkcolor);
@@ -273,11 +281,13 @@
             visibility: hidden;
             color: #909090;
             font-size: 0.8em;
+            top: 15px;
         }
 
         #svgLine:hover~.texts {
             visibility: visible;
         }
+        
 
         @keyframes shake {
             0% {
@@ -285,15 +295,15 @@
             }
 
             10% {
-                transform: translate(-0.3px, -0, 6px) rotate(-0.4deg);
+                transform: translate(-0.3px, -0.4px) rotate(-0.4deg);
             }
 
             20% {
-                transform: translate(-0, 6px, 0px) rotate(0.4deg);
+                transform: translate(-0.4px, 0px) rotate(0.4deg);
             }
 
             30% {
-                transform: translate(0, 6px, 0, 6px) rotate(0deg);
+                transform: translate(0.4px, 0.4px) rotate(0deg);
             }
 
             40% {
@@ -301,15 +311,15 @@
             }
 
             50% {
-                transform: translate(-0.3px, 0, 6px) rotate(-0.4deg);
+                transform: translate(-0.3px, 0.4px) rotate(-0.4deg);
             }
 
             60% {
-                transform: translate(-0, 6px, 0.3px) rotate(0deg);
+                transform: translate(-0.4px, 0.3px) rotate(0deg);
             }
 
             70% {
-                transform: translate(0, 6px, 0.3px) rotate(-0.4deg);
+                transform: translate(0.4px, 0.3px) rotate(-0.4deg);
             }
 
             80% {
@@ -317,15 +327,15 @@
             }
 
             90% {
-                transform: translate(0.3px, 0, 6px) rotate(0deg);
+                transform: translate(0.3px, 0.4px) rotate(0deg);
             }
 
             100% {
-                transform: translate(0.3px, -0, 6px) rotate(-0.4deg);
+                transform: translate(0.3px, -0.4px) rotate(-0.4deg);
             }
         }
 
-        .one,
+        .one, .zero,
         .two,
         .three,
         .four,
@@ -336,10 +346,41 @@
         .nine,
         .sixes {
             position: absolute;
-            left: 0;
-            top: 0;
-            animation: shake 0.5s;
+            left: -2px;
+            top: 12px;
+            animation: shake 1.2s;
             animation-iteration-count: infinite;
+            width: 162px;
+
+
+        }
+
+
+        .balloon {
+            position: absolute;
+            margin-top: 5px;
+            margin-left: -11px;
+            width: 175px;
+            height: 43px;
+            background: #333333;
+            border-radius: 10px;
+            animation: shake 1.1s;
+            animation-iteration-count: infinite;
+            visibility: hidden;
+
+        }
+    
+
+
+        .balloon::after {
+            border-top: 15px solid #333333;
+            border-left: 12px solid transparent;
+            border-right: 0px solid transparent;
+            border-bottom: 0px solid transparent;
+            content: "";
+            position: absolute;
+            top: 5px;
+           left: -12px;
 
         }
 
@@ -376,8 +417,10 @@
             .starter {
                 visibility: hidden;
             }
-            .FAQ{
-                z-index:999;!important
+
+            .FAQ {
+                z-index: 999;
+                 !important
             }
         }
 
@@ -392,7 +435,6 @@
             }
 
         }
-
     </style>
 </head>
 
@@ -400,15 +442,20 @@
 
 <body onload="showClock(); hideCounter()" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
 
+
+
     <div class="svgContainer" onmousemove>
+
         <p id="startText">waiting line</p>
         <div class="starter" ontouchstart="tablethide()"></div>
+         <div class="balloon"></div>
         <svg version="1.1" id="svgLine" x="0px" y="0px" viewBox="0 25 400 400" style="enable-background:new 0 0 400 400;" xml:space="preserve">
-            <polygon class="path toggle" points="350,250.52 40,250.52 40,175.52 120,175.52 130,175.52 130,165.52 130,110.52 195,110.52 205,110.52 
+        <polygon class="path toggle" points="350,250.52 40,250.52 40,175.52 120,175.52 130,175.52 130,165.52 130,110.52 195,110.52 205,110.52 
 	205,100.52 205,35.52 195,35.52 195,100.52 130,100.52 120,100.52 120,110.52 120,165.52 40,165.52 30,165.52 30,175.52 30,250.52 
 	30,260.52 40,260.52 350,260.52 350,325.52 205,325.52 195,325.52 195,335.52 195,414.54 205,414.54 205,335.52 350,335.52 
 	360,335.52 360,325.52 360,260.52 360,250.52 " onmouseout="location.reload(); visible();" />
         </svg>
+
         <div class="end" onmouseover="final()"></div>
         <div id="counter"></div>
         <div id="countnum"></div>
@@ -425,7 +472,9 @@
             <div class="mumbles seven"></div>
             <div class="mumbles eight"></div>
             <div class="mumbles nine"></div>
+
         </div>
+
     </div>
 
 
@@ -488,8 +537,6 @@
     </footer>
 
     <script>
-        
-        
         var v = document.querySelector('#svgLine')
 
         v.addEventListener('mousemove', mousemove);
@@ -498,91 +545,110 @@
         var num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
         num.sort(() => Math.random() - 0.5);
 
+
+        
+        
+        
         function mousemove(event) {
             var x = event.offsetX
             var y = event.offsetY
+                    
+
+            
 
 
-            console.log(talks[num[1]])
+            
+            
 
             if (x < 205 && x > 195 && y > 13 && y < 85) {
                 document.querySelector('.one').innerHTML = talks[num[0]]
-                document.querySelector('.one').style.left = 212 + "px"
-                document.querySelector('.one').style.top = 46 + "px"
+                document.querySelector('.two').innerHTML = ""
+                document.querySelector('.nine').innerHTML = ""
+                document.querySelector('.balloon').style.visibility = "visible"
+
+
+
 
             }
             if (x < 194 && x > 120 && y < 85 && y > 75) {
                 document.querySelector('.one').innerHTML = "";
                 document.querySelector('.two').innerHTML = talks[num[1]]
 
-                document.querySelector('.two').style.left = 260 - (window.getComputedStyle(document.querySelector('.two')).width / 2) + "px"
-                document.querySelector('.two').style.top = 58 + "px"
+                document.querySelector('.three').innerHTML = ""
+                                document.querySelector('.balloon').style.visibility = "visible"
 
             }
             if (x < 130 && x > 120 && y < 150 && y > 85) {
                 document.querySelector('.two').innerHTML = "";
                 document.querySelector('.three').innerHTML = talks[num[2]];
-                document.querySelector('.three').style.left = 135 + "px"
-                document.querySelector('.three').style.top = 123 + "px"
+                document.querySelector('.four').innerHTML = ""
+                                document.querySelector('.balloon').style.visibility = "visible"
 
             }
             if (x < 120 && x > 30 && y < 150 && y > 140) {
                 document.querySelector('.three').innerHTML = "";
                 document.querySelector('.four').innerHTML = talks[num[3]];
-                document.querySelector('.four').style.left = 25 + "px"
-                document.querySelector('.four').style.top = 123 + "px"
+                document.querySelector('.five').innerHTML = ""
+                                document.querySelector('.balloon').style.visibility = "visible"
 
             }
             if (x < 40 && x > 30 && y < 235 && y > 150) {
                 document.querySelector('.four').innerHTML = "";
                 document.querySelector('.five').innerHTML = talks[num[4]];
-                document.querySelector('.five').style.left = 128 + "px"
-                document.querySelector('.five').style.top = 156 + "px"
+                document.querySelector('.six').innerHTML = ""
+                                document.querySelector('.balloon').style.visibility = "visible"
+
             }
             if (x < 200 && x > 40 && y < 235 && y > 225) {
                 document.querySelector('.five').innerHTML = "";
                 document.querySelector('.six').innerHTML = talks[num[5]];
-                document.querySelector('.six').style.left = 40 + "px"
-                document.querySelector('.six').style.top = 242 + "px"
+                document.querySelector('.sixes').innerHTML = ""
+                                document.querySelector('.balloon').style.visibility = "visible"
+
             }
             if (x < 360 && x >= 200 && y < 235 && y > 225) {
                 document.querySelector('.six').innerHTML = "";
                 document.querySelector('.sixes').innerHTML = talks[num[9]];
-                document.querySelector('.sixes').style.left = 150 + "px"
-                document.querySelector('.sixes').style.top = 242 + "px"
+                document.querySelector('.seven').innerHTML = ""
+                                document.querySelector('.balloon').style.visibility = "visible"
             }
 
             if (x < 360 && x > 350 && y < 310 && y > 235) {
                 document.querySelector('.sixes').innerHTML = "";
                 document.querySelector('.seven').innerHTML = talks[num[6]];
-                document.querySelector('.seven').style.left = 130 + "px"
-                document.querySelector('.seven').style.top = 286 + "px"
+                document.querySelector('.eight').innerHTML = "";
+                                document.querySelector('.balloon').style.visibility = "visible"
             }
             if (x < 350 && x > 195 && y < 310 && y > 300) {
                 document.querySelector('.seven').innerHTML = "";
                 document.querySelector('.eight').innerHTML = talks[num[7]];
-                document.querySelector('.eight').style.left = 210 + "px"
-                document.querySelector('.eight').style.top = 317 + "px"
+                document.querySelector('.nine').innerHTML = "";
+                                document.querySelector('.balloon').style.visibility = "visible"
+
             }
             if (x < 205 && x > 195 && y < 383 && y > 310) {
                 document.querySelector('.eight').innerHTML = "";
                 document.querySelector('.nine').innerHTML = talks[num[8]];
-                document.querySelector('.nine').style.left = 210 + "px"
-                document.querySelector('.nine').style.top = 370 + "px"
+                                document.querySelector('.balloon').style.visibility = "visible"
+
             }
             if (x < 250 && x > 150 && y < 600 && y > 383) {
                 document.querySelector('.path').onmouseout = null;
+                document.querySelector('.nine').innerHTML = "";
+                            document.querySelector('.balloon').style.visibility = "hidden";
+
             }
 
-            console.log(
+            /*console.log(
                 "clientX: ", x,
-                "clientY:", y)
+                "clientY:", y)*/
         }
 
         var vw = window.innerWidth;
         var vh = window.innerHeight;
         var connectedDate = new Date();
         var divClock = document.getElementById("divClock");
+        let zeit = 3;
 
 
 
@@ -591,6 +657,7 @@
             var currentDate = new Date();
 
             var result = (currentDate - connectedDate) / 1000;
+            zeit = result
             if (result < 999) {
                 result = result - 2.9
                 result = Math.round(result * 1000) / 1000
@@ -617,7 +684,7 @@
         }, 2900)
 
 
-        let a = ['어머 어머 지금 새치기하시는 거예요?', '다시 줄서야겠네 ㅋ', '줄 좀 똑바로 섭시다 참 내', '화이팅~ 다시 하면 또 성공해버질지도 모르지~', '']
+        let a = ['어머 어머 지금 새치기하시는 거예요?', '다시 줄서야겠네 ㅋ', '줄 좀 똑바로 섭시다 참 내', '화이팅~ 다시 하면 또 성공해버질지도 모르지~', '뭐라는겨']
         var alertmessage = a[Math.floor(Math.random() * 5)]
 
         function visible() {
@@ -626,47 +693,49 @@
 
 
         function final() {
-            
+
             var currentDate = new Date();
 
             var result = (currentDate - connectedDate) / 1000;
-             document.querySelector('.path').onmouseout = null;
-           
-           
-        result = result - 2.95
-                result = Math.round(result * 1000) / 1000
+            document.querySelector('.path').onmouseout = null;
+
+
+            result = result - 2.95
+            result = Math.round(result * 1000) / 1000
             document.querySelector('#recordClock').innerHTML = "record: " + result + "s"
-            
-            
+
+
             document.querySelector('.starter').style.visibility = "hidden";
             document.querySelector('.end').style.visibility = "hidden";
 
-            
-            
-            
+
+
+
             alert('축하해. 이건 너에게만 열어주는 비밀 통로야...')
-           
-           
+
+
             var pop = window.open("https://docs.google.com/spreadsheets/d/1Do-K4l4KYEGG9Fp8UhL248hJg5BigUGK14fzZ5aFBXY/edit?usp=sharing", "전시장으로...", "width=" + screen.width + ', height= ' + screen.height);
-            
-    try { 
-        pop.focus(); 
-    } catch(e){ 
-        alert( "..라고 할 뻔 했지만 유감스럽게도 팝업이 차단되어 있네요 ㅠㅠ. 팝업 차단을 해제한 후 새로고침하여 다시 도전해주셔야 할 것 같습니다 힝." ); 
-    }
-            
-            
-            
+
+            try {
+                pop.focus();
+            } catch (e) {
+                alert("..라고 할 뻔 했지만 유감스럽게도 팝업이 차단되어 있네요 ㅠㅠ. 팝업 차단을 해제한 후 새로고침하여 다시 도전해주셔야 할 것 같습니다 힝.");
+            }
+
+
+
             document.querySelector('#startText').innerHTML = "(*^ｰ^)/ﾟ･:*:･｡축하｡･:*:･ﾟ＼(^ｰ^*)"
-            
+
             document.querySelector('body').onload = null;
-            
-            document.querySelector('#divClock').style. visibility = "hidden";
-            
-            
-            
-    
-            
+
+            document.querySelector('#divClock').style.visibility = "hidden";
+            document.querySelector('.balloon').style.visibility = "hidden";
+
+
+
+
+
+
 
         }
 
@@ -686,10 +755,11 @@
             document.querySelector('.noticebg').style.visibility = "hidden";
             document.querySelector('#svgLine').style.visibility = "hidden";
             document.querySelector('.end').style.visibility = "hidden";
-             
-           
-        
+
+
+
         }
+        
 
     </script>
 
@@ -710,6 +780,4 @@
 
 
 
-</body>
-
-</html>
+</body></html>
