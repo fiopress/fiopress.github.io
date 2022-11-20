@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="favicon" href="./favicon.ico" type="image/x-icon" sizes="16x16">
+    <title>fio cabinet</title>
+    <meta name="description" content="이곳은 fio press에서 운영하는 전시 공간입니다.">
+    <meta name="distrubution" content="fio press">
+    <meta name="location" content="seoul">
+    <meta name="keywords" content="fio, 프로젝트룸, 이거뭐냐">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
+
+
+    <style>
+        main {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        body {
+            --bgcolor: #373837;
+            --linkcolor: #d8ff00;
+            background-color: var(--bgcolor);
+        }
+
+        .mainSentence {
+            position: absolute;
+            display: inline-block;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .FAQ {
+            font-size: 0.7em;
+            display: flex;
+        }
+
+        a,
+        a:link,
+        a:visited,
+        a:link:active,
+        a:visited:active {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        a:hover {
+            color: var(--linkcolor);
+        }
+
+        .mainSentenceP {
+            line-height: 1.2em;
+            z-index: 0;
+        }
+
+        sup {
+            font-size: 0.75em;
+            margin: 0.1em;
+        }
+
+        .invisible {
+            visibility: hidden;
+        }
+
+        .subtitle {
+            color: var(--linkcolor);
+        }
+
+        footer {
+            margin-top: -1em;
+            font-size: 0.7em;
+            color: white !important;
+            position: absolute;
+            display: inline-block;
+            bottom: -1.2em;
+            left: 10px;
+            transform: translate(0%, 0%);
+        }
+
+        footer a {
+            color: white !important;
+        }
+
+        footer a:hover {
+            color: var(--linkcolor) !important;
+        }
+
+
+        .notice {
+            position: absolute;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            width: 272px;
+            transform: translate(-50%, -50%);
+            color: var(--linkcolor);
+            line-height: 130%;
+            font-size: 1em;
+        }
+
+        pre {
+            z-index: -5;
+            -ms-user-select: none;
+            -moz-user-select: -moz-none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            user-select: none;
+        }
+
+        .noticebg {
+            position: absolute;
+            top: 6%;
+            width: 290px;
+            height: 90%;
+            background-color: var(--bgcolor);
+            z-index: 1;
+        }
+
+        .footnotevis {
+            visibility: hidden;
+        }
+
+        .footnote::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 150%;
+            height: 90%;
+            border-radius: 5px;
+        }
+
+        .footnote:hover,
+        .footnote:active~.footnotevis {
+            visibility: visible;
+        }
+
+
+
+
+        .svgContainer {
+            position: absolute;
+            display: inline-block;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            min-height: 400px;
+            z-index: 3;
+        }
+
+        .path {
+            fill: var(--linkcolor);
+            position: relative;
+        }
+
+        #svgLine {
+            visibility: hidden;
+            margin-top: 2px;
+        }
+
+        .starter {
+            position: absolute;
+            background: var(--linkcolor);
+            top: 4px;
+            left: 195px;
+            width: 10px;
+            height: 10px;
+
+        }
+
+        .starter::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 200%;
+            height: 200%;
+            border-radius: 5px;
+        }
+
+        .starter:hover+#svgLine {
+            visibility: visible;
+        }
+
+        #svgLine:hover {
+            visibility: visible;
+        }
+
+        #svgLine:hover+.end {
+            visibility: visible;
+        }
+
+        .end:hover {
+            visibility: visible;
+        }
+
+        .starter:hover~.end {
+            visibility: visible;
+        }
+
+
+        .end {
+            position: absolute;
+            background: var(--linkcolor);
+            top: 387px;
+            left: 195px;
+            width: 10px;
+            height: 10px;
+            visibility: hidden;
+        }
+
+        #startText {
+            position: relative;
+            text-align: center;
+            margin: auto;
+            margin-top: -15px;
+            font-size: 0.8em;
+            color: #ffffff;
+        }
+
+        .clock {
+            color: var(--linkcolor);
+            position: absolute;
+            left: 53%;
+            top: -5.9%;
+            transform: translate(-50%, -50%);
+            text-align: left;
+            width: 8em;
+            font-size: 0.8em;
+        }
+
+        #counter {
+            position: absolute;
+            left: 50vw;
+            top: -5.9vh;
+            transform: translate(-50%, -50%);
+            text-align: left;
+            width: 8em;
+            height: 1em;
+            font-size: 0.8em;
+            background-color: var(--bgcolor);
+            z-index: 1;
+        }
+
+        #countnum {
+            position: absolute;
+            left: 49.8%;
+            top: 5%;
+            padding: 10px;
+            color: var(--linkcolor);
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 8em;
+            height: 1em;
+            font-size: 5.5em;
+            background-color: var(--bgcolor);
+            z-index: 1;
+
+        }
+
+
+
+        .texts {
+            visibility: hidden;
+            color: #909090;
+            font-size: 0.8em;
+        }
+
+        #svgLine:hover~.texts {
+            visibility: visible;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(0.3px, 0.3px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-0.3px, -0, 6px) rotate(-0.4deg);
+            }
+
+            20% {
+                transform: translate(-0, 6px, 0px) rotate(0.4deg);
+            }
+
+            30% {
+                transform: translate(0, 6px, 0, 6px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(0.3px, -0.3px) rotate(0.4deg);
+            }
+
+            50% {
+                transform: translate(-0.3px, 0, 6px) rotate(-0.4deg);
+            }
+
+            60% {
+                transform: translate(-0, 6px, 0.3px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(0, 6px, 0.3px) rotate(-0.4deg);
+            }
+
+            80% {
+                transform: translate(-0.3px, -0.3px) rotate(0.4deg);
+            }
+
+            90% {
+                transform: translate(0.3px, 0, 6px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(0.3px, -0, 6px) rotate(-0.4deg);
+            }
+        }
+
+        .one,
+        .two,
+        .three,
+        .four,
+        .five,
+        .six,
+        .seven,
+        .eight,
+        .nine,
+        .sixes {
+            position: absolute;
+            left: 0;
+            top: 0;
+            animation: shake 0.5s;
+            animation-iteration-count: infinite;
+
+        }
+
+
+
+        @media (max-width: 432px) {
+            .mainSentenceP {
+                font-size: 0.8em;
+                margin-top: 0.4em;
+                visibility: hidden;
+            }
+
+            footer {
+                bottom: -2.5em;
+                font-size: 0.7em;
+            }
+
+            .svgContainer {
+                visibility: hidden;
+            }
+
+            .noticebg {
+                visibility: hidden;
+            }
+
+            #counter {
+                visibility: hidden;
+            }
+
+            #countnum {
+                visibility: hidden;
+            }
+
+            .starter {
+                visibility: hidden;
+            }
+            .FAQ{
+                z-index:999;!important
+            }
+        }
+
+        @media (max-width: 800px) {
+            .mainSentenceP {
+                font-size: 0.9em;
+            }
+
+            footer {
+                bottom: -2.5em;
+                font-size: 0.7em;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+
+<body onload="showClock(); hideCounter()" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+
+    <div class="svgContainer" onmousemove>
+        <p id="startText">waiting line</p>
+        <div class="starter" ontouchstart="tablethide()"></div>
+        <svg version="1.1" id="svgLine" x="0px" y="0px" viewBox="0 25 400 400" style="enable-background:new 0 0 400 400;" xml:space="preserve">
+            <polygon class="path toggle" points="350,250.52 40,250.52 40,175.52 120,175.52 130,175.52 130,165.52 130,110.52 195,110.52 205,110.52 
+	205,100.52 205,35.52 195,35.52 195,100.52 130,100.52 120,100.52 120,110.52 120,165.52 40,165.52 30,165.52 30,175.52 30,250.52 
+	30,260.52 40,260.52 350,260.52 350,325.52 205,325.52 195,325.52 195,335.52 195,414.54 205,414.54 205,335.52 350,335.52 
+	360,335.52 360,325.52 360,260.52 360,250.52 " onmouseout="location.reload(); visible();" />
+        </svg>
+        <div class="end" onmouseover="final()"></div>
+        <div id="counter"></div>
+        <div id="countnum"></div>
+        <div id="divClock" class="clock"></div>
+        <div id="recordClock" class="clock"></div>
+        <div class="texts">
+            <div class="mumbles one"></div>
+            <div class="mumbles two"></div>
+            <div class="mumbles three"></div>
+            <div class="mumbles four"></div>
+            <div class="mumbles five"></div>
+            <div class="mumbles six"></div>
+            <div class="mumbles sixes"></div>
+            <div class="mumbles seven"></div>
+            <div class="mumbles eight"></div>
+            <div class="mumbles nine"></div>
+        </div>
+    </div>
+
+
+    <section class="FAQ">
+        <a href="./FAQ.html"> 자주 물을 질문들 Frequently Asked Questions</a>
+    </section>
+    <div class="notice">
+        <pre>
+
+
+
+
+안녕하세요 독자 여러분. fio팀입니다.
+    잘 지내시나요?
+<u>현재 모바일 기기로 접속하신 모양이네요?</u>
+[아니라면 브라우저 크기가 너무 작지는 않은가요?]
+유감스럽게도 모바일 환경에서는 미술관 접속이 
+    불가합니다.
+이 사이트를 제대로 이용하려면 
+    <u>마우스</u>가 필요해서요.
+사실 터치로도 구현할 방법이 있긴 한데, 
+기술력이 딸려서 포기했습니다. 넓은 마음으로 
+이해해주시면 감사하겠습니다.
+
+.. 그리고 어차피 미술관을 구글 시트로 만들어서 
+휴대폰으로 보면 무척 짜증날 겁니다 ..
+    ‘컴퓨터로의 접속’은 여러분도 저희도 
+모두 행복해지는 길입니다.
+    행복합시다.
+
+영국의 왕립과학협회(RSA)에서 발표한 
+자료에 따르면<sup class="footnote" style="color: aqua" ontouchstart="footshow()" ontouchend="foothide()">[1]</sup>, 모바일 기기에서 방문한 
+'데스크톱 전용 웹사이트'를 PC로 재접속할 
+확률은 <u>3.2%</u>에 불과하다고 합니다. 
+여러분은 과연 [ 다를까요? | 3.2% 쪽일까요? | 
+귀찮으실까요? | 멋지십니다. | 고맙습니다. | 
+      <span style="color: aqua"> 사랑합니다.]</span> 
+       
+<sup class="footnotevis" style="color: aqua">[1]구라입니다. 그런 자료 없습니다. </sup>      
+       </pre>
+        <div class="noticebg"></div>
+
+    </div>
+
+    <div class="mainSentence">
+        <p class="mainSentenceP">
+            <a href="https://docs.google.com/spreadsheets/d/1Do-K4l4KYEGG9Fp8UhL248hJg5BigUGK14fzZ5aFBXY/edit?usp=sharing" target="blank"><sup class="invisible sup">2</sup>실물 전시에 비해 웹 전시는 왜 이토록 만만한가?<sup>2</sup></a>
+            <br>
+            <sub class="subtitle">-Jiho Park, the monster-</sub>
+            <br>
+            <a class='invisible'>padding</a>
+        </p>
+    </div>
+
+    <footer>
+        <br>
+        <br>
+        <a href="#footer" style="font-size: 1.2em;">↓</a><br>
+        우리에게 하고픈 말이 있다면... | <a href="https://www.instagram.com/fio_press/" target="blank" name="footer"> @fio_press </a>| <a href="mailto:iof0081@gmail.com">iof0081@gmail.com </a>| <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjSoSc63isRv5Y1dBknZl_sufzC2PIGKDX6E-P-LOaBETOGQ/viewform?usp=sf_link">구글 설문지 </a>| 로 연락바라.
+    </footer>
+
+    <script>
+        
+        
+        var v = document.querySelector('#svgLine')
+
+        v.addEventListener('mousemove', mousemove);
+
+        var talks = ['(웅성웅성)어머 이게 누구 전시라고?', '(수근수근)우리 다 본 다음에 뭐 먹으러 갈까', '((너 전번에 쿠팡에서 주문하라 한 거 했어?))', '(수근수근)배고프다', '(호통)자긴 뭘 잘못했는지는 알아?', '(걱정걱정)주차장은 무료려나..?', '(쑥떡쑥떡)마라탕 먹고 싶다', '((어 저기 유병재 아냐? 대박))', '(속닥속닥)사진찍어달라 할까?', '(혼잣말)이 작가는 날 얼마나 흥분시킬지 후후..', '(소란소란)너 자신있냐?', '(논란논란)걔는 예술가가 아닌데', '(왁자지껄)어 술먹고 싶다']
+        var num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        num.sort(() => Math.random() - 0.5);
+
+        function mousemove(event) {
+            var x = event.offsetX
+            var y = event.offsetY
+
+
+            console.log(talks[num[1]])
+
+            if (x < 205 && x > 195 && y > 13 && y < 85) {
+                document.querySelector('.one').innerHTML = talks[num[0]]
+                document.querySelector('.one').style.left = 212 + "px"
+                document.querySelector('.one').style.top = 46 + "px"
+
+            }
+            if (x < 194 && x > 120 && y < 85 && y > 75) {
+                document.querySelector('.one').innerHTML = "";
+                document.querySelector('.two').innerHTML = talks[num[1]]
+
+                document.querySelector('.two').style.left = 260 - (window.getComputedStyle(document.querySelector('.two')).width / 2) + "px"
+                document.querySelector('.two').style.top = 58 + "px"
+
+            }
+            if (x < 130 && x > 120 && y < 150 && y > 85) {
+                document.querySelector('.two').innerHTML = "";
+                document.querySelector('.three').innerHTML = talks[num[2]];
+                document.querySelector('.three').style.left = 135 + "px"
+                document.querySelector('.three').style.top = 123 + "px"
+
+            }
+            if (x < 120 && x > 30 && y < 150 && y > 140) {
+                document.querySelector('.three').innerHTML = "";
+                document.querySelector('.four').innerHTML = talks[num[3]];
+                document.querySelector('.four').style.left = 25 + "px"
+                document.querySelector('.four').style.top = 123 + "px"
+
+            }
+            if (x < 40 && x > 30 && y < 235 && y > 150) {
+                document.querySelector('.four').innerHTML = "";
+                document.querySelector('.five').innerHTML = talks[num[4]];
+                document.querySelector('.five').style.left = 128 + "px"
+                document.querySelector('.five').style.top = 156 + "px"
+            }
+            if (x < 200 && x > 40 && y < 235 && y > 225) {
+                document.querySelector('.five').innerHTML = "";
+                document.querySelector('.six').innerHTML = talks[num[5]];
+                document.querySelector('.six').style.left = 40 + "px"
+                document.querySelector('.six').style.top = 242 + "px"
+            }
+            if (x < 360 && x >= 200 && y < 235 && y > 225) {
+                document.querySelector('.six').innerHTML = "";
+                document.querySelector('.sixes').innerHTML = talks[num[9]];
+                document.querySelector('.sixes').style.left = 150 + "px"
+                document.querySelector('.sixes').style.top = 242 + "px"
+            }
+
+            if (x < 360 && x > 350 && y < 310 && y > 235) {
+                document.querySelector('.sixes').innerHTML = "";
+                document.querySelector('.seven').innerHTML = talks[num[6]];
+                document.querySelector('.seven').style.left = 130 + "px"
+                document.querySelector('.seven').style.top = 286 + "px"
+            }
+            if (x < 350 && x > 195 && y < 310 && y > 300) {
+                document.querySelector('.seven').innerHTML = "";
+                document.querySelector('.eight').innerHTML = talks[num[7]];
+                document.querySelector('.eight').style.left = 210 + "px"
+                document.querySelector('.eight').style.top = 317 + "px"
+            }
+            if (x < 205 && x > 195 && y < 383 && y > 310) {
+                document.querySelector('.eight').innerHTML = "";
+                document.querySelector('.nine').innerHTML = talks[num[8]];
+                document.querySelector('.nine').style.left = 210 + "px"
+                document.querySelector('.nine').style.top = 370 + "px"
+            }
+            if (x < 250 && x > 150 && y < 600 && y > 383) {
+                document.querySelector('.path').onmouseout = null;
+            }
+
+            console.log(
+                "clientX: ", x,
+                "clientY:", y)
+        }
+
+        var vw = window.innerWidth;
+        var vh = window.innerHeight;
+        var connectedDate = new Date();
+        var divClock = document.getElementById("divClock");
+
+
+
+
+        function showClock() {
+            var currentDate = new Date();
+
+            var result = (currentDate - connectedDate) / 1000;
+            if (result < 999) {
+                result = result - 2.9
+                result = Math.round(result * 1000) / 1000
+                divClock.innerText = "record: " + result + "s";
+
+                setTimeout(showClock, 70);
+            } else {
+                divClock.innerText = "record: timeover"
+            }
+
+            var n = 0
+            n = Math.ceil(n - result)
+            var countnum = document.getElementById("countnum");
+            countnum.innerHTML = n
+
+
+        }
+
+        setTimeout(function hideCounter() {
+            document.querySelector('#counter').style.visibility = "hidden";
+            document.querySelector('#countnum').style.visibility = "hidden";
+
+
+        }, 2900)
+
+
+        let a = ['어머 어머 지금 새치기하시는 거예요?', '다시 줄서야겠네 ㅋ', '줄 좀 똑바로 섭시다 참 내', '화이팅~ 다시 하면 또 성공해버질지도 모르지~', '']
+        var alertmessage = a[Math.floor(Math.random() * 5)]
+
+        function visible() {
+            alert(alertmessage)
+        }
+
+
+        function final() {
+            
+            var currentDate = new Date();
+
+            var result = (currentDate - connectedDate) / 1000;
+             document.querySelector('.path').onmouseout = null;
+           
+           
+        result = result - 2.95
+                result = Math.round(result * 1000) / 1000
+            document.querySelector('#recordClock').innerHTML = "record: " + result + "s"
+            
+            
+            document.querySelector('.starter').style.visibility = "hidden";
+            document.querySelector('.end').style.visibility = "hidden";
+
+            
+            
+            
+            alert('축하해. 이건 너에게만 열어주는 비밀 통로야...')
+           
+           
+            var pop = window.open("https://docs.google.com/spreadsheets/d/1Do-K4l4KYEGG9Fp8UhL248hJg5BigUGK14fzZ5aFBXY/edit?usp=sharing", "전시장으로...", "width=" + screen.width + ', height= ' + screen.height);
+            
+    try { 
+        pop.focus(); 
+    } catch(e){ 
+        alert( "..라고 할 뻔 했지만 유감스럽게도 팝업이 차단되어 있네요 ㅠㅠ. 팝업 차단을 해제한 후 새로고침하여 다시 도전해주셔야 할 것 같습니다 힝." ); 
+    }
+            
+            
+            
+            document.querySelector('#startText').innerHTML = "(*^ｰ^)/ﾟ･:*:･｡축하｡･:*:･ﾟ＼(^ｰ^*)"
+            
+            document.querySelector('body').onload = null;
+            
+            document.querySelector('#divClock').style. visibility = "hidden";
+            
+            
+            
+    
+            
+
+        }
+
+
+        function foothide() {
+            document.getElementsByClassName("footnotevis").style.visibility = "hidden";
+
+        }
+
+        function footshow() {
+            document.getElementsByClassName("footnotevis").style.visibility = "visible";
+        }
+
+        function tablethide() {
+            document.querySelector('.mainSentence').style.visibility = "hidden";
+            document.querySelector('.svgContainer').style.visibility = "hidden";
+            document.querySelector('.noticebg').style.visibility = "hidden";
+            document.querySelector('#svgLine').style.visibility = "hidden";
+            document.querySelector('.end').style.visibility = "hidden";
+             
+           
+        
+        }
+        
+        
+        
+       let mic;
+
+function setup() {
+  createCanvas(710, 200);
+
+  // 오디오 입력 생성하기
+  mic = new p5.AudioIn();
+
+  // 오디오 입력 시작하기
+  // 그 기본값은 .connect()(즉, 컴퓨터 스피커에 연결)되지 "않은" 상태입니다.
+  mic.start();
+}
+
+function draw() {
+  background(200);
+
+  // 전체 볼륨(0과 1.0 사이) 받아오기
+  let vol = mic.getLevel();
+  fill(127);
+  stroke(0);
+
+  // 마이크 소리의 볼륨에 따라 떠있는 높이가 변하는 타원 그리기
+  let h = map(vol, 0, 1, height, 0);
+  ellipse(width / 2, h - 25, 50, 50);
+}
+
+
+    </script>
+
+    <!--  <script>
+        const docuE = document.documentElement;
+        const newCursor = document.getElementById("cursor");
+        let posX = 0;
+        let posY = 0;
+        document.addEventListener('DOMContentLoaded', () => {document.body.onmousemove = function(e) {
+                posX = e.clientX + "px";
+                posY = e.clientY + "px";
+    
+                newCursor.style.left = posX;
+                newCursor.style.top = posY;
+            }
+        })
+    </script> -->
+
+
+
+</body>
+
+</html>
