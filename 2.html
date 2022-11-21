@@ -192,7 +192,7 @@
         .starter:hover~#svgLine {
             visibility: visible;
         }
-        
+
 
         #svgLine:hover {
             visibility: visible;
@@ -201,8 +201,8 @@
         #svgLine:hover~.end {
             visibility: visible;
         }
-        
-        
+
+
 
         .end:hover {
             visibility: visible;
@@ -287,7 +287,7 @@
         #svgLine:hover~.texts {
             visibility: visible;
         }
-        
+
 
         @keyframes shake {
             0% {
@@ -334,8 +334,167 @@
                 transform: translate(0.3px, -0.4px) rotate(-0.4deg);
             }
         }
+        
+         @keyframes mediumshake {
+            0% {
+                transform: translate(0.3px, 0.3px) rotate(0deg);
+            }
 
-        .one, .zero,
+            10% {
+                transform: translate(-0.3px, -0.4px) rotate(-0.6deg);
+            }
+
+            20% {
+                transform: translate(-0.4px, 0px) rotate(0.6deg);
+            }
+
+            30% {
+                transform: translate(0.4px, 0.4px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(0.3px, -0.3px) rotate(0.6deg);
+            }
+
+            50% {
+                transform: translate(-0.3px, 0.4px) rotate(-0.6deg);
+            }
+
+            60% {
+                transform: translate(-0.4px, 0.3px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(0.4px, 0.3px) rotate(-0.6deg);
+            }
+
+            80% {
+                transform: translate(-0.3px, -0.3px) rotate(0.6deg);
+            }
+
+            90% {
+                transform: translate(0.3px, 0.4px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(0.3px, -0.4px) rotate(-0.6deg);
+            }
+        }
+        
+        
+        @keyframes fastshake {
+            0% {
+                transform: translate(0.6px, 0.6px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-0.6px, -0.8px) rotate(-0.75deg);
+            }
+
+            20% {
+                transform: translate(-0.8px, 0px) rotate(0.75deg);
+            }
+
+            30% {
+                transform: translate(0.8px, 0.8px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(0.6px, -0.6px) rotate(0.75deg);
+            }
+
+            50% {
+                transform: translate(-0.6px, 0.8px) rotate(-0.75deg);
+            }
+
+            60% {
+                transform: translate(-0.8px, 0.6px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(0.8px, 0.6px) rotate(-0.75deg);
+            }
+
+            80% {
+                transform: translate(-0.6px, -0.6px) rotate(0.75deg);
+            }
+
+            90% {
+                transform: translate(0.6px, 0.8px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(0.6px, -0.8px) rotate(-0.75deg);
+            }
+        }
+
+        
+        @keyframes superfastshake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-1px, -1.2px) rotate(-1.1deg);
+            }
+
+            20% {
+                transform: translate(-1.2px, 0px) rotate(1.1deg);
+            }
+
+            30% {
+                transform: translate(1.2px, 1.2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1.1deg);
+            }
+
+            50% {
+                transform: translate(-1px, 1.2px) rotate(-1.1deg);
+            }
+
+            60% {
+                transform: translate(-1.2px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(1.2px, 1px) rotate(-1.1deg);
+            }
+
+            80% {
+                transform: translate(-1px, -1px) rotate(1.1deg);
+            }
+
+            90% {
+                transform: translate(1px, 1.2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -1.2px) rotate(-1.1deg);
+            }
+        }
+
+
+        .balloon {
+            position: absolute;
+            margin-top: 5px;
+            margin-left: -11px;
+            width: 175px;
+            height: 43px;
+            background: #333333;
+            border-radius: 10px;
+            /* animation: shake 1.1s;
+            animation-iteration-count: infinite; */
+            visibility: hidden;
+
+        }
+
+        .one {
+            visibility: hidden;
+        }
+
+        .one,
         .two,
         .three,
         .four,
@@ -348,39 +507,64 @@
             position: absolute;
             left: -2px;
             top: 12px;
-            animation: shake 1.2s;
-            animation-iteration-count: infinite;
             width: 162px;
 
-
         }
 
-
-        .balloon {
-            position: absolute;
-            margin-top: 5px;
-            margin-left: -11px;
-            width: 175px;
-            height: 43px;
-            background: #333333;
-            border-radius: 10px;
-            animation: shake 1.1s;
+        .eins {
+            animation: shake 2.5s;
             animation-iteration-count: infinite;
-            visibility: hidden;
+        }
+
+        .zweis {
+            animation: mediumshake 1.2s;
+            animation-iteration-count: infinite;
+        }
+
+        .dreis {
+            animation: fastshake 0.9s;
+            animation-iteration-count: infinite;
+        }
+
+        .viers {
+            animation: superfastshake 0.64s;
+            animation-iteration-count: infinite;
 
         }
-    
+
+        
+        .ein {
+            animation: shake 2.3s;
+            animation-iteration-count: infinite;
+        }
+        
+        .zwei {
+            animation: shake 1.3s;
+            animation-iteration-count: infinite;
+        }
+
+        .drei {
+            animation: fastshake 0.92s;
+            animation-iteration-count: infinite;
+        }
+
+        .vier {
+            animation: superfastshake 0.6s;
+            animation-iteration-count: infinite;
+        }
+
+
 
 
         .balloon::after {
             border-top: 15px solid #333333;
-            border-left: 12px solid transparent;
+            border-left: 15px solid transparent;
             border-right: 0px solid transparent;
             border-bottom: 0px solid transparent;
             content: "";
             position: absolute;
             top: 5px;
-           left: -12px;
+            left: -10px;
 
         }
 
@@ -448,9 +632,14 @@
 
         <p id="startText">waiting line</p>
         <div class="starter" ontouchstart="tablethide()"></div>
-         <div class="balloon"></div>
+        <div class="balloon ein"></div>
+        <div class="balloon zwei"></div>
+        <div class="balloon drei"></div>
+        <div class="balloon vier"></div>
+
+
         <svg version="1.1" id="svgLine" x="0px" y="0px" viewBox="0 25 400 400" style="enable-background:new 0 0 400 400;" xml:space="preserve">
-        <polygon class="path toggle" points="350,250.52 40,250.52 40,175.52 120,175.52 130,175.52 130,165.52 130,110.52 195,110.52 205,110.52 
+            <polygon class="path toggle" points="350,250.52 40,250.52 40,175.52 120,175.52 130,175.52 130,165.52 130,110.52 195,110.52 205,110.52 
 	205,100.52 205,35.52 195,35.52 195,100.52 130,100.52 120,100.52 120,110.52 120,165.52 40,165.52 30,165.52 30,175.52 30,250.52 
 	30,260.52 40,260.52 350,260.52 350,325.52 205,325.52 195,325.52 195,335.52 195,414.54 205,414.54 205,335.52 350,335.52 
 	360,335.52 360,325.52 360,260.52 360,250.52 " onmouseout="location.reload(); visible();" />
@@ -462,16 +651,50 @@
         <div id="divClock" class="clock"></div>
         <div id="recordClock" class="clock"></div>
         <div class="texts">
-            <div class="mumbles one"></div>
-            <div class="mumbles two"></div>
-            <div class="mumbles three"></div>
-            <div class="mumbles four"></div>
-            <div class="mumbles five"></div>
-            <div class="mumbles six"></div>
-            <div class="mumbles sixes"></div>
-            <div class="mumbles seven"></div>
-            <div class="mumbles eight"></div>
-            <div class="mumbles nine"></div>
+            <span class="eins one"></span>
+
+            <span class="eins two"></span>
+            <span class="eins three"></span>
+            <span class="eins four"></span>
+            <span class="eins five"></span>
+            <span class="eins six"></span>
+            <span class="eins sixes"></span>
+            <span class="eins seven"></span>
+            <span class="eins eight"></span>
+            <span class="eins nine"></span>
+
+            <span class="zweis one"></span>
+            <span class="zweis two"></span>
+            <span class="zweis three"></span>
+            <span class="zweis four"></span>
+            <span class="zweis five"></span>
+            <span class="zweis six"></span>
+            <span class="zweis sixes"></span>
+            <span class="zweis seven"></span>
+            <span class="zweis eight"></span>
+            <span class="zweis nine"></span>
+
+            <span class="dreis one"></span>
+            <span class="dreis two"></span>
+            <span class="dreis three"></span>
+            <span class="dreis four"></span>
+            <span class="dreis five"></span>
+            <span class="dreis six"></span>
+            <span class="dreis sixes"></span>
+            <span class="dreis seven"></span>
+            <span class="dreis eight"></span>
+            <span class="dreis nine"></span>
+
+            <span class="viers one"></span>
+            <span class="viers two"></span>
+            <span class="viers three"></span>
+            <span class="viers four"></span>
+            <span class="viers five"></span>
+            <span class="viers six"></span>
+            <span class="viers sixes"></span>
+            <span class="viers seven"></span>
+            <span class="viers eight"></span>
+            <span class="viers nine"></span>
 
         </div>
 
@@ -546,98 +769,163 @@
         num.sort(() => Math.random() - 0.5);
 
 
+
+
+        let balloonCheck;
+
+
+
+
+
+        var one = document.getElementsByClassName("one")
+                    var two = document.getElementsByClassName("two")
+            var three = document.getElementsByClassName("three")
+            var four = document.getElementsByClassName("four")
+            var five = document.getElementsByClassName("five")
+            var six = document.getElementsByClassName("six")
+            var sixes = document.getElementsByClassName("sixes")
+            var seven = document.getElementsByClassName("seven")
+            var eight = document.getElementsByClassName("eight")
+            var nine = document.getElementsByClassName("nine")
         
         
         
+            var ein = document.getElementsByClassName("ein");
+            var zwei = document.getElementsByClassName("zwei");
+            var drei = document.getElementsByClassName("drei");
+            var vier = document.getElementsByClassName("vier");
+
+            var eins = document.getElementsByClassName("eins");
+            var zweis = document.getElementsByClassName("zweis");
+            var dreis = document.getElementsByClassName("dreis");
+            var viers = document.getElementsByClassName("viers");
+        
+
+
         function mousemove(event) {
             var x = event.offsetX
             var y = event.offsetY
-                    
-
-            
 
 
-            
-            
+
+
+
+
+
+
 
             if (x < 205 && x > 195 && y > 13 && y < 85) {
-                document.querySelector('.one').innerHTML = talks[num[0]]
-                document.querySelector('.two').innerHTML = ""
-                document.querySelector('.nine').innerHTML = ""
-                document.querySelector('.balloon').style.visibility = "visible"
+                for (var i = 0; i < one.length; i++) {
+                    one[i].innerHTML = talks[num[0]]
+                    two[i].innerHTML = ""
+                    nine[i].innerHTML = ""
+                }
+                console.log(one.length)
 
-
-
+                balloonCheck = 1;
+                document.querySelector('.balloon').style.visibility = "visible";
 
             }
             if (x < 194 && x > 120 && y < 85 && y > 75) {
-                document.querySelector('.one').innerHTML = "";
-                document.querySelector('.two').innerHTML = talks[num[1]]
-
-                document.querySelector('.three').innerHTML = ""
-                                document.querySelector('.balloon').style.visibility = "visible"
-
+                for (var i = 0; i < two.length; i++) {
+                    two[i].innerHTML = talks[num[1]]
+                    one[i].innerHTML = ""
+                    three[i].innerHTML = ""
+                }
+                balloonCheck = 1;
+                document.querySelector('.balloon').style.visibility = "visible";
             }
             if (x < 130 && x > 120 && y < 150 && y > 85) {
-                document.querySelector('.two').innerHTML = "";
-                document.querySelector('.three').innerHTML = talks[num[2]];
-                document.querySelector('.four').innerHTML = ""
-                                document.querySelector('.balloon').style.visibility = "visible"
+                for (var i = 0; i < three.length; i++) {
+                    three[i].innerHTML = talks[num[2]]
+                    two[i].innerHTML = ""
+                    four[i].innerHTML = ""
+                }
+                balloonCheck = 1;
+                document.querySelector('.balloon').style.visibility = "visible";
 
             }
             if (x < 120 && x > 30 && y < 150 && y > 140) {
-                document.querySelector('.three').innerHTML = "";
-                document.querySelector('.four').innerHTML = talks[num[3]];
-                document.querySelector('.five').innerHTML = ""
-                                document.querySelector('.balloon').style.visibility = "visible"
-
+                for (var i = 0; i < four.length; i++) {
+                    four[i].innerHTML = talks[num[3]]
+                    three[i].innerHTML = ""
+                    five[i].innerHTML = ""
+                }
+                balloonCheck = 1;
+                document.querySelector('.balloon').style.visibility = "visible";
             }
             if (x < 40 && x > 30 && y < 235 && y > 150) {
-                document.querySelector('.four').innerHTML = "";
-                document.querySelector('.five').innerHTML = talks[num[4]];
-                document.querySelector('.six').innerHTML = ""
-                                document.querySelector('.balloon').style.visibility = "visible"
-
+                for (var i = 0; i < five.length; i++) {
+                    five[i].innerHTML = talks[num[4]]
+                    four[i].innerHTML = ""
+                    six[i].innerHTML = ""
+                }
+                balloonCheck = 1;
+                document.querySelector('.balloon').style.visibility = "visible";
             }
             if (x < 200 && x > 40 && y < 235 && y > 225) {
-                document.querySelector('.five').innerHTML = "";
-                document.querySelector('.six').innerHTML = talks[num[5]];
-                document.querySelector('.sixes').innerHTML = ""
-                                document.querySelector('.balloon').style.visibility = "visible"
-
+                for (var i = 0; i < six.length; i++) {
+                    six[i].innerHTML = talks[num[5]]
+                    five[i].innerHTML = ""
+                    sixes[i].innerHTML = ""
+                }
+                balloonCheck = 1;
+                document.querySelector('.balloon').style.visibility = "visible";
             }
             if (x < 360 && x >= 200 && y < 235 && y > 225) {
-                document.querySelector('.six').innerHTML = "";
-                document.querySelector('.sixes').innerHTML = talks[num[9]];
-                document.querySelector('.seven').innerHTML = ""
-                                document.querySelector('.balloon').style.visibility = "visible"
+                for (var i = 0; i < sixes.length; i++) {
+                    sixes[i].innerHTML = talks[num[6]]
+                    six[i].innerHTML = ""
+                    seven[i].innerHTML = ""
+                }
+                balloonCheck = 1;
+                document.querySelector('.balloon').style.visibility = "visible";
             }
 
             if (x < 360 && x > 350 && y < 310 && y > 235) {
-                document.querySelector('.sixes').innerHTML = "";
-                document.querySelector('.seven').innerHTML = talks[num[6]];
-                document.querySelector('.eight').innerHTML = "";
-                                document.querySelector('.balloon').style.visibility = "visible"
+                for (var i = 0; i < seven.length; i++) {
+                    seven[i].innerHTML = talks[num[7]]
+                    sixes[i].innerHTML = ""
+                    eight[i].innerHTML = ""
+                }
+                balloonCheck = 1;
+                document.querySelector('.balloon').style.visibility = "visible";
             }
             if (x < 350 && x > 195 && y < 310 && y > 300) {
-                document.querySelector('.seven').innerHTML = "";
-                document.querySelector('.eight').innerHTML = talks[num[7]];
-                document.querySelector('.nine').innerHTML = "";
-                                document.querySelector('.balloon').style.visibility = "visible"
-
+                for (var i = 0; i < eight.length; i++) {
+                    eight[i].innerHTML = talks[num[8]]
+                    seven[i].innerHTML = ""
+                    nine[i].innerHTML = ""
+                }
+                balloonCheck = 1;
+                document.querySelector('.balloon').style.visibility = "visible";
             }
             if (x < 205 && x > 195 && y < 383 && y > 310) {
-                document.querySelector('.eight').innerHTML = "";
-                document.querySelector('.nine').innerHTML = talks[num[8]];
-                                document.querySelector('.balloon').style.visibility = "visible"
-
+                for (var i = 0; i < nine.length; i++) {
+                    nine[i].innerHTML = talks[num[9]]
+                    eight[i].innerHTML = ""
+                    one[i].innerHTML = ""
+                }
+                balloonCheck = 1;
+                document.querySelector('.balloon').style.visibility = "visible";
             }
             if (x < 250 && x > 150 && y < 600 && y > 383) {
+                for (var i = 0; i < nine.length; i++) {
+                    nine[i].innerHTML = ""
+                }
                 document.querySelector('.path').onmouseout = null;
-                document.querySelector('.nine').innerHTML = "";
-                            document.querySelector('.balloon').style.visibility = "hidden";
+                balloonCheck = 0;
+                document.querySelector('.balloon').style.visibility = "hidden";
 
+                
+                for (var i = 0; i < ein.length; i++) {
+                    ein[i].style.visibility = "hidden";
+                    zwei[i].style.visibility = "hidden";
+                    drei[i].style.visibility = "hidden";
+                    vier[i].style.visibility = "hidden";
+                }
             }
+            
 
             /*console.log(
                 "clientX: ", x,
@@ -648,7 +936,8 @@
         var vh = window.innerHeight;
         var connectedDate = new Date();
         var divClock = document.getElementById("divClock");
-        let zeit = 3;
+        let zeit;
+
 
 
 
@@ -657,7 +946,6 @@
             var currentDate = new Date();
 
             var result = (currentDate - connectedDate) / 1000;
-            zeit = result
             if (result < 999) {
                 result = result - 2.9
                 result = Math.round(result * 1000) / 1000
@@ -673,8 +961,96 @@
             var countnum = document.getElementById("countnum");
             countnum.innerHTML = n
 
+            zeit = 3 - result / 100
+
+
+
+
+
+
+
+
+            if (zeit > 2.9 && balloonCheck == 1) {
+
+                for (var i = 0; i < ein.length; i++) {
+                    ein[i].style.visibility = "visible";
+                    zwei[i].style.visibility = "hidden";
+                    drei[i].style.visibility = "hidden";
+                    vier[i].style.visibility = "hidden";
+                }
+                for (var i = 0; i < eins.length; i++) {
+                    eins[i].style.display = "block";
+                    zweis[i].style.display = "none";
+                    dreis[i].style.display = "none";
+                    viers[i].style.display = "none";
+                }
+                for (var i = 0; i < one.length; i++) {
+                    one[i].style.visibility = "visible";
+                }
+
+                console.log(zeit + "one")
+
+            }
+            else if (zeit > 2.8 && zeit <= 2.9 && balloonCheck == 1) {
+                for (var i = 0; i < zwei.length; i++) {
+                    ein[i].style.visibility = "hidden";
+                    zwei[i].style.visibility = "visible";
+                    drei[i].style.visibility = "hidden";
+                    vier[i].style.visibility = "hidden";
+                }
+                for (var i = 0; i < zweis.length; i++) {
+                    eins[i].style.display = "none";
+                    zweis[i].style.display = "block";
+                    dreis[i].style.display = "none";
+                    viers[i].style.display = "none";
+                }
+                console.log(zeit + "two")
+
+            }
+
+
+           else if (zeit > 2.7 && zeit <= 2.8 && balloonCheck == 1) {
+                for (var i = 0; i < zwei.length; i++) {
+                    ein[i].style.visibility = "hidden";
+                    zwei[i].style.visibility = "hidden";
+                    drei[i].style.visibility = "visible";
+                    vier[i].style.visibility = "hidden";
+                }
+                for (var i = 0; i < zweis.length; i++) {
+                    eins[i].style.display = "none";
+                    zweis[i].style.display = "none";
+                    dreis[i].style.display = "block";
+                    viers[i].style.display = "none";
+                }
+                console.log(zeit + "three")
+
+            }
+
+           else  if (zeit > 2.6 && zeit <= 2.7 && balloonCheck == 1) {
+                for (var i = 0; i < zwei.length; i++) {
+                    ein[i].style.visibility = "hidden";
+                    zwei[i].style.visibility = "hidden";
+                    drei[i].style.visibility = "hidden";
+                    vier[i].style.visibility = "visible";
+                }
+                for (var i = 0; i < zweis.length; i++) {
+                    eins[i].style.display = "none";
+                    zweis[i].style.display = "none";
+                    dreis[i].style.display = "none";
+                    viers[i].style.display = "block";
+                }
+                console.log(zeit + "four")
+
+            }
+
+
 
         }
+
+
+
+
+
 
         setTimeout(function hideCounter() {
             document.querySelector('#counter').style.visibility = "hidden";
@@ -729,7 +1105,18 @@
             document.querySelector('body').onload = null;
 
             document.querySelector('#divClock').style.visibility = "hidden";
+            for (var i = 0; i < ein.length; i++) {
+                    ein[i].style.visibility = "hidden";
+                    zwei[i].style.visibility = "hidden";
+                    drei[i].style.visibility = "hidden";
+                    vier[i].style.visibility = "hidden";
+            }
+            balloonCheck = 0;
             document.querySelector('.balloon').style.visibility = "hidden";
+            document.querySelector('#countnum').style.left = "50%";
+            document.querySelector('#counter').style.textAlign = "center";
+
+            
 
 
 
@@ -756,11 +1143,7 @@
             document.querySelector('#svgLine').style.visibility = "hidden";
             document.querySelector('.end').style.visibility = "hidden";
 
-
-
         }
-        
-
     </script>
 
     <!--  <script>
