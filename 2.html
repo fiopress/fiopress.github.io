@@ -23,7 +23,7 @@
         }
 
         body {
-            --bgcolor: #373837;
+            --bgcolor: #2a2a2a;
             --linkcolor: #d8ff00;
             background-color: var(--bgcolor);
         }
@@ -277,12 +277,6 @@
 
 
 
-        .texts {
-            visibility: hidden;
-            color: #909090;
-            font-size: 9.5pt;
-            top: 15px;
-        }
 
         #svgLine:hover~.texts {
             visibility: visible;
@@ -334,6 +328,7 @@
                 transform: translate(0.3px, -0.4px) rotate(-0.4deg);
             }
         }
+
         @keyframes mediumshake {
             0% {
                 transform: translate(0.3px, 0.3px) rotate(0deg);
@@ -379,6 +374,7 @@
                 transform: translate(0.3px, -0.4px) rotate(-0.6deg);
             }
         }
+
         @keyframes fastshake {
             0% {
                 transform: translate(0.6px, 0.6px) rotate(0deg);
@@ -424,6 +420,7 @@
                 transform: translate(0.6px, -0.8px) rotate(-0.75deg);
             }
         }
+
         @keyframes superfastshake {
             0% {
                 transform: translate(1px, 1px) rotate(0deg);
@@ -482,8 +479,20 @@
             /* animation: shake 1.1s;
             animation-iteration-count: infinite; */
             visibility: hidden;
+            top: 0px;
+            left: 0px;
 
         }
+
+        .texts {
+            visibility: hidden;
+            color: #c4c4c4;
+            font-size: 9.5pt;
+            top: 15px;
+
+
+        }
+
 
         .one {
             visibility: hidden;
@@ -500,8 +509,8 @@
         .nine,
         .sixes {
             position: absolute;
-            left: -2px;
             top: 12px;
+            left: 3px;
             width: 162px;
 
         }
@@ -554,12 +563,12 @@
         .balloon::after {
             border-top: 15px solid #333333;
             border-left: 15px solid transparent;
-            border-right: 0px solid transparent;
-            border-bottom: 0px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 15px solid transparent;
             content: "";
             position: absolute;
             top: 5px;
-            left: -10px;
+            right: -10px;
 
         }
 
@@ -619,7 +628,6 @@
             text-decoration: underline;
             text-underline-position: under;
         }
-
     </style>
 </head>
 
@@ -745,7 +753,7 @@
 
     <div class="mainSentence">
         <p class="mainSentenceP">
-            <a href="https://docs.google.com/spreadsheets/d/1Do-K4l4KYEGG9Fp8UhL248hJg5BigUGK14fzZ5aFBXY/edit?usp=sharing" target="blank"><sup class="invisible sup">1</sup>웹 전시는 왜 이토록 만만한가?<sup>1</sup></a>
+            <a href="https://docs.google.com/spreadsheets/d/1Do-K4l4KYEGG9Fp8UhL248hJg5BigUGK14fzZ5aFBXY/edit?usp=sharing" target="blank"><sup class="invisible sup">1</sup>웹 전시는 왜 이렇게 만만한가?<sup>1</sup></a>
             <br>
             <sub class="subtitle">-Forest Yang, the genius monster-</sub>
             <br>
@@ -765,14 +773,16 @@
 
         v.addEventListener('mousemove', mousemove);
 
-        var talks = ['(웅성웅성)어머 이게 누구 전시라고?', '(수근수근)우리 다 본 다음에 뭐 먹으러 갈까', '((너 전번에 쿠팡에서 주문하라 한 거 했어?))', '(수근수근)배고프다', '(호통)자긴 뭘 잘못했는지는 알아?', '(걱정걱정)주차장은 무료려나..?', '(쑥떡쑥떡)마라탕 먹고 싶다', '((어 저기 유병재 아냐? 대박))', '(속닥속닥)사진찍어달라 할까?', '(혼잣말)이 작가는 날 얼마나 흥분시킬지 후후..', '(소란소란)너 자신있냐?', '(논란논란)걔는 예술가가 아닌데', '(왁자지껄)어 술먹고 싶다']
+        var talks = ['포레스트 양 인기가 정말.. 아니 저기 앞에 설마 봉준호..?', '역시 최고의 인기 작가. 인파가 미쳤네요. 그죠 침착맨님?', '설마 저 앞에 있는 사람.. RM..?', '아니 저 사람은.. (방)시혁이 형..?', '손흥민 선수는 이 전시에 대해 어떻게 생각하세요?', 'fio는 어떻게 이렇게 거물급 작가를 섭외한 거지?', '웨이팅이 줄어들 생각을 않네… 그놈의 인기…', '사람 이렇게 기다리게 해도 되는 거야? 잘나가면 다야?', '기다리니까 배고프다. 그죠 영자 언니?', '도대체 언제 줄 끝나는 거야 다리 아픈데 참아야지!', '포레스트 양이 정말 유명하긴 한가 보네요. 줄 선 거 봐.', '어머어머 이게 그 유명한 포레스트 양 전시라고?']
         var num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
         num.sort(() => Math.random() - 0.5);
 
 
 
 
+
         let balloonCheck;
+        let balloonPosition;
 
 
 
@@ -800,6 +810,7 @@
         var zweis = document.getElementsByClassName("zweis");
         var dreis = document.getElementsByClassName("dreis");
         var viers = document.getElementsByClassName("viers");
+        var balloons = document.getElementsByClassName("balloon");
 
 
 
@@ -820,11 +831,17 @@
                     one[i].innerHTML = talks[num[0]]
                     two[i].innerHTML = ""
                     nine[i].innerHTML = ""
+                    two[i].style.top = "12px"
+                    two[i].style.left = "3px"
                 }
                 console.log(one.length)
 
+
                 balloonCheck = 1;
-                document.querySelector('.balloon').style.visibility = "visible";
+                balloonPosition = 0;
+
+
+
 
             }
             if (x < 194 && x > 120 && y < 85 && y > 75) {
@@ -832,8 +849,17 @@
                     two[i].innerHTML = talks[num[1]]
                     one[i].innerHTML = ""
                     three[i].innerHTML = ""
+                    two[i].style.top = "12px"
+                    two[i].style.left = "3px"
+
+
                 }
+
+
+
                 balloonCheck = 1;
+                balloonPosition = 0;
+
                 document.querySelector('.balloon').style.visibility = "visible";
             }
             if (x < 130 && x > 120 && y < 150 && y > 85) {
@@ -841,8 +867,16 @@
                     three[i].innerHTML = talks[num[2]]
                     two[i].innerHTML = ""
                     four[i].innerHTML = ""
+                    three[i].style.top = "87px"
+                    three[i].style.left = "-72px"
+
                 }
+
+
+
                 balloonCheck = 1;
+                balloonPosition = 1;
+
                 document.querySelector('.balloon').style.visibility = "visible";
 
             }
@@ -851,8 +885,14 @@
                     four[i].innerHTML = talks[num[3]]
                     three[i].innerHTML = ""
                     five[i].innerHTML = ""
+                    four[i].style.top = "87px"
+                    four[i].style.left = "-72px"
                 }
+
+
                 balloonCheck = 1;
+                balloonPosition = 1;
+
                 document.querySelector('.balloon').style.visibility = "visible";
             }
             if (x < 40 && x > 30 && y < 235 && y > 150) {
@@ -860,8 +900,17 @@
                     five[i].innerHTML = talks[num[4]]
                     four[i].innerHTML = ""
                     six[i].innerHTML = ""
+
+                    five[i].style.top = "152px"
+                    five[i].style.left = "-162px"
+
                 }
+
+
+
                 balloonCheck = 1;
+                balloonPosition = 2;
+
                 document.querySelector('.balloon').style.visibility = "visible";
             }
             if (x < 200 && x > 40 && y < 235 && y > 225) {
@@ -869,8 +918,15 @@
                     six[i].innerHTML = talks[num[5]]
                     five[i].innerHTML = ""
                     sixes[i].innerHTML = ""
+
+                    six[i].style.top = "152px"
+                    six[i].style.left = "-162px"
                 }
+
+
                 balloonCheck = 1;
+                balloonPosition = 2;
+
                 document.querySelector('.balloon').style.visibility = "visible";
             }
             if (x < 360 && x >= 200 && y < 235 && y > 225) {
@@ -878,8 +934,13 @@
                     sixes[i].innerHTML = talks[num[6]]
                     six[i].innerHTML = ""
                     seven[i].innerHTML = ""
+
+                    sixes[i].style.top = "255px"
+                    sixes[i].style.left = "160px"
                 }
                 balloonCheck = 1;
+                balloonPosition = 3;
+
                 document.querySelector('.balloon').style.visibility = "visible";
             }
 
@@ -888,8 +949,13 @@
                     seven[i].innerHTML = talks[num[7]]
                     sixes[i].innerHTML = ""
                     eight[i].innerHTML = ""
+
+                    seven[i].style.top = "255px"
+                    seven[i].style.left = "160px"
                 }
                 balloonCheck = 1;
+                balloonPosition = 3;
+
                 document.querySelector('.balloon').style.visibility = "visible";
             }
             if (x < 350 && x > 195 && y < 310 && y > 300) {
@@ -897,8 +963,12 @@
                     eight[i].innerHTML = talks[num[8]]
                     seven[i].innerHTML = ""
                     nine[i].innerHTML = ""
+                    eight[i].style.top = "312px"
+                    eight[i].style.left = "3px"
                 }
                 balloonCheck = 1;
+                balloonPosition = 4;
+
                 document.querySelector('.balloon').style.visibility = "visible";
             }
             if (x < 205 && x > 195 && y < 378 && y > 310) {
@@ -906,8 +976,12 @@
                     nine[i].innerHTML = talks[num[9]]
                     eight[i].innerHTML = ""
                     one[i].innerHTML = ""
+                    nine[i].style.top = "312px"
+                    nine[i].style.left = "3px"
                 }
                 balloonCheck = 1;
+                balloonPosition = 4;
+
                 document.querySelector('.balloon').style.visibility = "visible";
             }
             if (x < 250 && x > 150 && y < 600 && y > 378) {
@@ -926,12 +1000,57 @@
                     vier[i].style.visibility = "hidden";
                 }
             }
+            
+            
+             
+             if (balloonPosition == 0) {
+            for (var i = 0; i < balloons.length; i++) {
+                balloons[i].style.top = "0px";
+                balloons[i].style.left = "5px";
+            }
+
+
+        }
+
+        if (balloonPosition == 1) {
+            for (var i = 0; i < balloons.length; i++) {
+                balloons[i].style.top = "75px";
+                balloons[i].style.left = "-70px";
+            }
+        }
+
+        if (balloonPosition == 2) {
+            for (var i = 0; i < balloons.length; i++) {
+                balloons[i].style.top = "140px";
+                balloons[i].style.left = "-160px";
+            }
+        }
+
+            if (balloonPosition == 3) {
+            for (var i = 0; i < balloons.length; i++) {
+                balloons[i].style.top = "243px";
+                balloons[i].style.left = "160px";
+            }
+        }
+            
+        if (balloonPosition == 4) {
+            for (var i = 0; i < balloons.length; i++) {
+                balloons[i].style.top = "300px";
+                balloons[i].style.left = "5px";
+            }
+        }
+
+         
+            
 
 
             /*console.log(
                 "clientX: ", x,
                 "clientY:", y)*/
         }
+
+       
+
 
         var vw = window.innerWidth;
         var vh = window.innerHeight;
@@ -963,7 +1082,8 @@
             countnum.innerHTML = n
 
             zeit = 3 - result / 100
-
+            
+              
 
 
 
@@ -1002,11 +1122,11 @@
                     zweis[i].style.display = "block";
                     dreis[i].style.display = "none";
                     viers[i].style.display = "none";
-                    
+
                 }
-                    for (var i = 0; i < one.length; i++) {
+                for (var i = 0; i < one.length; i++) {
                     one[i].style.visibility = "visible";
-                    }
+                }
 
             } else if (zeit > 2.7 && zeit <= 2.8 && balloonCheck == 1) {
                 for (var i = 0; i < zwei.length; i++) {
@@ -1021,11 +1141,11 @@
                     dreis[i].style.display = "block";
                     viers[i].style.display = "none";
                 }
-                    for (var i = 0; i < one.length; i++) {
+                for (var i = 0; i < one.length; i++) {
                     one[i].style.visibility = "visible";
-                    }
+                }
 
-            } else if (zeit > 2.6 && zeit <= 2.7 && balloonCheck == 1) {
+            } else if (zeit <= 2.7 && balloonCheck == 1) {
                 for (var i = 0; i < zwei.length; i++) {
                     ein[i].style.visibility = "hidden";
                     zwei[i].style.visibility = "hidden";
@@ -1038,9 +1158,10 @@
                     dreis[i].style.display = "none";
                     viers[i].style.display = "block";
                 }
-                    for (var i = 0; i < one.length; i++) {
+                for (var i = 0; i < one.length; i++) {
                     one[i].style.visibility = "visible";
-                    }
+                }
+
 
             }
 
@@ -1061,8 +1182,8 @@
         }, 2900)
 
 
-        let a = ['어머 어머 지금 새치기하시는 거예요?', '다시 줄서야겠네 ㅋ', '줄 좀 똑바로 섭시다 참 내', '화이팅~ 다시 하면 또 성공해버질지도 모르지~', '뭐라는겨']
-        var alertmessage = a[Math.floor(Math.random() * 5)]
+        let a = ['아이구 이런! 경로를 이탈해버리셨군요! S(^ㅡ^)S', '아이구 이런! 경로를 이탈해버리셨군요! S(^ㅡ^)S', '지옥 같은 웨이팅을 뚫기가 그렇게 쉽진 않죠?', '간~~ 밧~~ 떼~~ ☆', '포기하시는 건 아니죠? 포레스트 양이 당신을 간절히 기다린답니다.', '마우스는 정신건강에 해롭습니다. 터치패드를 이용하면 그나마 낫습니다.', '포레스트 양의 인기가 이렇게나 많을 줄이야, 웨이팅 라인이 이렇게나 붐비다니 저희로서는 행복할 따름이네요. 여러분도 행복하신가요?', '혹시 아시나요? 포레스트 양은 민초파라는 사실을.', '혹시 아시나요? 포레스트 양은 포브스가 선정한 시대를 이끌 아시아 젊은 작가 100인 중 32위라는 사실을.', '혹시 아시나요? 에프아이오는 여러분을 사랑한다는 사실을.', '만만해 보이는데 생각보다 쉽지 않죠?', '만만해 보이는데 생각보다 쉽지 않죠?', '만만해 보이는데 생각보다 쉽지 않죠?', '저희도 만만하게 봤다가 큰코다쳤습니다. 코드를 수정할 때마다 테스트를 해야 했는데.. 계속 삑사리가 나서 무한 새로고침되고.. 얼마나 빡치던지.. 좀 더 쉬운 루트로 짤 걸 후회를 100번 정도 한 것 같습니다.']
+        var alertmessage = a[Math.floor(Math.random() * a.length)]
 
         function visible() {
             alert(alertmessage)
@@ -1088,7 +1209,7 @@
 
 
 
-            alert('축하해. 이건 너에게만 열어주는 비밀 통로야...')
+            alert('축하합니다. 🎫 마침내 당신의 손에 쥐어지는 입장권...')
 
 
             var pop = window.open("https://docs.google.com/spreadsheets/d/1Do-K4l4KYEGG9Fp8UhL248hJg5BigUGK14fzZ5aFBXY/edit?usp=sharing", "전시장으로...", "width=" + screen.width + ', height= ' + screen.height);
@@ -1096,7 +1217,7 @@
             try {
                 pop.focus();
             } catch (e) {
-                alert("..라고 할 뻔 했지만 유감스럽게도 팝업이 차단되어 있네요 ㅠㅠ. 팝업 차단을 해제한 후 새로고침하여 다시 도전해주셔야 할 것 같습니다 힝.");
+                alert("..이라고 할 뻔 했지만 유감스럽게도 팝업이 차단되어 있네요 ㅠㅠ. 팝업 차단을 해제한 후 새로고침해서 재도전해주셔야 할 것 같습니다 힝.");
             }
 
 
@@ -1145,7 +1266,6 @@
             document.querySelector('.end').style.visibility = "hidden";
 
         }
-
     </script>
 
     <!--  <script>
@@ -1165,6 +1285,4 @@
 
 
 
-</body>
-
-</html>
+</body></html>
