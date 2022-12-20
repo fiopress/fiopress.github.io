@@ -23,7 +23,7 @@
         }
 
         body {
-            --bgcolor: #2a2a2a;
+            --bgcolor: #191919;
             --linkcolor: #d8ff00;
             background-color: var(--bgcolor);
         }
@@ -720,24 +720,24 @@
 
 
 안녕하세요 독자 여러분. fio팀입니다.
-    잘 지내시나요?
-<u>현재 모바일 기기로 접속하신 모양이네요?</u>
-[아니라면 브라우저 크기가 너무 작지는 않은가요?]
-유감스럽게도 모바일 환경에서는 미술관 접속이 
+잘 지내시나요?
+   
+    <u>현재 모바일 기기로 접속하신 모양이네요?</u>
+    유감스럽게도 모바일 환경에서는 미술관 접속이 
     불가합니다.
-이 사이트를 제대로 이용하려면 
-    <u>마우스</u>가 필요해서요.
-사실 터치로도 구현할 방법이 있긴 한데, 
-기술력이 딸려서 포기했습니다. 넓은 마음으로 
-이해해주시면 감사하겠습니다.
 
-.. 그리고 어차피 미술관을 구글 시트로 만들어서 
-휴대폰으로 보면 무척 짜증날 겁니다 ..
-    ‘컴퓨터로의 접속’은 여러분도 저희도 
-모두 행복해지는 길입니다.
-    행복합시다.
+<u>반드시 PC로 접속해주세요. 부탁드립니다.</u>
+<a onclick="copy()">COPY, 클릭하면 링크가 복사됩니다.</a>
 
-영국의 왕립과학협회(RSA)에서 발표한 
+[.. 기술력이 딸려서 모바일페이지 개발은 
+포기하고 말았습니다. 넓은 아량으로 
+이해해주시면 감사하겠습니다.]
+
+추신1) 모든 난관을 뚫고 전시 리뷰를
+남겨주시는 분께 추첨을 통해 <u>베스킨라빈스</u>와 
+<u>(대존맛)솔의눈</u>을 선물드립니다.
+
+추신2) 영국의 왕립과학협회(RSA)에서 발표한 
 자료에 따르면<sup class="footnote" style="color: aqua" ontouchstart="footshow()" ontouchend="foothide()">[<u id="footnotelink">1</u>]</sup>, 모바일 기기에서 방문한 
 '데스크톱 전용 웹사이트'를 PC로 재접속할 
 확률은 <u>3.2%</u>에 불과하다고 합니다. 
@@ -769,6 +769,21 @@
     </footer>
 
     <script>
+	    
+	    function copyToClipboard(val) {
+  const t = document.createElement("textarea");
+  document.body.appendChild(t);
+  t.value = val;
+  t.select();
+  document.execCommand('copy');
+  document.body.removeChild(t);
+}
+function copy() {
+  copyToClipboard('https://fiopress.github.io/2');
+  console.log('Copied!');
+}
+	    
+	    
         var v = document.querySelector('#svgLine')
 
         v.addEventListener('mousemove', mousemove);
