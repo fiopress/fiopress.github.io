@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="favicon" href="./favicon.ico" type="image/x-icon" sizes="16x16">
+    <title>fio cabinet</title>
+    <meta name="description" content="fio press에서 운영하는 전시 공간입니다.">
+    <meta name="distrubution" content="fio press">
+    <meta name="location" content="seoul">
+    <meta name="keywords" content="fio, 프로젝트룸, 이거뭐냐">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+    <style>
+        main {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+
+        }
+
+        body {
+            /*            색상 변수*/
+            --bgcolor: #191919;
+            --linkcolor: #d8ff00;
+            background-color: var(--bgcolor);
+            cursor: grab;
+            height: 100vh;
+
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 350px;
+        }
+
+        section {
+            font-size: 8pt;
+        }
+
+        a {
+            color: #ffffff;
+        }
+
+        /*링크*/
+        a:link,
+        a:visited {
+            color: #ffffff;
+            text-decoration: none;
+            cursor: auto;
+        }
+
+       
+        a:hover {
+            color: var(--linkcolor);
+        }
+
+        a:link:active,
+        a:visited:active {
+            color: #ffffff;
+        }
+
+        p {
+            cursor: default;
+            width: 100%;
+            font-size: 12pt;
+            line-height: 14pt;
+        }
+
+
+
+
+        /*주석*/
+        sup {
+            font-size: 9pt;
+            margin: 1.4pt;
+        }
+
+        .invisible {
+            visibility: hidden;
+        }
+
+        .speaker {
+            color: var(--linkcolor)
+        }
+
+        @media (max-width: 431px) {
+            p {
+                margin-top: 1em;
+            }
+
+            .pad {
+                visibility: hidden;
+            }
+
+        }
+
+        @media (max-width: 800px) {
+
+        }
+
+        footer {
+            margin-top: -1em;
+            font-size: 8pt;
+            color: white !important;
+            position: absolute;
+            display: inline-block;
+            bottom: -1.2em;
+            left: 10px;
+            transform: translate(0%, 0%);
+        }
+
+        footer a {
+            color: white !important;
+        }
+
+        footer a:hover {
+            color: var(--linkcolor) !important;
+        }
+
+        .pad {
+            position: absolute;
+            top: 60%;
+            left: 70%;
+            width: 28%;
+            height: 30%;
+            -ms-user-select: none;
+            -moz-user-select: -moz-none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            user-select: none;
+        }
+
+        #sentence {
+            animation: blink-effect 8s step-end infinite;
+
+        }
+
+        @keyframes blink-effect {
+            
+            
+            
+            
+            35% {
+                color: var(--linkcolor)                
+            }
+            39%{
+                color: white;   
+
+            }
+            44% {
+                color: var(--linkcolor)                
+            }
+          48%{
+                color: white;   
+
+            }
+           
+        }
+
+    </style>
+</head>
+
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+    
+    <section>
+        <a href="./FAQ"> 자주 물을 질문들 Frequently Asked Questions</a>
+    </section>
+    <div class="content">
+        <p>
+            <a href="./test.pdf" target="blank" id="sentence"><sup class="invisible sup">1</sup>웹 전시는 어쩜 이리도 만만한가?<sup>1</sup></a>
+            <br>
+            <sub class="speaker">-Forest Yang, the genius monster-</sub>
+            <br>
+            <a class='invisible'>padding</a>
+    </div>
+    <footer>
+        <br>
+        <a class="sentence" href="#footer" style="font-size: 1.2em; line-height: 1em;">↓</a><br>
+        하고픈 말은 | <a href="https://www.instagram.com/fio_press/" target="blank" name="footer"> @fio_press </a>| <a href="mailto:iof0081@gmail.com">iof0081@gmail.com </a>| <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjSoSc63isRv5Y1dBknZl_sufzC2PIGKDX6E-P-LOaBETOGQ/viewform?usp=sf_link">구글설문지 </a>| 로 전달해줘.
+    </footer>
+    <div class="size"></div>
+
+</body>
+
+</html>
