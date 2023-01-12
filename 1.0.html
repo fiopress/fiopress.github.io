@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="favicon" href="./favicon.ico" type="image/x-icon" sizes="16x16">
+    <title>fio cabinet</title>
+    <meta name="description" content="이곳은 fio press에서 운영하는 전시 공간입니다.">
+    <meta name="distrubution" content="fio press">
+    <meta name="location" content="seoul">
+    <meta name="keywords" content="fio, 프로젝트룸, 이거뭐냐">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+        body {
+            --bg: #E0E0E0;
+            --pr: #84FF99;
+            --scnd: #AAD4B1;
+            --box: #929786;
+            --deepbox: #7F8375;
+            --line: #090909;
+            --text: #090909;
+            background-color: var(--bg);
+            cursor: grab;
+            font-family: 'Noto Sans KR', sans-serif;
+
+        }
+        
+        .vl{
+            border-left: 1.5px solid var(--text);
+position: absolute;
+width: 0px;
+height: 224px;
+right: 32px;
+bottom: 747px;
+        }
+        
+        .handle{
+            box-sizing: border-box;
+
+position: absolute;
+width: 12px;
+height: 20px;
+right: 26px;
+bottom: 740px;
+
+
+background: #EFF177;
+border: 1.5px solid #000000;
+        }
+
+        #logo {
+            height: 34px;
+            width: 44.26844024658203px;
+
+            border-radius: 0px;
+            position: absolute;
+            left: 3.08%;
+            right: 85.57%;
+            bottom: 715px;
+        }
+
+        .menu {
+            box-sizing: border-box;
+            position: absolute;
+            height: 52px;
+            left: 0%;
+            right: 0%;
+            bottom: 653px;
+            background: var(--box);
+            border: 1px solid var(--line);
+        }
+
+        .title {
+            box-sizing: border-box;
+
+            position: absolute;
+            height: 120px;
+            left: 0%;
+            right: 0%;
+            bottom: 534px;
+
+            background: var(--box);
+            border: 1px solid var(--line);
+        }
+
+        .content {
+            position: absolute;
+            height: 462px;
+            left: 0%;
+            right: 0%;
+            bottom: 72px;
+
+        }
+
+        .contentBg {
+            z-index: -999;
+
+
+            box-sizing: border-box;
+
+            position: absolute;
+            height: 634px;
+            left: 0%;
+            right: 0%;
+            bottom: 71px;
+
+            background: var(--box);
+            border: 1px solid var(--line);
+        }
+
+        .contact {
+            box-sizing: border-box;
+
+            position: absolute;
+            height: 72px;
+            left: 0%;
+            right: 49.74%;
+            bottom: 0px;
+
+            background: var(--deepbox);
+            border: 1px solid var(--line);
+
+
+        }
+
+        .faq {
+            box-sizing: border-box;
+
+            position: absolute;
+            height: 72px;
+            left: 49.74%;
+            right: 0%;
+            bottom: 0px;
+            background: var(--deepbox);
+            border: 1px solid var(--line);
+
+
+        }
+
+        #faqlink {
+            position: absolute;
+            height: 72px;
+            left: 0%;
+            right: 0%;
+            top: calc(50% - 72px/2 - 0px);
+            font-family: 'Noto Sans CJK KR';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13.5px;
+            line-height: 19px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: var(--text);
+            text-underline-position: under;
+        }
+
+        #insta {
+
+            position: absolute;
+            height: 17px;
+            left: 0%;
+            right: 0%;
+            top: calc(50% - 17px/2 - 8.5px);
+
+            font-family: 'Noto Sans CJK KR';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 17px;
+            display: flex;
+            justify-content: center;
+
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: var(--text);
+            text-decoration: none;
+
+
+
+        }
+
+        #mail {
+            position: absolute;
+            height: 17px;
+            left: 0%;
+            right: 0%;
+            top: calc(50% - 17px/2 + 9px);
+            text-decoration: none;
+
+            font-family: 'Noto Sans CJK KR';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 17px;
+            display: flex;
+            justify-content: center;
+
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: var(--text);
+
+
+        }
+        
+        
+    </style>
+</head>
+
+
+<body>
+
+    <div class="vl"></div>
+    <div class="handle"></div>
+
+
+
+    <div class="cabinet">
+
+
+        <img src="./logo.png" alt="fio 로고" id="logo">
+        <div class="menu">
+
+
+        </div>
+        <div class="title">
+
+
+        </div>
+
+        <div class="content">
+
+        </div>
+        <div class="contentBg"></div>
+        <div class="contact"> <a href="http://www.instagram.com/fio_press" id="insta" target="_blank"> <b>insta</b> &nbsp; @fio_press</a> <br> <a href="" onclick="copy()" id="mail"><b>mail </b> &nbsp; iof0081@gmail.com</a></div>
+        <div class="faq" onclick="window.open('https://www.naver.com/');"><a href="https://www.naver.com/" id="faqlink" target="_blank">자주 물을 질문들↗</a></div>
+
+
+
+
+
+
+    </div>
+
+
+    <script>
+        function copyToClipboard(val) {
+            const t = document.createElement("textarea");
+            document.body.appendChild(t);
+            t.value = val;
+            t.select();
+            document.execCommand('copy');
+            document.body.removeChild(t);
+        }
+
+        function copy() {
+            copyToClipboard('iof0081@gmail.com');
+            console.log('Copied!');
+
+        }
+    </script>
+</body></html>
