@@ -502,6 +502,36 @@
         u {
             text-underline-position: under;
         }
+        
+        .bra{
+            z-index: 999;
+            position: absolute;
+height: calc(100vw/390*92);;
+left: 5%;
+top: calc(100vw/390*130);
+font-weight: 100;
+font-size: calc(100vw/390*82);
+-webkit-text-stroke: 1px var(--box);
+text-align: center;
+color: var(--text)
+
+            
+        }
+        
+        .kit{
+            z-index: 999;
+            position: absolute;
+height: calc(100vw/390*92);;
+right: 5%;
+top: calc(100vw/390*130);
+font-weight: 100;
+font-size: calc(100vw/390*82);
+-webkit-text-stroke: 1px var(--box);
+text-align: center;
+color: var(--text)
+
+            
+        }
     </style>
 </head>
 
@@ -532,12 +562,15 @@
 
 
         </div>
+        
+        <div class="bra">(</div>
+        <div class="kit">)</div>
         <div class="title">
             <span class="titleIndex">
                 첫 번째 문장
             </span>
             <span class="mainTitle">
-                웹 전시는 어쩜 이리도 만만한가? <sup>1</sup>
+                웹 전시는 어쩜 이리도 만만한가?
             </span>
 
         </div>
