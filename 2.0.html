@@ -457,7 +457,7 @@ top: calc(100vw/390*185);
             left: 0;
             position: absolute;
 width: 100vw;
-            height:calc(100vw/390*335);
+            height:calc(100vw/390*131);
             top: calc(100vw/390*644);
             background: #373B2E;
         }
@@ -465,16 +465,32 @@ width: 100vw;
         .molding{
                         z-index: -999;
 
-            left:-30px;
-            width:120vw;
+            left:0px;
+            width:100vw;
             height: calc(100vw/390*16);
             position: absolute;
             top: calc(100vw/390*629);
-            border: 1px solid #000000;
+            border-top: 1px solid #000000;
+            
+        }
+        
+        .eng{
+             z-index: 1;
+            box-sizing: border-box;
+            font-size: 12px;
+            font-weight: 500;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 3px 8px 6px;
 
-            
-            
-            
+            position: absolute;
+
+
+            background: #3CC5FF;
+            border: 1px solid #000000;
+            border-radius: 2px;
+        }
         }
     </style>
 </head>
@@ -486,6 +502,11 @@ width: 100vw;
     <div class="handle"></div>
 
 
+    <div class="nav">
+        <div class="eng"> Eng</div>
+        <span class="faq">자주 물을 질문들</span>
+        <span class="wall">담벼락</span>
+    </div>
 
     <div class="cabinet">
 
