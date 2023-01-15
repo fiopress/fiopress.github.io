@@ -18,11 +18,12 @@
         body {
             --bg: #E0E0E0;
             --pr: #b8fc38;
-            --scnd: #d0f59d;
+            --scnd: #d9e2cc;
             --box: #929786;
             --deepbox: #7F8375;
             --line: #090909;
             --text: #090909;
+            --sctext: #000000;
             background-color: var(--bg);
             cursor: grab;
             font-family: 'Noto Sans KR', sans-serif;
@@ -32,9 +33,9 @@
         .handleLine {
             border-left: 1.5px solid var(--text);
             position: absolute;
-            left: 50%;
+            left: 49.9%;
             right: 50%;
-            top: -2.49%;
+top: calc(100vw/390*-21);
             bottom: 96.92%;
 
         }
@@ -43,9 +44,11 @@
             box-sizing: border-box;
 
             position: absolute;
-            left: 48.2%;
-            right: 48.2%;
-            top: 1.54%;
+            left: 48.3%;
+            right: 48.3%;
+            height: calc(100vw/390*21);
+            top: calc(100vw/390*13);
+
             bottom: 96.09%;
 
             background: #EFF177;
@@ -57,7 +60,7 @@
             position: absolute;
             left: 5.38%;
             right: 83.93%;
-            top: calc(100vw/390*60);
+            top: calc(100vw/390*59);
         }
 
         .menu {
@@ -110,7 +113,7 @@ top: calc(100vw/390*8);
             margin-bottom: -5px;
             
             font-weight: 500;
-            font-size: 12px;
+            font-size: calc(100vw/390*12);
 line-height: 31px;
             letter-spacing: 0.07em;
 
@@ -123,6 +126,8 @@ line-height: 31px;
             justify-content: center;
             align-items: center;
             text-align: center;
+            letter-spacing: 0.05em;
+
             
             position: absolute;
 left: 5%;
@@ -132,8 +137,8 @@ top:  calc(100vw/390*32);
     height: calc(100vw/390*57);
             
             
-            font-weight: 500;
-            font-size: 21px;
+            font-weight:500;
+            font-size: calc(100vw/390*20);
             line-height: 26px;
             color: var(--text)
         }
@@ -180,6 +185,7 @@ height: calc(100vw/390*72);
 
 
         }
+        
         
         
 
@@ -328,7 +334,9 @@ height: calc(100vw/390*72);
             background: var(--pr);
             border: 1px solid #000000;
             border-radius: 2px;
-            font-size: 18px;
+            font-size: calc(100vw/390*17);
+            line-height: calc(100vw/390*21);
+            text-underline-position: under;
 
             display: flex;
             justify-content: center;
@@ -340,17 +348,15 @@ height: calc(100vw/390*72);
         .new {
             z-index: 1;
             box-sizing: border-box;
-            font-size: 16px;
-            font-weight: 500;
+            font-size: calc(100vw/390*15);
             display: flex;
             flex-direction: row;
             align-items: flex-start;
-            padding: 3px 10px 6px;
+            padding: 5px 6px 5px;
 
             position: absolute;
-            left: calc(50% - 86px/2 - 111.5px);
-            top: 3.46%;
-            bottom: 89.18%;
+            left: calc(100vw/390*40);
+            top: calc(100vw/390*16);
 
             background: #3CC5FF;
             border: 1px solid #000000;
@@ -434,21 +440,22 @@ top: calc(100vw/390*185);
 
 
         .mn {
-            font-size: 20px;
+            font-size: calc(100vw/390*18);
 
-            background: #D9D9D9;
-            border: 1px solid #000000;
+            border: 1px dashed #6E7264;
             border-radius: 2px;
-            margin: 0px 20px;
+            margin: 0px calc(100vw/390*16);;
 
-            padding: 1px 6px;
-            color: #929786;
+            padding: 0px calc(100vw/390*22);
+            color: #777971;
 
         }
 
         .ep1 {
             background: var(--pr);
             color: var(--text);
+            border: 1px solid #000000;
+
 
         }
         
@@ -473,25 +480,30 @@ width: 100vw;
             border-top: 1px solid #000000;
             
         }
-        
-        .eng{
-             z-index: 1;
-            box-sizing: border-box;
-            font-size: 12px;
-            font-weight: 500;
+        .navs{
             display: flex;
             flex-direction: row;
             align-items: flex-start;
-            padding: 3px 8px 6px;
+                        position: absolute;
+            top: calc(100vw/390*65);
+            right: 5%;
+            
+        }
+        .nav{
+            box-sizing: border-box;
+            font-size: 12px;
+            font-weight: 500;
+            
+            padding: 2px 10px 4px;
+            margin: 0px 0px 0px 5px;
 
-            position: absolute;
-
-
-            background: #3CC5FF;
             border: 1px solid #000000;
-            border-radius: 2px;
+            border-radius: 1.5px;
         }
+        u{
+            text-underline-position: under;
         }
+        
     </style>
 </head>
 
@@ -502,10 +514,11 @@ width: 100vw;
     <div class="handle"></div>
 
 
-    <div class="nav">
-        <div class="eng"> Eng</div>
-        <span class="faq">자주 물을 질문들</span>
-        <span class="wall">담벼락</span>
+    <div class="navs">
+        <span class="nav faq">자주 물을 질문들</span>
+        <span class="nav wall">담벼락</span>
+        <span class="nav eng"> Eng</span>
+
     </div>
 
     <div class="cabinet">
@@ -537,7 +550,7 @@ width: 100vw;
         <div class="content">
             <div class="new c1">새 소식!</div>
             <div class="c1 r1" onclick="window.open('https://www.naver.com/');">
-                애프터토크 녹취록</div>
+               <u>애프터토크 녹취록</u> </div>
             <div class="c1 r2" onclick="window.open('https://www.naver.com/');">
                 티셔츠 구매
             </div>
