@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="favicon" href="./favicon.ico" type="image/x-icon" sizes="16x16">
+    <title>fio cabinet</title>
+    <meta name="description" content="이곳은 fio press에서 운영하는 전시 공간입니다.">
+    <meta name="distrubution" content="fio press">
+    <meta name="location" content="seoul">
+    <meta name="keywords" content="fio, 프로젝트룸, 이거뭐냐">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+        body {
+            --bg: #E0E0E0;
+            --pr: #C3FF60;
+            --scnd: #AAD4B1;
+            --box: #929786;
+            --deepbox: #7F8375;
+            --line: #090909;
+            --text: #090909;
+            background-color: var(--bg);
+            cursor: grab;
+            font-family: 'Noto Sans KR', sans-serif;
+
+        }
+
+        .handleLine {
+            border-left: 1.5px solid var(--text);
+            position: absolute;
+            left: 50%;
+            right: 50%;
+            top: -2.49%;
+            bottom: 96.92%;
+
+        }
+
+        .handle {
+            box-sizing: border-box;
+
+            position: absolute;
+            left: 48.2%;
+            right: 48.2%;
+            top: 1.54%;
+            bottom: 96.09%;
+
+            background: #EFF177;
+            border: 1.5px solid var(--line);
+        }
+
+        #logo {
+            height: 32px;
+            position: absolute;
+            left: 5.38%;
+            right: 83.93%;
+            top: 7.1%;
+            bottom: 89.22%;
+        }
+
+        .menu {
+            box-sizing: border-box;
+            position: absolute;
+left: 4.36%;
+right: 4.36%;
+top: 11.73%;
+bottom: 82.58%;
+            
+            background: var(--box);
+            border: 1px solid var(--line);
+            border-radius: 1px 1px 0px 0px;
+
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+
+
+
+
+        .title {
+            box-sizing: border-box;
+
+            position: absolute;
+left: 4.36%;
+right: 4.36%;
+top: 17.3%;
+bottom: 69.79%;
+
+            background: var(--box);
+            border: 1px solid var(--line);
+        }
+        
+        .titleIndex{
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 9px;
+            margin-bottom: -5px;
+            
+            font-weight: 500;
+            font-size: 12px;
+line-height: 31px;
+            letter-spacing: 0.07em;
+
+            color: var(--text)
+                
+        }
+        
+        .mainTitle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            
+            
+            font-weight: 500;
+            font-size: 21px;
+line-height: 28px;
+            color: var(--text)
+        }
+        
+
+        .content {
+           position: absolute;
+left: 4.36%;
+right: 4.36%;
+top: 30.09%;
+bottom: 20.97%;
+            background: var(--box);
+            border: 1px solid var(--line);
+        }
+
+    
+
+        .contact {
+            box-sizing: border-box;
+
+            position: absolute;
+           left: 4.36%;
+right: 50%;
+top: 78.91%;
+bottom: 13.03%;
+
+            background: var(--deepbox);
+            border: 1px solid var(--line);
+
+
+        }
+
+        .credit {
+            box-sizing: border-box;
+
+            position: absolute;
+            left: 49.74%;
+right: 4.36%;
+top: 78.91%;
+bottom: 13.03%;
+            background: var(--deepbox);
+            border: 1px solid var(--line);
+
+
+        }
+        
+        
+
+        #creditContent {
+
+            position: absolute;
+            height: 72px;
+            left: 0%;
+            right: 0%;
+            top: calc(50% - 80px/2 - 0px);
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: var(--text);
+        }
+
+        #insta {
+            position: absolute;
+            height: 17px;
+            left: 0%;
+            right: 0%;
+            top: calc(50% - 10px/2 - 8.5px);
+
+            font-style: normal;
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 17px;
+            display: flex;
+            justify-content: center;
+
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: var(--text);
+            text-decoration: none;
+
+
+
+        }
+
+        #dash{
+            position: absolute;
+            height: 17px;
+            left: 0%;
+            right: 0%;
+            top: calc(50% - 17px/2 - 18px);
+
+            font-style: normal;
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 17px;
+            display: flex;
+            justify-content: center;
+
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: var(--text);
+            text-decoration: none;
+        }
+        #mail {
+            position: absolute;
+            height: 17px;
+            left: 0%;
+            right: 0%;
+            top: calc(50% - 15px/2 + 9px);
+            text-decoration: none;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 17px;
+            display: flex;
+            justify-content: center;
+
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: var(--text);
+
+
+        }
+
+
+        .shelvesline {
+            width: 100%;
+            height: 1px;
+            background: var(--text);
+        }
+
+        .ein {
+            position: absolute;
+            top: 0%;
+        }
+
+        .zwei {
+            position: absolute;
+            top: 100%;
+        }
+
+        .one {
+            position: absolute;
+            width: 77%;
+            height: 5.25px;
+            left: 11.272%;
+            top: 118.09px;
+        }
+
+        .two {
+            position: absolute;
+            width: 77%;
+            height: 5.25px;
+            left: 11.272%;
+            top: 220px;
+
+        }
+
+        .three {
+            position: absolute;
+            width: 77%;
+            height: 5.25px;
+            left: 11.272%;
+            top: 321px;
+
+        }
+
+        .four {
+            position: absolute;
+            width: 77%;
+            height: 5.25px;
+            left: 11.272%;
+            top: 422px;
+
+        }
+
+    
+
+        .c1 {
+            box-sizing: border-box;
+            position: absolute;
+            background: var(--pr);
+            border: 1px solid #000000;
+            border-radius: 2px;
+            font-size: 18px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+        }
+
+        .new {
+            z-index: 1;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-weight: 500;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 3px 10px 6px;
+
+            position: absolute;
+            left: calc(50% - 86px/2 - 111.5px);
+            top: 3.46%;
+            bottom: 89.18%;
+
+            background: #3CC5FF;
+            border: 1px solid #000000;
+            border-radius: 2px;
+        }
+
+
+        .r1 {
+            height: 68.28px;
+            left: 14.36%;
+            right: 14.36%;
+            top: 34px;
+        }
+
+
+
+        .r2 {
+            right: 51.8%;
+            height: 68px;
+            left: 14.36%;
+            top: 136px;
+            background: var(--scnd);
+
+        }
+
+
+        .r3 {
+            height: 68px;
+            left: 51.8%;
+            right: 14.36%;
+
+            top: 136px;
+            background: var(--scnd);
+        }
+
+        .r4 {
+            height: 68.28px;
+            left: 14.36%;
+            right: 14.36%;
+
+            top: 238px;
+            background: var(--scnd);
+        }
+
+        .r5 {
+            height: 68.28px;
+            left: 14.36%;
+            right: 14.36%;
+
+            top: 340px;
+            background: var(--scnd);
+
+        }
+
+
+
+        sup {
+            font-size: 15px;
+            margin-top: 12px;
+            margin-left: 2px;
+        }
+
+        .l-arrow {
+            position: absolute;
+            width: 32px;
+            left: 86.15%;
+left: 5.64%;
+top: 22.04%;
+bottom: 74.17%;
+        }
+
+        .r-arrow {
+            
+            position: absolute;
+            width: 32px;
+           left: 86.15%;
+right: 5.64%;
+top: 22.04%;
+bottom: 74.17%;
+
+        }
+
+
+        .mn {
+            font-size: 20px;
+
+            background: #D9D9D9;
+            border: 1px solid #000000;
+            border-radius: 2px;
+            margin: 0px 20px;
+
+            padding: 1px 6px;
+            color: #929786;
+
+        }
+
+        .ep1 {
+            background: var(--pr);
+            color: var(--text);
+
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="handleLine"></div>
+    <div class="handle"></div>
+
+
+
+    <div class="cabinet">
+
+
+        <img src="./logo2.png" alt="fio 로고" id="logo">
+        <div class="menu">
+            <span class="mn ep0">0</span>
+            <span class="mn ep1">1</span>
+            <span class="mn ep2">2</span>
+            <span class="mn ep3">3</span>
+
+
+
+        </div>
+        <div class="title">
+          <span class="titleIndex">
+              첫 번째 문장
+          </span>
+           <span class="mainTitle">
+            웹 전시는 어쩜<br>
+            이리도 만만한가?   
+           </span>
+            
+        </div>
+        <img src="./arrow-left.png" alt="fio 로고" class="l-arrow">
+        <img src="./arrow-right.png" alt="fio 로고" class="r-arrow">
+
+        <div class="content">
+            <div class="new c1">새 소식!</div>
+            <div class="c1 r1" onclick="window.open('https://www.naver.com/');">
+                애프터토크 녹취록</div>
+            <div class="c1 r2" onclick="window.open('https://www.naver.com/');">
+                티셔츠 구매
+            </div>
+
+            <div class="c1 r3" onclick="window.open('https://www.naver.com/');">
+                애프터토크<br>신청
+            </div>
+
+            <div class="c1 r4" onclick="window.open('https://www.naver.com/');">
+                발제문
+            </div>
+            <div class="c1 r5" onclick="window.open('https://www.naver.com/');">
+                전시입장로
+            </div>
+
+
+
+            <div class="shelves one">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+            <div class="shelves two">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+            <div class="shelves three">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+            <div class="shelves four">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+
+        </div>
+
+        <div class="contentBg"></div>
+        <div class="contact"> 
+        <span id="dash">-</span>
+        <a href="http://www.instagram.com/fio_press" id="insta" target="_blank"> <b>insta</b>&nbsp;@fio_press</a> <br> <a href="" onclick="copy()" id="mail"><b>mail</b> &nbsp;iof0081@gmail.com</a></div>
+        <div class="credit"><span id="creditContent"> - <br>Designed by fio in seoul.<br>
+All right, thank you.</span> </div>
+
+
+
+
+
+
+    </div>
+
+
+    <script>
+        function copyToClipboard(val) {
+            const t = document.createElement("textarea");
+            document.body.appendChild(t);
+            t.value = val;
+            t.select();
+            document.execCommand('copy');
+            document.body.removeChild(t);
+        }
+
+        function copy() {
+            copyToClipboard('iof0081@gmail.com');
+            console.log('Copied!');
+
+        }
+    </script>
+</body></html>
