@@ -35,32 +35,32 @@
             position: absolute;
             left: 49.9%;
             right: 50%;
-        top: calc(100vw/390*-21);
+            top: calc(100vw/390*-21);
             bottom: 96.92%;
-        
+
         }
-        
+
         .handle {
             box-sizing: border-box;
-        
+
             position: absolute;
             left: 48%;
             right: 48%;
             height: calc(100vw/390*21);
             top: calc(100vw/390*13);
-        
+
             bottom: 96.09%;
-        
+
             background: var(--pr);
             border: 1.5px solid var(--line);
             border-radius: 100px;
         }
-        
+
         #logo {
-            width: calc(100vw/390*102);
+            width: calc(100vw/390*90);
             position: absolute;
-            left: calc(100vw/390*13);
-            top: calc(100vw/390*43);
+            left: calc(100vw/390*14);
+            top: calc(100vw/390*47);
         }
 
         .menu {
@@ -184,7 +184,11 @@
         }
 
 
-        a:visited, a:active, a:focus, a:hover, a:link {
+        a:visited,
+        a:active,
+        a:focus,
+        a:hover,
+        a:link {
             color: var(--text);
         }
 
@@ -228,7 +232,7 @@
 
 
 
-       /*  #dash {
+        /*  #dash {
             position: absolute;
             height: 17px;
             left: 0%;
@@ -496,10 +500,9 @@
             border-radius: 1.5px;
         }
 
-        
 
-        .bra {
-            z-index: 999;
+
+        .titleBra {
             position: absolute;
             height: calc(100vw/390*92);
             ;
@@ -512,8 +515,7 @@
             color: var(--text)
         }
 
-        .kit {
-            z-index: 999;
+        .titleKit {
             position: absolute;
             height: calc(100vw/390*92);
             ;
@@ -525,6 +527,52 @@
             text-align: center;
             color: var(--text)
         }
+        
+         .mnBra {
+            position: absolute;
+            height: calc(100vw/390*92);
+            ;
+            left: 7.3%;
+            top: calc(100vw/390*91);
+            font-weight: 100;
+            font-size: calc(100vw/390*35);
+            text-align: center;
+            color: var(--text)
+        }
+
+        .mnKit {
+            position: absolute;
+            height: calc(100vw/390*92);
+            ;
+            right: 7.3%;
+            top: calc(100vw/390*91);
+            font-weight: 100;
+            font-size: calc(100vw/390*35);
+            text-align: center;
+            color: var(--text)
+        }
+        
+         .contentBra {
+            position: absolute;
+            height: calc(100vw/390*92);
+             width: calc(100vw/390*1.5);
+            left: calc(100vw/390*38);
+            top: calc(100vw/390*280);
+            height: calc(100vw/390*370);
+            background: var(--text);
+        }
+
+        .contentKit {
+            position: absolute;
+            height: calc(100vw/390*92);
+             width: calc(100vw/390*1.5);
+            right: calc(100vw/390*38);
+            top: calc(100vw/390*280);
+            height: calc(100vw/390*370);
+            background: var(--text);
+        }
+        
+        
 
         .cabinetBg {
             z-index: -999;
@@ -565,8 +613,7 @@
 
         </div>
 
-        <div class="bra">(</div>
-        <div class="kit">)</div>
+    
         <div class="title">
             <span class="titleIndex">
                 첫 번째 문장
@@ -621,7 +668,7 @@
         </div>
 
         <div class="contentBg"></div>
-        <div class="faq" onclick="window.open('https://www.naver.com/');"><a href="https://www.naver.com/" id="faqlink" target="_blank">자주 물을 질문들↗<br>   Frequently Asked Questions </a>
+        <div class="faq" onclick="window.open('https://www.naver.com/');"><a href="https://www.naver.com/" id="faqlink" target="_blank">자주 물을 질문들↗<br> Frequently Asked Questions </a>
         </div>
         <div class="credit" onclick="window.open('http://www.instagram.com/fio_press');"><span id="creditContent"><a href="http://www.instagram.com/fio_press" target="_blank">Designed by fio in seoul.<br>
                     All right, thank you.</a></span> </div>
@@ -639,6 +686,17 @@
     <div class="cabinetBg">
 
     </div>
+    
+    <div class="mnBra">{</div>
+        <div class="mnKit">}</div>
+        
+     <div class="titleBra">(</div>
+        <div class="titleKit">)</div>
+        
+        <div class="contentBra"></div>
+        <div class="contentKit"></div>
+        
+        
 
 
     <script>
