@@ -68,10 +68,10 @@
         }
 
         #logo {
-            width: calc(100vw/390*85);
+            width: calc(100vw/390*88);
             position: absolute;
             left: calc(100vw/390*14);
-            top: calc(100vw/390*51);
+            top: calc(100vw/390*50);
         }
 
         .navs {
@@ -612,33 +612,34 @@
             top: -100vh;
 
         }
-        
-        .handle:hover ~ .shutterImg{
-                                    animation: shutter-ani 3.5s ease-in-out;
 
-            
-        }
+        /* .animation {
+            animation: shutter-ani 3.5s ease-in-out;
         
-    
-        
-        @keyframes shutter-ani{
+        } */
+
+
+
+        @keyframes shutter-ani {
             0% {
-                transform: translate(0,0);
+                transform: translate(0, 0);
             }
-            30%{
+
+            30% {
                 transform: translate(0, 100vh);
             }
-            70%{
+
+            70% {
                 transform: translate(0, 100vh);
 
             }
+
             100% {
-                transform: translate(0,0);
+                transform: translate(0, 0);
             }
-            
+
         }
-        
-        
+
     </style>
 </head>
 
@@ -688,20 +689,20 @@
         <div class="content">
             <div class="new c1">새 소식!</div>
             <div class="c1 r1" onclick="window.open('https://www.naver.com/');">
-                <u>애프터토크 녹취록</u>
+                <u>애프터토크 담화집</u>
             </div>
-            <div class="c1 r2" onclick="window.open('https://www.naver.com/');">
+            <div class="c1 r2" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdBNvu6PaxaGMG2uCkpoG2_AfShv93TwzoFQdRfsov5NbgQuQ/viewform?usp=send_form');">
                 티셔츠 구매
             </div>
 
-            <div class="c1 r3" onclick="window.open('https://www.naver.com/');">
+            <div class="c1 r3" onclick="window.open('https://fiopress.github.io/fake');">
                 애프터토크<br>신청
             </div>
 
-            <div class="c1 r4" onclick="window.open('https://www.naver.com/');">
-                발제문
+            <div class="c1 r4" onclick="window.open('https://defiant-bit-d0d.notion.site/2c9b0e19b39447a2beb3252c4d0989c4');">
+                《STANDUP!》 후일담
             </div>
-            <div class="c1 r5" onclick="window.open('https://www.naver.com/');">
+            <div class="c1 r5" onclick="window.open('https://fiopress.github.io/2');">
                 전시입장로
             </div>
 
@@ -729,7 +730,7 @@
 
 
         <div class="contentBg"></div>
-        <div class="faq" onclick="window.open('https://www.naver.com/');"><a href="https://www.naver.com/" id="faqlink" target="_blank">자주 물을 질문들↗<br> Frequently Asked Questions </a>
+        <div class="faq" onclick="window.open('https://fiopress.github.io/FAQ');"><a href="https://fiopress.github.io/FAQ" id="faqlink" target="_blank">자주 물을 질문들↗<br> Frequently Asked Questions </a>
         </div>
         <div class="credit" onclick="window.open('http://www.instagram.com/fio_press');"><span id="creditContent"><a href="http://www.instagram.com/fio_press" target="_blank">Designed by fio in seoul.<br>
                     All right, thank you.</a></span> </div>
@@ -758,13 +759,19 @@
     <div class="contentKit"></div>
 
 
-        <img src="./love.png" alt="사랑합니다." class="shutterImg">
+    <img src="./love.png" alt="사랑합니다." class="shutterImg">
 
 
 
 
 
     <script>
+        
+         const handle = document.querySelector(".handle");
+        const shutter = document.querySelector(".shutterImg")
+        
+        
+        
         function copyToClipboard(val) {
             const t = document.createElement("textarea");
             document.body.appendChild(t);
@@ -780,6 +787,28 @@
 
         }
         
-    
+        const shutterAni = [
+            {transform: 'translateY(0)'},
+            {transform: 'translateY('+ document.documentElement.clientHeight+'px)', offset: 0.25
+            },
+            {transform: 'translateY('+ document.documentElement.clientHeight+'px)', offset: 0.75
+            },
+            {transform: 'translateY(0)', offset: 1
+            }
+        ];
+
+        const timing = {
+            duration: 3500,
+            iterations: 1,
+        }
+
+       
+
+        handle.addEventListener('click', () => {
+            shutter.animate(shutterAni, timing);
+        });
+
     </script>
-</body></html>
+</body>
+
+</html>
