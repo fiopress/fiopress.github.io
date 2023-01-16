@@ -27,6 +27,7 @@
             background-color: var(--bg);
             cursor: grab;
             font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
 
         }
 
@@ -55,14 +56,15 @@
             border: 1.5px solid var(--line);
             border-radius: 100px;
         }
-        .handle::after{
+
+        .handle::after {
             content: "";
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 350%;
-        height: 250%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 350%;
+            height: 250%;
         }
 
         #logo {
@@ -90,7 +92,7 @@
             border: 1px solid #000000;
             border-radius: 1.5px;
         }
-        
+
         .menu {
             box-sizing: border-box;
             position: absolute;
@@ -509,7 +511,7 @@
 
         }
 
-        
+
 
         .mnBra {
             position: absolute;
@@ -535,7 +537,7 @@
 
             color: var(--text)
         }
-        
+
 
 
         .titleBra {
@@ -563,12 +565,12 @@
             text-align: center;
             color: var(--text)
         }
-        
-         
-         .contentBra {
+
+
+        .contentBra {
             position: absolute;
             height: calc(100vw/390*92);
-             width: calc(100vw/390*1.5);
+            width: calc(100vw/390*1.5);
             left: calc(100vw/390*38);
             top: calc(100vw/390*280);
             height: calc(100vw/390*370);
@@ -578,14 +580,14 @@
         .contentKit {
             position: absolute;
             height: calc(100vw/390*92);
-             width: calc(100vw/390*1.5);
+            width: calc(100vw/390*1.5);
             right: calc(100vw/390*38);
             top: calc(100vw/390*280);
             height: calc(100vw/390*370);
             background: var(--text);
         }
-        
-        
+
+
 
         .cabinetBg {
             z-index: -999;
@@ -597,11 +599,54 @@
             background: #272925;
             border: 1px solid #000000;
         }
+
+
+
+        .shutterImg {
+            z-index: 999;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            object-position: 50% 50%;
+            position: absolute;
+            top: -100vh;
+
+        }
+        
+        .handle:hover ~ .shutterImg{
+                                    animation: shutter-ani 3.5s ease-in-out;
+
+            
+        }
+        
+    
+        
+        @keyframes shutter-ani{
+            0% {
+                transform: translate(0,0);
+            }
+            30%{
+                transform: translate(0, 100vh);
+            }
+            70%{
+                transform: translate(0, 100vh);
+
+            }
+            100% {
+                transform: translate(0,0);
+            }
+            
+        }
+        
+        
     </style>
 </head>
 
 
 <body>
+
+
+
 
     <div class="handleLine"></div>
     <div class="handle"></div>
@@ -626,7 +671,8 @@
 
         </div>
 
-    
+
+
         <div class="title">
             <span class="titleIndex">
                 첫 번째 문장
@@ -680,6 +726,8 @@
 
         </div>
 
+
+
         <div class="contentBg"></div>
         <div class="faq" onclick="window.open('https://www.naver.com/');"><a href="https://www.naver.com/" id="faqlink" target="_blank">자주 물을 질문들↗<br> Frequently Asked Questions </a>
         </div>
@@ -699,17 +747,21 @@
     <div class="cabinetBg">
 
     </div>
-    
+
     <div class="mnBra">[</div>
-        <div class="mnKit">]</div>
-        
-     <div class="titleBra">(</div>
-        <div class="titleKit">)</div>
-        
-        <div class="contentBra"></div>
-        <div class="contentKit"></div>
-        
-        
+    <div class="mnKit">]</div>
+
+    <div class="titleBra">(</div>
+    <div class="titleKit">)</div>
+
+    <div class="contentBra"></div>
+    <div class="contentKit"></div>
+
+
+        <img src="./love.png" alt="사랑합니다." class="shutterImg">
+
+
+
 
 
     <script>
@@ -727,5 +779,7 @@
             console.log('Copied!');
 
         }
+        
+    
     </script>
 </body></html>
