@@ -17,13 +17,24 @@
 
         body {
             --bg: #E0E0E0;
-            --pr: #b8fc38;
-            --scnd: #b2baa7;
+            --c0pr: #61bdff;
+            --c0scnd: #bae2ff;
+            
+            --c1pr: #b8fc38;
+            --c1scnd: #b2baa7;
+            
+            --c2pr: #ff6053;
+            --c2scnd: #e3c3a8;
+            
+            --c3pr: #766bff;
+            --c3scnd: #b2baa7;
+            
+            
             --box: #929786;
             --deepbox: #7F8375;
             --line: #090909;
             --text: #090909;
-            --sctext: #000000;
+            --sctext: #323330;
             background-color: var(--bg);
             cursor: grab;
             font-family: 'Noto Sans KR', sans-serif;
@@ -52,7 +63,7 @@
 
             bottom: 96.09%;
 
-            background: var(--pr);
+            background: var(--c1pr);
             border: 1.5px solid var(--line);
             border-radius: 100px;
         }
@@ -360,10 +371,10 @@
 
 
 
-        .c1 {
+        .contentBox {
             box-sizing: border-box;
             position: absolute;
-            background: var(--pr);
+            background: var(--c1pr);
             border: 1px solid #000000;
             border-radius: 2px;
             font-size: calc(100vw/390*17.5);
@@ -411,7 +422,7 @@
             height: calc(100vw/390*62);
             left: 12%;
             top: calc(100vw/390*123);
-            background: var(--scnd);
+            background: var(--c1scnd);
 
         }
 
@@ -422,7 +433,7 @@
             right: 12%;
 
             top: calc(100vw/390*123);
-            background: var(--scnd);
+            background: var(--c1scnd);
         }
 
         .r4 {
@@ -431,7 +442,7 @@
             right: 12%;
 
             top: calc(100vw/390*215);
-            background: var(--scnd);
+            background: var(--c1scnd);
         }
 
         .r5 {
@@ -440,7 +451,7 @@
             right: 12%;
 
             top: calc(100vw/390*306);
-            background: var(--scnd);
+            background: var(--c1scnd);
 
         }
 
@@ -478,15 +489,14 @@
             margin: 0px calc(100vw/390*13);
             ;
             padding: 0px calc(100vw/390*6) calc(100vw/390*3) calc(100vw/390*6);
-            color: #3b3c38;
+            color: var(--sctext);
 
         }
 
         .ep1 {
-            background: var(--pr);
+            background: var(--c1pr);
             color: var(--text);
             border: 1px solid #2a2a2a;
-
         }
 
         .ground {
@@ -522,7 +532,7 @@
             font-weight: 300;
             font-size: calc(100vw/390*30);
             text-align: center;
-            color: var(--text)
+            color: var(--sctext)
         }
 
         .mnKit {
@@ -535,7 +545,7 @@
             font-size: calc(100vw/390*30);
             text-align: center;
 
-            color: var(--text)
+            color: var(--sctext)
         }
 
 
@@ -550,7 +560,7 @@
             font-size: calc(100vw/390*82);
             -webkit-text-stroke: 1px var(--box);
             text-align: center;
-            color: var(--text)
+            color: var(--sctext)
         }
 
         .titleKit {
@@ -563,7 +573,7 @@
             font-size: calc(100vw/390*82);
             -webkit-text-stroke: 1px var(--box);
             text-align: center;
-            color: var(--text)
+            color: var(--sctext)
         }
 
 
@@ -574,7 +584,7 @@
             left: calc(100vw/390*38);
             top: calc(100vw/390*280);
             height: calc(100vw/390*370);
-            background: var(--text);
+            background: var(--sctext);
         }
 
         .contentKit {
@@ -584,7 +594,7 @@
             right: calc(100vw/390*38);
             top: calc(100vw/390*280);
             height: calc(100vw/390*370);
-            background: var(--text);
+            background: var(--sctext);
         }
 
 
@@ -597,7 +607,7 @@
             top: calc(100vw/390*86);
             left: calc(100vw/390*11);
             background: #272925;
-            border: 1px solid #000000;
+            border: 1px solid  var(--sctext);
         }
 
 
@@ -605,11 +615,11 @@
         .shutterImg {
             z-index: 999;
             width: 100vw;
-            height: 100vh;
+            height: 110vh;
             object-fit: cover;
             object-position: 50% 50%;
             position: absolute;
-            top: -100vh;
+            top: -110vh;
 
         }
 
@@ -639,8 +649,31 @@
             }
 
         }
-
+        
+        
+        .c0, .c2, .c3{
+            visibility: hidden;
+        }
+        
+        .r1.c0{
+            background: var(--c0pr)
+            
+        }
+        
+        .r1.c2{
+            background: var(--c2pr)
+        }
+        
+        
+        .r1.c3{
+            background: var(--box);
+            border: 1px dashed #393b36;
+        }
+    
+        
     </style>
+    
+    
 </head>
 
 
@@ -675,36 +708,97 @@
 
 
         <div class="title">
-            <span class="titleIndex">
+                      
+                       <!-- ==== -->
+
+           <span class="c0 titleIndex">
+                여는 문장
+            </span>
+            <span class="c0 mainTitle">
+                우리는 어디서 왔고,<br>무엇이며, 어디로 가는가?
+            </span>
+                        <!-- ==== -->
+
+            
+            <span class="c1 titleIndex">
                 첫 번째 문장
             </span>
-            <span class="mainTitle">
+            <span class="c1 mainTitle">
                 웹 전시는 어쩜 <br>이리도 만만한가?
             </span>
+                        <!-- ==== -->
+
+             <span class="c2 titleIndex">
+                두 번째 문장
+            </span>
+            <span class="c2 mainTitle">
+                디자인 졸업 전시<br>뭐가 이렇게 문제가 많은가?
+            </span>
+            
+                        <!-- ==== -->
+
+            <span class="c3 titleIndex">
+                세 번째 문장
+            </span>
+            <span class="c3 mainTitle">
+                베일에 감추어짐<br>
+                
+            </span>
+            
+            
 
         </div>
-        <!--         <img src="./arrow-left.png" alt="왼쪽 화살표" class="l-arrow">
-        <img src="./arrow-right.png" alt="오른쪽 화살표" class="r-arrow"> -->
+
+        
 
         <div class="content">
-            <div class="new c1">새 소식!</div>
-            <div class="c1 r1" onclick="window.open('https://www.naver.com/');">
+           
+           
+            <div class="contentBox r1 c0" onclick="window.open('https://fiopress.github.io/fio%20interview.pdf');">
+                fio 멤버 인터뷰
+            </div>
+            
+                
+            
+            <!-- ==== -->
+            
+            <div class="new contentBox c1">새 소식!</div>
+            <div class="contentBox r1 c1" onclick="window.open('https://www.naver.com/');">
                 <u>애프터토크 담화집</u>
             </div>
-            <div class="c1 r2" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdBNvu6PaxaGMG2uCkpoG2_AfShv93TwzoFQdRfsov5NbgQuQ/viewform?usp=send_form');">
+            <div class="contentBox r2 c1" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdBNvu6PaxaGMG2uCkpoG2_AfShv93TwzoFQdRfsov5NbgQuQ/viewform?usp=send_form');">
                 티셔츠 구매
             </div>
 
-            <div class="c1 r3" onclick="window.open('https://fiopress.github.io/fake');">
+            <div class="contentBox r3 c1" onclick="window.open('https://fiopress.github.io/fake');">
                 애프터토크<br>신청
             </div>
 
-            <div class="c1 r4" onclick="window.open('https://defiant-bit-d0d.notion.site/2c9b0e19b39447a2beb3252c4d0989c4');">
+            <div class="contentBox r4 c1" onclick="window.open('https://defiant-bit-d0d.notion.site/2c9b0e19b39447a2beb3252c4d0989c4');">
                 《STANDUP!》 후일담
             </div>
-            <div class="c1 r5" onclick="window.open('https://fiopress.github.io/2');">
+            <div class="contentBox r5 c1" onclick="window.open('https://fiopress.github.io/2');">
                 전시입장로
             </div>
+            
+            
+                        <!-- ==== -->
+
+           
+           <div class="contentBox r1 c2" onclick="window.open('https://pbs.twimg.com/media/D50XpAnUcAUGWBg.jpg');">
+                졸업 전시 개선안 HOW TO
+            </div>
+            
+            
+            <div class="contentBox r1 c3" onclick="window.open('https://image.newdaily.co.kr/site/data/img/2010/03/04/2010030400056_0.png');">
+                <u>???</u>
+            </div>
+            
+            
+    
+            
+            
+            
 
 
 
@@ -767,8 +861,201 @@
 
     <script>
         
-         const handle = document.querySelector(".handle");
+        
+        var index = 1;
+        var indexZero = document.querySelector(".ep0");
+        var indexOne = document.querySelector(".ep1");
+        var indexTwo = document.querySelector(".ep2");
+        var indexThree = document.querySelector(".ep3");
+        
+        var columnZero = document.getElementsByClassName("c0");
+        var columnOne = document.getElementsByClassName("c1");
+        var columnTwo = document.getElementsByClassName("c2");
+        var columnThree = document.getElementsByClassName("c3");
+        
+
+        
+        const handle = document.querySelector(".handle");
         const shutter = document.querySelector(".shutterImg")
+        
+        
+        console.log(columnOne.length)
+        
+        
+        
+    
+            
+            
+        
+        
+        indexZero.addEventListener('click', () => {
+            
+            handle.style.background = "var(--c0pr)"
+            document.querySelector(".ep0").style.background = "var(--c0pr)"
+            document.querySelector(".ep0").style.color = "var(--text)"
+            document.querySelector(".ep0").style.border = "1px solid #2a2a2a"
+            
+            
+            document.querySelector(".ep1").style.background = "none "
+            document.querySelector(".ep1").style.color = "var(--sctext)"
+            document.querySelector(".ep1").style.border = "0px "
+            
+            document.querySelector(".ep2").style.background = "none "
+            document.querySelector(".ep2").style.color = "var(--sctext)"
+            document.querySelector(".ep2").style.border = "0px "
+            
+            document.querySelector(".ep3").style.background = "none "
+            document.querySelector(".ep3").style.color = "var(--sctext)"
+            document.querySelector(".ep3").style.border = "0px "
+            
+            
+            
+            for (var i = 0; i < columnZero.length; i++) {
+            columnZero[i].style.visibility = "visible";
+            }
+            
+            for (var i = 0; i < columnOne.length; i++) {
+            columnOne[i].style.visibility = "hidden";
+            }
+            
+            for (var i = 0; i < columnTwo.length; i++) {
+            columnTwo[i].style.visibility = "hidden";
+            }
+            
+            for (var i = 0; i < columnThree.length; i++) {
+            columnThree[i].style.visibility = "hidden";
+            }
+        
+            
+            
+        });
+        
+        indexOne.addEventListener('click', () => {
+            
+            handle.style.background = "var(--c1pr)"
+            
+            document.querySelector(".ep0").style.background = "none"
+            document.querySelector(".ep0").style.color = "var(--sctext)"
+            document.querySelector(".ep0").style.border = "0px"
+            
+            
+            document.querySelector(".ep1").style.background = "var(--c1pr)"
+            document.querySelector(".ep1").style.color = "var(--text)"
+            document.querySelector(".ep1").style.border = "1px solid #2a2a2a "
+            
+            document.querySelector(".ep2").style.background = "none "
+            document.querySelector(".ep2").style.color = "var(--sctext)"
+            document.querySelector(".ep2").style.border = "0px "
+            
+            document.querySelector(".ep3").style.background = "none "
+            document.querySelector(".ep3").style.color = "var(--sctext)"
+            document.querySelector(".ep3").style.border = "0px "
+            
+            
+            
+            for (var i = 0; i < columnZero.length; i++) {
+            columnZero[i].style.visibility = "hidden";
+            }
+            
+            for (var i = 0; i < columnOne.length; i++) {
+            columnOne[i].style.visibility = "visible";
+            }
+            
+            for (var i = 0; i < columnTwo.length; i++) {
+            columnTwo[i].style.visibility = "hidden";
+            }
+            
+            for (var i = 0; i < columnThree.length; i++) {
+            columnThree[i].style.visibility = "hidden";
+            }
+            
+        });
+        
+        indexTwo.addEventListener('click', () => {
+            handle.style.background = "var(--c2pr)"
+            
+             document.querySelector(".ep0").style.background = "none"
+            document.querySelector(".ep0").style.color = "var(--sctext)"
+            document.querySelector(".ep0").style.border = "0px"
+            
+            
+            document.querySelector(".ep1").style.background = "none"
+            document.querySelector(".ep1").style.color = "var(--sctext)"
+            document.querySelector(".ep1").style.border = "0px"
+            
+            document.querySelector(".ep2").style.background = "var(--c2pr)"
+            document.querySelector(".ep2").style.color = "var(--text)"
+            document.querySelector(".ep2").style.border = "1px solid #2a2a2a "
+            
+            document.querySelector(".ep3").style.background = "none "
+            document.querySelector(".ep3").style.color = "var(--sctext)"
+            document.querySelector(".ep3").style.border = "0px "
+            
+            
+            
+            
+            for (var i = 0; i < columnZero.length; i++) {
+            columnZero[i].style.visibility = "hidden";
+            }
+            
+            for (var i = 0; i < columnOne.length; i++) {
+            columnOne[i].style.visibility = "hidden";
+            }
+            
+            for (var i = 0; i < columnTwo.length; i++) {
+            columnTwo[i].style.visibility = "visible";
+            }
+            
+            for (var i = 0; i < columnThree.length; i++) {
+            columnThree[i].style.visibility = "hidden";
+            }
+        });
+        
+        indexThree.addEventListener('click', () => {
+            handle.style.background = "var(--c3pr)"
+            
+            
+             document.querySelector(".ep0").style.background = "none"
+            document.querySelector(".ep0").style.color = "var(--sctext)"
+            document.querySelector(".ep0").style.border = "0px"
+            
+            
+            document.querySelector(".ep1").style.background = "none"
+            document.querySelector(".ep1").style.color = "var(--sctext)"
+            document.querySelector(".ep1").style.border = "0px"
+            
+            document.querySelector(".ep2").style.background = "none"
+            document.querySelector(".ep2").style.color = "var(--sccext)"
+            document.querySelector(".ep2").style.border = "0px"
+            
+            document.querySelector(".ep3").style.background = "var(--c3pr)"
+            document.querySelector(".ep3").style.color = "var(--text)"
+            document.querySelector(".ep3").style.border = "1px solid #2a2a2a "
+            
+            
+            
+            
+           for (var i = 0; i < columnZero.length; i++) {
+            columnZero[i].style.visibility = "hidden";
+            }
+            
+            for (var i = 0; i < columnOne.length; i++) {
+            columnOne[i].style.visibility = "hidden";
+            }
+            
+            for (var i = 0; i < columnTwo.length; i++) {
+            columnTwo[i].style.visibility = "hidden";
+            }
+            
+            for (var i = 0; i < columnThree.length; i++) {
+            columnThree[i].style.visibility = "visible";
+            }
+        });
+        
+        
+        
+        
+         
         
         
         
