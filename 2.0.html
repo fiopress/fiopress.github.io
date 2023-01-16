@@ -45,7 +45,7 @@
         .handleLine {
             border-left: 1.5px solid var(--text);
             position: absolute;
-            left: 49.9%;
+            left: 50%;
             right: 50%;
             top: calc(100vw/390*-17);
             bottom: 96.92%;
@@ -457,12 +457,12 @@
 
 
 
-        sup {
+       /*  sup {
             font-size: calc(100vw/390*13);
             margin-top: calc(100vw/390*-14);
             margin-left: calc(100vw/390*0.3);
         }
-
+        
         .l-arrow {
             position: absolute;
             width: calc(100vw/390*32);
@@ -470,16 +470,16 @@
             left: 5.64%;
             top: calc(100vw/390*185);
         }
-
+        
         .r-arrow {
-
+        
             position: absolute;
             width: calc(100vw/390*32);
             left: 86.15%;
             right: 5.64%;
             top: calc(100vw/390*185);
-
-        }
+        
+        } */
 
 
         .mn {
@@ -579,7 +579,6 @@
 
         .contentBra {
             position: absolute;
-            height: calc(100vw/390*92);
             width: calc(100vw/390*1.5);
             left: calc(100vw/390*38);
             top: calc(100vw/390*280);
@@ -589,7 +588,6 @@
 
         .contentKit {
             position: absolute;
-            height: calc(100vw/390*92);
             width: calc(100vw/390*1.5);
             right: calc(100vw/390*38);
             top: calc(100vw/390*280);
@@ -671,7 +669,7 @@
             border: 1px dashed #393b36;
         }
 
-        .eng .mainTitle{
+        .eng .mainTitle {
             font-size: calc(100vw/390*17);
             line-height: calc(100vw/390*23);
         }
@@ -679,6 +677,304 @@
 
         .eng {
             display: none;
+        }
+
+
+
+
+        @media (min-width: 450px) {
+            
+             .handleLine {
+            top:0px;
+
+        }
+
+        .handle {
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 40px;
+            top: 30px;
+
+        
+        }
+            
+
+            #logo {
+                width: 102px;
+                position: absolute;
+                left: calc(50% - 102px/2 - 133px);
+                top: calc(50% - 34.93px/2 - 347.54px);
+            }
+
+            .cabinetBg {
+                z-index: -999;
+                position: absolute;
+                width: 370px;
+                height: 657px;
+                left: calc(50% - 370px/2);
+                top: calc(50% - 657px/2 + 8.5px);
+            }
+
+            .menu {
+                box-sizing: border-box;
+                position: absolute;
+                width: 356px;
+                height: 52px;
+                left: calc(50% - 356px/2);
+                top: calc(50% - 52px/2 - 286px);
+
+            }
+            
+        
+            .mainTitle{
+                letter-spacing: 0.05em;
+        
+            top: 44px;
+
+            height:30px;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 25px;
+            }
+            
+            .eng .mainTitle {
+            font-size: 17px;
+            line-height: 23px;
+        }
+            
+            .titleIndex {
+
+            top: 9px;
+            height: 14px;
+
+            font-size: 13px;
+
+
+            color: var(--)
+        }
+
+            
+            
+
+            .navs {
+                width: 48px;
+                height: 25px;
+                left: calc(50% - 48px/2 + 162px);
+                top: calc(50% - 25px/2 - 339.5px);
+            }
+
+            .title {
+                width: 356px;
+                height: 109px;
+                left: calc(50% - 356px/2);
+                top: calc(50% - 109px/2 - 206.5px);
+            }
+
+            .content {
+                width: 354px;
+                height: 413px;
+                left: calc(50% - 356px/2);
+                top: calc(50% - 413px/2 + 53.5px);
+            }
+
+            .faq {
+                width: 179px;
+                height: 72px;
+                left: calc(50% - 178px/2 - 89px);
+                top: calc(50% - 72px/2 + 295px);
+            }
+
+            .credit {
+                width: 180px;
+                height: 72px;
+                left: calc(50% - 179px/2 + 87.5px);
+                top: calc(50% - 72px/2 + 295px);
+            }
+
+            
+
+        #creditContent {
+            font-size: 11px;
+            line-height: 16px;
+
+        }
+
+
+        #faqlink {
+font-size: 11px;
+            line-height: 16px;
+        }
+
+            
+        .one {
+
+            top: 105px;
+        }
+
+        .two {
+                       top: 197px;
+
+
+        }
+
+        .three {
+            
+            top: 289px;
+
+        }
+
+        .four {
+            
+            top: 381px;
+
+        }
+
+            
+            
+
+        .contentBox {
+            font-size: 17.5px;
+            line-height: 21px;
+
+        }
+
+        .new {
+            font-size: 15px;
+            left: 34px;
+            top: 16px;
+        }
+
+
+        .r1 {
+            height: 62px;
+            top: 31px;
+        }
+
+
+
+        .r2 {
+           height: 62px;
+            top: 123px;
+
+        }
+
+
+        .r3 {
+           height: 62px;
+            top: 123px;
+        }
+
+        .r4 {
+                       height: 62px;
+
+    
+            top: 215px;
+        }
+
+        .r5 {
+            height: 62px;
+            top: 306px;
+
+        }
+            
+        .mn {
+            font-size: 18px;
+            margin: 0px 13px;
+            padding: 0px 6px 3px 6px;
+        }
+
+        .ground {
+            height: calc(50% + 131px/2 - 302.5px);
+            top: calc(50% - 131px/2 + 302.5px);
+            background: #373B2E;
+        }
+
+        .molding {
+left: 0%;
+right: 0%;
+top: calc(50% - 16px/2 + 230px);
+        }
+
+
+            
+        .mnBra {
+            width: 34px;
+            left:calc(50% - 34px/2 - 161.5px);
+            top: calc(50% - 30px/2 - 296px);
+                 
+                 
+            font-size: 30px;
+
+        }
+
+        .mnKit {
+            width: 34px;
+            left: calc(50% - 34px/2 + 161.5px);
+top: calc(50% - 30px/2 - 296px);
+                        font-size: 30px;
+
+
+        }
+
+
+
+        .titleBra {
+            width: 37px;
+     font-size: 82px;
+            left: calc(50% - 37px/2 - 161.5px);
+top: calc(50% - 92px/2 - 230px);
+
+        }
+
+        .titleKit {
+            width: 37px;
+            left: calc(50% - 37px/2 + 161.5px);
+top: calc(50% - 92px/2 - 230px);
+
+        
+            font-size: 82px;
+        }
+
+
+        .contentBra {
+            height: 370px;
+            width: 1.5px;
+            left: calc(50% - 1px/2 - 158.5px);
+top: calc(50% - 370px/2 + 57px);
+            background: var(--sctext);
+        }
+
+        .contentKit {
+            height: 370px;
+            width: 1.5px;
+           left: calc(50% - 1px/2 + 156.5px);
+top: calc(50% - 370px/2 + 57px);
+        }
+            
+            
+             .shutterImg {
+            z-index: 999;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            object-position: 50% 50%;
+            position: absolute;
+            top: -100vh;
+
+        }       
+            
+            
+
+            
+            
+            
+            
+        
+
+
+
+
         }
     </style>
 
@@ -893,8 +1189,8 @@
             </div>
 
         </div>
-        
-        
+
+
         <div class="content eng">
 
             <div class="contentBox r1 c0 eng" onclick="window.open('https://fiopress.github.io/fio%20interview.pdf');">
@@ -932,8 +1228,8 @@
 
 
             <div class="contentBox r1 c2" onclick="window.open('https://pbs.twimg.com/media/D50XpAnUcAUGWBg.jpg');">
-                
-Graduate show improvement plan: HOW TO
+
+                Graduate show improvement plan: HOW TO
             </div>
 
 
@@ -967,8 +1263,8 @@ Graduate show improvement plan: HOW TO
             </div>
 
         </div>
-        
-        
+
+
 
 
 
@@ -1022,7 +1318,7 @@ Graduate show improvement plan: HOW TO
 
         var engTranslate = document.querySelector(".engTranslate");
         var korTranslate = document.querySelector(".korTranslate");
-        
+
         var eng = document.getElementsByClassName("eng");
         var kor = document.getElementsByClassName("kor");
 
@@ -1036,24 +1332,24 @@ Graduate show improvement plan: HOW TO
 
 
         engTranslate.addEventListener('click', () => {
-            
+
             for (var i = 0; i < kor.length; i++) {
-             kor[i].style.display = "none";
+                kor[i].style.display = "none";
             }
-            
-             for (var i = 0; i < eng.length; i++) {
+
+            for (var i = 0; i < eng.length; i++) {
                 eng[i].style.display = "flex";
             }
 
         });
-        
+
         korTranslate.addEventListener('click', () => {
-            
+
             for (var i = 0; i < eng.length; i++) {
-             eng[i].style.display = "none";
+                eng[i].style.display = "none";
             }
-            
-             for (var i = 0; i < kor.length; i++) {
+
+            for (var i = 0; i < kor.length; i++) {
                 kor[i].style.display = "flex";
             }
 
