@@ -35,7 +35,7 @@
             position: absolute;
             left: 49.9%;
             right: 50%;
-            top: calc(100vw/390*-21);
+            top: calc(100vw/390*-17);
             bottom: 96.92%;
 
         }
@@ -47,13 +47,22 @@
             left: 48%;
             right: 48%;
             height: calc(100vw/390*21);
-            top: calc(100vw/390*13);
+            top: calc(100vw/390*9);
 
             bottom: 96.09%;
 
             background: var(--pr);
             border: 1.5px solid var(--line);
             border-radius: 100px;
+        }
+        .handle::after{
+            content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 350%;
+        height: 250%;
         }
 
         #logo {
