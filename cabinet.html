@@ -39,6 +39,8 @@
             cursor: grab;
             font-family: 'Noto Sans KR', sans-serif;
             margin: 0;
+            overflow-x:hidden; 
+            overflow-y:auto;
 
         }
 
@@ -687,11 +689,13 @@
         }
 
 
-         .concent {
+         .concent, .towel, .needle, .theater, .welcome, .flower {
 
             width: 0px;
             height: 0px;
         }
+        
+        
 
 
         @media (min-width: 450px) {
@@ -983,6 +987,49 @@
                 height: 47px;
                 left: calc(50% - 28.2px/2 + 260px);
                 top: calc(50% - 47px/2 + 160px);
+            }
+            
+            .theater{
+              position: absolute;
+width: 294.4px;
+height: 411.2px;
+left: calc(50% - 294.4px/2 - 725.8px);
+top: calc(50% - 411.2px/2 + 102.6px);
+
+
+            }
+            
+            .flower{
+                position: absolute;
+width: 124px;
+height: 711.6px;
+left: calc(50% - 124px/2 + 722px);
+top: calc(50% - 711.6px/2 - 48.2px);
+            }
+            .towel{
+                position: absolute;
+width: 142.4px;
+height: 293.6px;
+left: calc(50% - 142.4px/2 - 1590.8px);
+top: calc(50% - 293.6px/2 + 160.8px);
+
+            }
+            
+            .needle{
+                position: absolute;
+width: 213.2px;
+height: 433.6px;
+left: calc(50% - 213.2px/2 - 1159.4px);
+top: calc(50% - 433.6px/2 + 90.8px);
+
+            }
+            
+            .welcome{
+                position: absolute;
+width: 468px;
+height: 578.4px;
+left: calc(50% - 468px/2 + 1260px);
+top: calc(50% - 578.4px/2 + 19.2px);
             }
 
 
@@ -1331,6 +1378,11 @@
 
     <img src="./love.png" alt="사랑합니다." class="shutterImg">
     <img src="./concent.png" alt="콘센트" class="concent">
+    <img src="./towel.png" alt="타월" class="towel">
+    <img src="./needle.png" alt="니들" class="needle">
+    <img src="./flower.png" alt="플라워" class="flower">
+    <img src="./theater.png" alt="극장" class="theater">
+    <img src="./welcome.png" alt="티비" class="welcome">
 
 
 
