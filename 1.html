@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="favicon" href="./favicon.ico" type="image/x-icon" sizes="16x16">
+    <title>fio cabinet</title>
+    <meta name="description" content="fio press에서 운영하는 전시 공간입니다.">
+    <meta name="distrubution" content="fio press">
+    <meta name="location" content="seoul">
+    <meta name="keywords" content="fio, 프로젝트룸, 이거뭐냐">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+    <style>
+        main {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+
+        }
+
+        body {
+            /*            색상 변수*/
+            --bgcolor: #0075ff;
+            --linkcolor: #89fd7f;
+            background-color: var(--bgcolor);
+            cursor: grab;
+            height: 100vh;
+
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 350px;
+        }
+
+        section {
+            font-size: 8pt;
+        }
+
+        a {
+            color: #ffffff;
+        }
+
+        /*링크*/
+        a:link,
+        a:visited {
+            color: #ffffff;
+            text-decoration: none;
+            cursor: auto;
+        }
+
+       
+        a:hover {
+            color: var(--linkcolor);
+        }
+
+        a:link:active,
+        a:visited:active {
+            color: #ffffff;
+        }
+
+        p {
+            cursor: default;
+            width: 100%;
+            font-size: 12pt;
+            line-height: 14pt;
+        }
+
+
+
+
+        /*주석*/
+        sup {
+            font-size: 9pt;
+            margin: 1.4pt;
+        }
+
+        .invisible {
+            visibility: hidden;
+        }
+
+        .speaker {
+            color: var(--linkcolor)
+        }
+
+        @media (max-width: 431px) {
+            p {
+                margin-top: 1em;
+            }
+
+            .pad {
+                visibility: hidden;
+            }
+
+        }
+
+        @media (max-width: 800px) {
+
+        }
+
+        footer {
+            margin-top: -1em;
+            font-size: 8pt;
+            color: white !important;
+            position: absolute;
+            display: inline-block;
+            bottom: -1.2em;
+            left: 10px;
+            transform: translate(0%, 0%);
+        }
+
+        footer a {
+            color: white !important;
+        }
+
+        footer a:hover {
+            color: var(--linkcolor) !important;
+        }
+
+        .pad {
+            position: absolute;
+            top: 60%;
+            left: 70%;
+            width: 28%;
+            height: 30%;
+            -ms-user-select: none;
+            -moz-user-select: -moz-none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            user-select: none;
+        }
+
+        #sentence {
+            animation: blink-effect 10s step-end infinite;
+
+        }
+
+        @keyframes blink-effect {
+            
+            
+            
+            
+            35% {
+                color: var(--linkcolor)                
+            }
+            39%{
+                color: white;   
+
+            }
+            44% {
+                color: var(--linkcolor)                
+            }
+          48%{
+                color: white;   
+
+            }
+           
+        }
+
+    </style>
+</head>
+
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+    <script>
+        var vw = document.documentElement.clientWidth;
+        var vh = document.documentElement.clientHeight;
+        let x = Math.random() * 0.5 - 0.00000001;
+        let y = Math.random() * 0.5 - 0.00000001;
+        let z = Math.ceil(Math.random() * 4);
+        let color = '#ffffff';
+        let texts = '튀르키예\n아이스크림'
+        let x1 = 0;
+        let y1 = 0;
+        let tar_x1 = 0;
+        let tar_y1 = 0;
+        let easing = 0.1;
+        let colorset = ['#ffd800', '#6dffff', '#ff93d1', '#ffffff', '#aeff3f']
+        var score = 0;
+        var scoretext = '\n🍦'
+        let degree = 0;
+        let target_degree = 0;
+        window.onresize = function(event) {
+            vw = document.documentElement.clientWidth;
+            vh = document.documentElement.clientHeight;
+        }
+
+        function setup() {
+            angleMode(DEGREES);
+        }
+
+        function draw() {
+            createCanvas(vw, vh)
+            background(0, 0, 0, 0);
+            fill(color)
+            noStroke()
+            //텍스트 초기 위치//
+            x1 = (x + (z + 1) % 2 * 0.5) * vw
+            y1 = (y + Math.round(z * 0.25) * 0.5) * vh
+            if (mouseX > x1 - 100 && mouseX < x1 + 100 && mouseY > y1 - 100 && mouseY < y1 + 100) {
+                tar_x1 = x1
+                tar_y1 = y1
+                z = (z + Math.ceil(Math.random() * 3)) % 4;
+                x = Math.random() * 0.5 - 0.00000001;
+                y = Math.random() * 0.5 - 0.00000001;
+                target_degree = 180 * Math.round(Math.random());
+            }
+            //이지잉//
+            tar_x1 = tar_x1 + (x1 - tar_x1) * easing
+            tar_y1 = tar_y1 + (y1 - tar_y1) * easing
+            degree = degree + (target_degree - degree) * 0.15
+            //텍스트//
+            textWidth(32)
+            textSize(14)
+            textStyle(BOLD);
+            textAlign(CENTER);
+            translate(tar_x1, tar_y1)
+            rotate(degree)
+            text(texts, 0, 0);
+            textSize(14)
+            text(scoretext + Math.round(score * 0.1), 0, 18)
+            if (mouseIsPressed == true && mouseX > x1 - 140 && mouseX < x1 + 140 && mouseY > y1 - 140 && mouseY < y1 + 140) {
+                score = score + 1
+            }
+
+        }
+
+    </script>
+    <section>
+        <a href="./FAQ"> 자주 물을 질문들 Frequently Asked Questions</a>
+    </section>
+    <div class="content">
+        <p>
+            <a href="./fio%20interview.pdf" target="blank" id="sentence"><sup class="invisible sup">0</sup>우리는 어디서 왔고, 무엇이며, 어디로 가는가<sup>0</sup></a>
+            <br>
+            <sub class="speaker">-Paul Gauguin, ünlü ressam-</sub>
+            <br>
+            <a class='invisible'>padding</a>
+        </p>
+    </div>
+    <footer>
+        <br>
+        <a class="sentence" href="#footer" style="font-size: 1.2em; line-height: 1em;">↓</a><br>
+        하고픈 말은 | <a href="https://www.instagram.com/fio_press/" target="blank" name="footer"> @fio_press </a>| <a href="mailto:iof0081@gmail.com">iof0081@gmail.com </a>| <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjSoSc63isRv5Y1dBknZl_sufzC2PIGKDX6E-P-LOaBETOGQ/viewform?usp=sf_link">구글설문지 </a>| 로 전달해줘.
+    </footer>
+    <div class="size"></div>
+
+    <div class="pad" onmousedown="unhide()" onmouseup="hides()" ontouchstart="unhide()" ontouchend="hide()"> </div>
+    <script>
+        var hide = document.querySelector('body');
+
+        function unhide() {
+
+            if (vw > 431) {
+                if (vw / vh > 0.68) {
+                    hide.style.cssText = "background-image: url('sen5.png'); background-position: center; background-size: cover;"
+                } else {
+                    hide.style.cssText = "background-image: url('sen5.png'); background-position: 60% 10%; background-size: cover;"
+
+                }
+
+            } else {
+                hide.style.cssText = "background-image: ; background-position: ; background-size: ;"
+
+            }
+        }
+
+        function hides() {
+            hide.style.cssText = "background-image: ; background-position: ; background-size: ;"
+        }
+
+    </script>
+</body>
+
+</html>
