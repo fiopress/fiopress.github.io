@@ -1,278 +1,1701 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <head>
+
+
     <meta charset="UTF-8">
     <link rel="favicon" href="./favicon.ico" type="image/x-icon" sizes="16x16">
+
     <title>fio cabinet</title>
+
     <meta name="description" content="fio press에서 운영하는 전시 공간입니다.">
     <meta name="distrubution" content="fio press">
     <meta name="location" content="seoul">
-    <meta name="keywords" content="fio, 프로젝트룸, 이거뭐냐">
+    <meta name="keywords" content="fio, fio press, 에프아이오">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
-    <style>
-        main {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
 
+    <meta itemprop="name" content="fio press">
+    <meta itemprop="description" content="fio press에서 운영하는 전시 공간입니다.">
+    <meta itemprop="image" content="./logo2.png">
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9HKPE9LPJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
         }
+        gtag('js', new Date());
+
+        gtag('config', 'G-H9HKPE9LPJ');
+
+    </script>
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
         body {
-            /*            색상 변수*/
-            --bgcolor: #0075ff;
-            --linkcolor: #89fd7f;
-            background-color: var(--bgcolor);
+            --bg: #E0E0E0;
+            --c0pr: #61bdff;
+            --c0scnd: #bae2ff;
+
+            --c1pr: #b8fc38;
+            --c1scnd: #b2baa7;
+
+            --c2pr: #ff6053;
+            --c2scnd: #e3c3a8;
+
+            --c3pr: #766bff;
+            --c3scnd: #b2baa7;
+
+
+            --box: #929786;
+            --deepbox: #7F8375;
+            --line: #090909;
+            --text: #090909;
+            --sctext: #323330;
+            background-color: var(--bg);
             cursor: grab;
-            height: 100vh;
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
 
         }
+
+        .handleLine {
+            border-left: 1.5px solid var(--text);
+            position: absolute;
+            left: 50%;
+            right: 50%;
+            top: calc(100vw/390*-17);
+            bottom: 96.92%;
+
+        }
+
+        .handle {
+            box-sizing: border-box;
+
+            position: absolute;
+            left: 48%;
+            right: 48%;
+            height: calc(100vw/390*21);
+            top: calc(100vw/390*9);
+
+            bottom: 96.09%;
+
+            background: var(--c1pr);
+            border: 1.5px solid var(--line);
+            border-radius: 100px;
+        }
+
+        .handle::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 350%;
+            height: 250%;
+        }
+
+        #logo {
+            width: calc(100vw/390*88);
+            position: absolute;
+            left: calc(100vw/390*14);
+            top: calc(100vw/390*50);
+        }
+
+        .navs {
+            display: flex;
+            align-items: space-between;
+            position: absolute;
+            top: calc(100vw/390*54);
+            right: 2.4%;
+
+        }
+
+        .nav {
+            box-sizing: border-box;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 2px 10px 4px;
+            margin: 0px 0px 0px 5px;
+            border: 1px solid #000000;
+            border-radius: 1.5px;
+        }
+
+        .menu {
+            box-sizing: border-box;
+            position: absolute;
+            left: 5%;
+            right: 5%;
+            top: calc(100vw/390*95);
+            height: calc(100vw/390*52);
+            background: var(--box);
+            border: 1px solid var(--line);
+            border-radius: 1px 1px 0px 0px;
+
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+
+
+
+
+        .title {
+            box-sizing: border-box;
+
+            position: absolute;
+            left: 5%;
+            right: 5%;
+            top: calc(100vw/390*146);
+            height: calc(100vw/390*109);
+
+            background: var(--box);
+            border: 1px solid var(--line);
+        }
+
+        .titleIndex {
+            position: absolute;
+            left: 4.62%;
+            right: 4.62%;
+            top: calc(100vw/390*9);
+            height: calc(100vw/390*14);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 9px;
+            margin-bottom: -5px;
+
+            font-weight: 500;
+            font-size: calc(100vw/390*13);
+            line-height: 31px;
+            letter-spacing: 0.07em;
+
+            color: var(--)
+        }
+
+        .mainTitle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.05em;
+
+
+            position: absolute;
+            left: 5%;
+            right: 5%;
+            top: calc(100vw/390*44);
+
+            height: calc(100vw/390*30);
+            font-weight: 500;
+            font-size: calc(100vw/390*20);
+            line-height: calc(100vw/390*25);
+            color: var(--text)
+        }
+
 
         .content {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            left: 5%;
+            right: 5%;
+            top: calc(100vw/390*254);
+            height: calc(100vw/390*413);
+
+            background: var(--box);
+            border: 1px solid var(--line);
+        }
+
+
+
+        .faq {
+            box-sizing: border-box;
+
+            position: absolute;
+            left: 5%;
+            right: 50%;
+            top: calc(100vw/390*666);
+            height: calc(100vw/390*72);
+
+            background: var(--deepbox);
+            border: 1px solid var(--line);
+
+
+        }
+
+        .credit {
+            box-sizing: border-box;
+
+            position: absolute;
+            left: 49.74%;
+            right: 5%;
+            top: calc(100vw/390*666);
+            height: calc(100vw/390*72);
+            background: var(--deepbox);
+            border: 1px solid var(--line);
+
+
+        }
+
+
+        a:visited,
+        a:active,
+        a:focus,
+        a:hover,
+        a:link {
+            color: var(--text);
+        }
+
+
+        #creditContent {
+
+            position: absolute;
+            height: 72px;
+            left: 0%;
+            right: 0%;
+            top: calc(50% - 72px/2 - 0px);
+            font-weight: 500;
+            font-size: calc(100vw/390*11);
+            line-height: calc(100vw/390*16);
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            width: 350px;
+            letter-spacing: 0.02em;
+            color: var(--text);
         }
 
-        section {
-            font-size: 8pt;
+
+        #faqlink {
+
+            position: absolute;
+            height: 72px;
+            left: 0%;
+            right: 0%;
+            top: calc(50% - 72px/2 - 0px);
+            font-weight: 500;
+            font-size: calc(100vw/390*11);
+            line-height: calc(100vw/390*16);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: var(--text);
         }
 
-        a {
-            color: #ffffff;
-        }
 
-        /*링크*/
-        a:link,
-        a:visited {
-            color: #ffffff;
+
+        /*  #dash {
+            position: absolute;
+            height: 17px;
+            left: 0%;
+            right: 0%;
+            top: calc(50% - 17px/2 - 18px);
+        
+            font-style: normal;
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 17px;
+            display: flex;
+            justify-content: center;
+        
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: var(--text);
             text-decoration: none;
-            cursor: auto;
         }
+        
+        #mail {
+            position: absolute;
+            height: 17px;
+            left: 0%;
+            right: 0%;
+            top: calc(50% - 15px/2 + 9px);
+            text-decoration: none;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 17px;
+            display: flex;
+            justify-content: center;
+        
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: var(--text);
+        
+        
+        } */
 
-       
-        a:hover {
-            color: var(--linkcolor);
-        }
 
-        a:link:active,
-        a:visited:active {
-            color: #ffffff;
-        }
-
-        p {
-            cursor: default;
+        .shelvesline {
             width: 100%;
-            font-size: 12pt;
-            line-height: 14pt;
+            height: 1px;
+            background: var(--text);
+        }
+
+        .ein {
+            position: absolute;
+            top: 0%;
+        }
+
+        .zwei {
+            position: absolute;
+            top: 100%;
+        }
+
+        .one {
+            position: absolute;
+            width: 80%;
+            left: 10%;
+
+            height: 5.25px;
+            top: calc(100vw/390*105);
+        }
+
+        .two {
+            position: absolute;
+            width: 80%;
+            height: 5.25px;
+            left: 10%;
+            top: calc(100vw/390*197);
+
+        }
+
+        .three {
+            position: absolute;
+            width: 80%;
+            height: 5.25px;
+            left: 10%;
+            top: calc(100vw/390*289);
+
+        }
+
+        .four {
+            position: absolute;
+            width: 80%;
+            height: 5.25px;
+            left: 10%;
+            top: calc(100vw/390*381);
+
         }
 
 
 
+        .contentBox {
+            box-sizing: border-box;
+            position: absolute;
+            background: var(--c1pr);
+            border: 1px solid #000000;
+            border-radius: 2px;
+            font-size: calc(100vw/390*17.5);
+            line-height: calc(100vw/390*21);
+            text-underline-position: under;
 
-        /*주석*/
-        sup {
-            font-size: 9pt;
-            margin: 1.4pt;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
         }
 
-        .invisible {
+        .new {
+            z-index: 1;
+            box-sizing: border-box;
+            font-size: calc(100vw/390*15);
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 5px 6px 5px;
+
+            position: absolute;
+            left: calc(100vw/390*34);
+            top: calc(100vw/390*18);
+
+            background: #ffff18;
+            border: 1px solid #000000;
+            border-radius: 2px;
+        }
+
+
+        .r1 {
+
+            height: calc(100vw/390*62);
+            left: 12%;
+            right: 12%;
+            top: calc(100vw/390*31);
+        }
+
+
+
+        .r2 {
+            right: 51.8%;
+            height: calc(100vw/390*62);
+            left: 12%;
+            top: calc(100vw/390*123);
+            background: var(--c1scnd);
+
+        }
+
+
+        .r3 {
+            height: calc(100vw/390*62);
+            left: 51.8%;
+            right: 12%;
+
+            top: calc(100vw/390*123);
+            background: var(--c1scnd);
+        }
+
+        .r4 {
+            height: calc(100vw/390*62);
+            left: 12%;
+            right: 12%;
+
+            top: calc(100vw/390*215);
+            background: var(--c1scnd);
+        }
+
+        .r5 {
+            height: calc(100vw/390*62);
+            left: 12%;
+            right: 12%;
+
+            top: calc(100vw/390*306);
+            background: var(--c1scnd);
+
+        }
+
+
+
+        /*  sup {
+            font-size: calc(100vw/390*13);
+            margin-top: calc(100vw/390*-14);
+            margin-left: calc(100vw/390*0.3);
+        }
+        
+        .l-arrow {
+            position: absolute;
+            width: calc(100vw/390*32);
+            left: 86.15%;
+            left: 5.64%;
+            top: calc(100vw/390*185);
+        }
+        
+        .r-arrow {
+        
+            position: absolute;
+            width: calc(100vw/390*32);
+            left: 86.15%;
+            right: 5.64%;
+            top: calc(100vw/390*185);
+        
+        } */
+
+
+        .mn {
+            font-size: calc(100vw/390*18);
+
+            border-radius: 2px;
+            margin: 0px calc(100vw/390*13);
+            ;
+            padding: 0px calc(100vw/390*6) calc(100vw/390*3) calc(100vw/390*6);
+            color: var(--sctext);
+
+        }
+
+        .ep1 {
+            background: var(--c1pr);
+            color: var(--text);
+            border: 1px solid #2a2a2a;
+        }
+
+        .ground {
+            z-index: -999;
+            left: 0;
+            position: absolute;
+            width: 100vw;
+            height: calc(100vw/390*131);
+            top: calc(100vw/390*644);
+            background: #373B2E;
+        }
+
+        .molding {
+            z-index: -999;
+
+            left: 0px;
+            width: 100vw;
+            height: calc(100vw/390*16);
+            position: absolute;
+            top: calc(100vw/390*629);
+            border-top: 1px solid #000000;
+
+        }
+
+
+
+        .mnBra {
+            position: absolute;
+            height: calc(100vw/390*92);
+            ;
+            left: 7.4%;
+            top: calc(100vw/390*95);
+            font-weight: 300;
+            font-size: calc(100vw/390*30);
+            text-align: center;
+            color: var(--sctext)
+        }
+
+        .mnKit {
+            position: absolute;
+            height: calc(100vw/390*92);
+            ;
+            right: 7.4%;
+            top: calc(100vw/390*95);
+            font-weight: 300;
+            font-size: calc(100vw/390*30);
+            text-align: center;
+
+            color: var(--sctext)
+        }
+
+
+
+        .titleBra {
+            position: absolute;
+            height: calc(100vw/390*92);
+            ;
+            left: 5.1%;
+            top: calc(100vw/390*130);
+            font-weight: 100;
+            font-size: calc(100vw/390*82);
+            -webkit-text-stroke: 1px var(--box);
+            text-align: center;
+            color: var(--sctext)
+        }
+
+        .titleKit {
+            position: absolute;
+            height: calc(100vw/390*92);
+            ;
+            right: 5.1%;
+            top: calc(100vw/390*130);
+            font-weight: 100;
+            font-size: calc(100vw/390*82);
+            -webkit-text-stroke: 1px var(--box);
+            text-align: center;
+            color: var(--sctext)
+        }
+
+
+        .contentBra {
+            position: absolute;
+            width: calc(100vw/390*1.5);
+            left: calc(100vw/390*38);
+            top: calc(100vw/390*280);
+            height: calc(100vw/390*370);
+            background: var(--sctext);
+        }
+
+        .contentKit {
+            position: absolute;
+            width: calc(100vw/390*1.5);
+            right: calc(100vw/390*38);
+            top: calc(100vw/390*280);
+            height: calc(100vw/390*370);
+            background: var(--sctext);
+        }
+
+
+
+        .cabinetBg {
+            z-index: -999;
+            position: absolute;
+            width: calc(100vw/390*368);
+            height: calc(100vw/390*659);
+            top: calc(100vw/390*86);
+            left: calc(100vw/390*11);
+            background: #272925;
+            border: 1px solid var(--sctext);
+        }
+
+
+
+        .shutterImg {
+            z-index: 999;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            object-position: 50% 0%;
+            position: absolute;
+            top: -100vh;
+
+        }
+
+        /* .animation {
+            animation: shutter-ani 3.5s ease-in-out;
+        
+        } */
+
+
+
+
+
+        @keyframes shutter-ani {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            30% {
+                transform: translate(0, 100vh);
+            }
+
+            70% {
+                transform: translate(0, 100vh);
+
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+
+        }
+
+
+        .c0,
+        .c2,
+        .c3 {
             visibility: hidden;
         }
 
-        .speaker {
-            color: var(--linkcolor)
+        .r1.c0 {
+            background: var(--c0pr)
         }
 
-        @media (max-width: 431px) {
-            p {
-                margin-top: 1em;
+        .r1.c2 {
+            background: var(--c2pr)
+        }
+
+
+        .r1.c3 {
+            background: var(--box);
+            border: 1px dashed #393b36;
+        }
+
+        .eng .mainTitle {
+            font-size: calc(100vw/390*17);
+            line-height: calc(100vw/390*23);
+        }
+
+        .eng .contentBox {
+            letter-spacing: 0.04em;
+
+        }
+
+
+        .eng {
+            display: none;
+        }
+
+
+        .concent,
+        .towel,
+        .needle,
+        .theater,
+        .welcome,
+        .flower {
+
+            width: 0px;
+            height: 0px;
+        }
+
+
+
+
+        @media (min-width: 450px) {
+
+            .handleLine {
+                top: -15px;
+                height: 30px;
+
             }
 
-            .pad {
-                visibility: hidden;
-            }
+            .handle {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 20px;
+                height: 30px;
+                top: 9px;
 
-        }
-
-        @media (max-width: 800px) {
-
-        }
-
-        footer {
-            margin-top: -1em;
-            font-size: 8pt;
-            color: white !important;
-            position: absolute;
-            display: inline-block;
-            bottom: -1.2em;
-            left: 10px;
-            transform: translate(0%, 0%);
-        }
-
-        footer a {
-            color: white !important;
-        }
-
-        footer a:hover {
-            color: var(--linkcolor) !important;
-        }
-
-        .pad {
-            position: absolute;
-            top: 60%;
-            left: 70%;
-            width: 28%;
-            height: 30%;
-            -ms-user-select: none;
-            -moz-user-select: -moz-none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            user-select: none;
-        }
-
-        #sentence {
-            animation: blink-effect 10s step-end infinite;
-
-        }
-
-        @keyframes blink-effect {
-            
-            
-            
-            
-            35% {
-                color: var(--linkcolor)                
-            }
-            39%{
-                color: white;   
 
             }
-            44% {
-                color: var(--linkcolor)                
+
+
+            #logo {
+                width: 102px;
+                position: absolute;
+                left: calc(50% - 102px/2 - 133px);
+                top: calc(50% - 34.93px/2 - 345.5px);
             }
-          48%{
-                color: white;   
+
+            .cabinetBg {
+                z-index: -999;
+                position: absolute;
+                width: 370px;
+                height: 657px;
+                left: calc(50% - 370px/2);
+                top: calc(50% - 657px/2 + 8.5px);
+            }
+
+            .menu {
+                box-sizing: border-box;
+                position: absolute;
+                width: 356px;
+                height: 52px;
+                left: calc(50% - 356px/2);
+                top: calc(50% - 52px/2 - 286px);
 
             }
-           
+
+
+            .mainTitle {
+                letter-spacing: 0.05em;
+
+                top: 44px;
+
+                height: 30px;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 25px;
+            }
+
+            .eng .mainTitle {
+                font-size: 17px;
+                line-height: 23px;
+            }
+
+            .titleIndex {
+
+                top: 9px;
+                height: 14px;
+
+                font-size: 13px;
+
+
+                color: var(--)
+            }
+
+
+
+
+            .navs {
+                width: 48px;
+                height: 25px;
+                left: calc(50% - 48px/2 + 162px);
+                top: calc(50% - 25px/2 - 339.5px);
+            }
+
+            .title {
+                width: 356px;
+                height: 109px;
+                left: calc(50% - 356px/2);
+                top: calc(50% - 109px/2 - 206.5px);
+            }
+
+            .content {
+                width: 354px;
+                height: 413px;
+                left: calc(50% - 356px/2);
+                top: calc(50% - 413px/2 + 53.5px);
+            }
+
+            .faq {
+                width: 179px;
+                height: 72px;
+                left: calc(50% - 178px/2 - 89px);
+                top: calc(50% - 72px/2 + 295px);
+            }
+
+            .credit {
+                width: 180px;
+                height: 72px;
+                left: calc(50% - 179px/2 + 87.5px);
+                top: calc(50% - 72px/2 + 295px);
+            }
+
+
+
+            #creditContent {
+                font-size: 11px;
+                line-height: 16px;
+
+            }
+
+
+            #faqlink {
+                font-size: 11px;
+                line-height: 16px;
+            }
+
+
+            .one {
+
+                top: 105px;
+            }
+
+            .two {
+                top: 197px;
+
+
+            }
+
+            .three {
+
+                top: 289px;
+
+            }
+
+            .four {
+
+                top: 381px;
+
+            }
+
+
+
+
+            .contentBox {
+                font-size: 17.5px;
+                line-height: 21px;
+
+            }
+
+            .new {
+                font-size: 15px;
+                left: 34px;
+                top: 18px;
+            }
+
+
+            .r1 {
+                height: 62px;
+                top: 31px;
+            }
+
+
+
+            .r2 {
+                height: 62px;
+                top: 123px;
+
+            }
+
+
+            .r3 {
+                height: 62px;
+                top: 123px;
+            }
+
+            .r4 {
+                height: 62px;
+
+
+                top: 215px;
+            }
+
+            .r5 {
+                height: 62px;
+                top: 306px;
+
+            }
+
+            .mn {
+                font-size: 18px;
+                margin: 0px 13px;
+                padding: 0px 6px 3px 6px;
+            }
+
+            .ground {
+                height: calc(50% + 131px/2 - 302.5px);
+                top: calc(50% - 131px/2 + 302.5px);
+                background: #373B2E;
+            }
+
+            .molding {
+                left: 0%;
+                right: 0%;
+                top: calc(50% - 16px/2 + 230px);
+            }
+
+
+
+            .mnBra {
+                width: 34px;
+                left: calc(50% - 34px/2 - 161.5px);
+                top: calc(50% - 30px/2 - 296px);
+
+
+                font-size: 30px;
+
+            }
+
+            .mnKit {
+                width: 34px;
+                left: calc(50% - 34px/2 + 161.5px);
+                top: calc(50% - 30px/2 - 296px);
+                font-size: 30px;
+
+
+            }
+
+
+
+            .titleBra {
+                width: 37px;
+                font-size: 82px;
+                left: calc(50% - 37px/2 - 161.5px);
+                top: calc(50% - 92px/2 - 230px);
+
+            }
+
+            .titleKit {
+                width: 37px;
+                left: calc(50% - 37px/2 + 161.5px);
+                top: calc(50% - 92px/2 - 230px);
+
+
+                font-size: 82px;
+            }
+
+
+            .contentBra {
+                height: 370px;
+                width: 1.5px;
+                left: calc(50% - 1px/2 - 158.5px);
+                top: calc(50% - 370px/2 + 57px);
+                background: var(--sctext);
+            }
+
+            .contentKit {
+                height: 370px;
+                width: 1.5px;
+                left: calc(50% - 1px/2 + 156.5px);
+                top: calc(50% - 370px/2 + 57px);
+            }
+
+
+            .shutterImg {
+                z-index: 999;
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
+                object-position: 50% 50%;
+                position: absolute;
+                top: -100vh;
+
+            }
+
+            .concent {
+                position: absolute;
+                width: 28.2px;
+                height: 47px;
+                left: calc(50% - 28.2px/2 + 260px);
+                top: calc(50% - 47px/2 + 160px);
+            }
+
+            .theater {
+                position: absolute;
+                width: 294.4px;
+                height: 411.2px;
+                left: calc(50% - 294.4px/2 - 725.8px);
+                top: calc(50% - 411.2px/2 + 102.6px);
+
+
+            }
+
+            .flower {
+                position: absolute;
+                width: 124px;
+                height: 711.6px;
+                left: calc(50% - 124px/2 + 722px);
+                top: calc(50% - 711.6px/2 - 48.2px);
+            }
+
+            .towel {
+                position: absolute;
+                width: 142.4px;
+                height: 293.6px;
+                left: calc(50% - 142.4px/2 - 1590.8px);
+                top: calc(50% - 293.6px/2 + 160.8px);
+
+            }
+
+            .needle {
+                position: absolute;
+                width: 213.2px;
+                height: 433.6px;
+                left: calc(50% - 213.2px/2 - 1159.4px);
+                top: calc(50% - 433.6px/2 + 90.8px);
+
+            }
+
+            .welcome {
+                position: absolute;
+                width: 468px;
+                height: 578.4px;
+                left: calc(50% - 468px/2 + 1260px);
+                top: calc(50% - 578.4px/2 + 19.2px);
+            }
+
+
         }
 
     </style>
+
+
 </head>
 
-<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
-    <script>
-        var vw = document.documentElement.clientWidth;
-        var vh = document.documentElement.clientHeight;
-        let x = Math.random() * 0.5 - 0.00000001;
-        let y = Math.random() * 0.5 - 0.00000001;
-        let z = Math.ceil(Math.random() * 4);
-        let color = '#ffffff';
-        let texts = '튀르키예\n아이스크림'
-        let x1 = 0;
-        let y1 = 0;
-        let tar_x1 = 0;
-        let tar_y1 = 0;
-        let easing = 0.1;
-        let colorset = ['#ffd800', '#6dffff', '#ff93d1', '#ffffff', '#aeff3f']
-        var score = 0;
-        var scoretext = '\n🍦'
-        let degree = 0;
-        let target_degree = 0;
-        window.onresize = function(event) {
-            vw = document.documentElement.clientWidth;
-            vh = document.documentElement.clientHeight;
-        }
 
-        function setup() {
-            angleMode(DEGREES);
-        }
 
-        function draw() {
-            createCanvas(vw, vh)
-            background(0, 0, 0, 0);
-            fill(color)
-            noStroke()
-            //텍스트 초기 위치//
-            x1 = (x + (z + 1) % 2 * 0.5) * vw
-            y1 = (y + Math.round(z * 0.25) * 0.5) * vh
-            if (mouseX > x1 - 100 && mouseX < x1 + 100 && mouseY > y1 - 100 && mouseY < y1 + 100) {
-                tar_x1 = x1
-                tar_y1 = y1
-                z = (z + Math.ceil(Math.random() * 3)) % 4;
-                x = Math.random() * 0.5 - 0.00000001;
-                y = Math.random() * 0.5 - 0.00000001;
-                target_degree = 180 * Math.round(Math.random());
-            }
-            //이지잉//
-            tar_x1 = tar_x1 + (x1 - tar_x1) * easing
-            tar_y1 = tar_y1 + (y1 - tar_y1) * easing
-            degree = degree + (target_degree - degree) * 0.15
-            //텍스트//
-            textWidth(32)
-            textSize(14)
-            textStyle(BOLD);
-            textAlign(CENTER);
-            translate(tar_x1, tar_y1)
-            rotate(degree)
-            text(texts, 0, 0);
-            textSize(14)
-            text(scoretext + Math.round(score * 0.1), 0, 18)
-            if (mouseIsPressed == true && mouseX > x1 - 140 && mouseX < x1 + 140 && mouseY > y1 - 140 && mouseY < y1 + 140) {
-                score = score + 1
-            }
 
-        }
 
-    </script>
-    <section>
-        <a href="./FAQ"> 자주 물을 질문들 Frequently Asked Questions</a>
-    </section>
-    <div class="content">
-        <p>
-            <a href="./fio%20interview.pdf" target="blank" id="sentence"><sup class="invisible sup">0</sup>우리는 어디서 왔고, 무엇이며, 어디로 가는가<sup>0</sup></a>
-            <br>
-            <sub class="speaker">-Paul Gauguin, ünlü ressam-</sub>
-            <br>
-            <a class='invisible'>padding</a>
-        </p>
+<body>
+
+
+
+
+    <div class="handleLine"></div>
+    <div class="handle"></div>
+
+
+    <div class="navs">
+        <span class="nav korTranslate eng"> Kor</span>
+        <span class="nav engTranslate kor"> Eng</span>
+
+
     </div>
-    <footer>
-        <br>
-        <a class="sentence" href="#footer" style="font-size: 1.2em; line-height: 1em;">↓</a><br>
-        하고픈 말은 | <a href="https://www.instagram.com/fio_press/" target="blank" name="footer"> @fio_press </a>| <a href="mailto:iof0081@gmail.com">iof0081@gmail.com </a>| <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjSoSc63isRv5Y1dBknZl_sufzC2PIGKDX6E-P-LOaBETOGQ/viewform?usp=sf_link">구글설문지 </a>| 로 전달해줘.
-    </footer>
-    <div class="size"></div>
 
-    <div class="pad" onmousedown="unhide()" onmouseup="hides()" ontouchstart="unhide()" ontouchend="hide()"> </div>
+    <div class="cabinet">
+
+
+        <img src="./logo3.png" alt="fio 로고" id="logo">
+        <div class="menu">
+            <span class="mn ep0">0</span>
+            <span class="mn ep1">1</span>
+            <span class="mn ep2">2</span>
+            <span class="mn ep3">3</span>
+
+
+
+        </div>
+
+
+
+        <div class="title kor">
+
+            <!-- ==== -->
+
+            <span class="c0 titleIndex">
+                여는 문장
+            </span>
+            <span class="c0 mainTitle">
+                우리는 어디서 왔고,<br>무엇이며, 어디로 가는가?
+            </span>
+
+
+            <span class="c1 titleIndex">
+                첫 번째 문장
+            </span>
+            <span class="c1 mainTitle">
+
+                웹 전시는 어쩜 <br>이리도 만만한가?
+            </span>
+            <!-- ==== -->
+
+
+
+
+            <span class="c2 titleIndex">
+                두 번째 문장
+            </span>
+            <span class="c2 mainTitle">
+                디자인 졸업 전시<br>뭐가 이렇게 문제가 많은가?
+            </span>
+
+
+
+
+            <!-- ==== -->
+
+            <span class="c3 titleIndex">
+                세 번째 문장
+            </span>
+            <span class="c3 mainTitle">
+                베일에 감추어짐<br>
+
+            </span>
+
+
+
+        </div>
+
+        <div class="title eng">
+
+            <!-- ==== -->
+
+
+            <span class="c0 titleIndex">
+                Opening Sentence
+            </span>
+            <span class="c0 mainTitle">
+                Where Do We Come From? <br> What Are We? Where Are We Going?
+            </span>
+
+
+            <!-- ==== -->
+
+
+
+            <span class="c1 titleIndex">
+                First Sentence
+            </span>
+            <span class="c1 mainTitle">
+                Why is the web exhibition<br>so easy-peasy?
+
+            </span>
+
+
+
+            <span class="c2 titleIndex">
+                Second Sentence
+            </span>
+            <span class="c2 mainTitle">
+
+
+                What's wrong with <br>design graduate show?
+
+            </span>
+
+
+
+
+            <span class="c3 titleIndex">
+                Third Sentence
+            </span>
+            <span class="c3 mainTitle">
+                Hidden in a veil.<br>
+
+            </span>
+
+
+
+
+        </div>
+
+
+
+
+        <div class="content kor">
+
+
+            <div class="contentBox r1 c0" onclick="window.open('https://fiopress.github.io/fio%20interview.pdf');">
+                fio 멤버 인터뷰
+            </div>
+
+            <div class="contentBox r2 c0" onclick="window.open('https://fiopress.github.io/1');">
+                (구) 홈페이지
+            </div>
+
+
+            <div class="contentBox r3 c0" onclick="window.open('https://fiopress.github.io/1');">
+                튀르키예<br>아이스크림
+            </div>
+
+
+            <!-- ==== -->
+
+            <div class="new contentBox c1 ">새 소식!</div>
+
+
+
+
+            <div class="contentBox r1 c1" onclick="window.open('https://fiopress.github.io/fio_aftertalk.pdf');">
+                <u>애프터토크 담화집</u>
+            </div>
+            <div class="contentBox r2 c1" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdBNvu6PaxaGMG2uCkpoG2_AfShv93TwzoFQdRfsov5NbgQuQ/viewform?usp=send_form');">
+                티셔츠 구매
+            </div>
+
+            <div class="contentBox r3 c1" onclick="window.open('https://fiopress.github.io/fake');">
+                애프터토크<br>신청
+            </div>
+
+            <div class="contentBox r4 c1" onclick="window.open('https://defiant-bit-d0d.notion.site/2c9b0e19b39447a2beb3252c4d0989c4');">
+                《STANDUP!》 후일담
+            </div>
+            <div class="contentBox r5 c1" onclick="window.open('https://fiopress.github.io/2');">
+                전시입장로
+            </div>
+
+
+            <!-- ==== -->
+
+
+            <div class="contentBox r1 c2" onclick="window.open('https://pbs.twimg.com/media/D50XpAnUcAUGWBg.jpg');">
+                졸업 전시 개선안 HOW TO
+            </div>
+
+
+            <div class="contentBox r1 c3" onclick="window.open('https://image.newdaily.co.kr/site/data/img/2010/03/04/2010030400056_0.png');">
+                <u>???</u>
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="shelves one">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+            <div class="shelves two">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+            <div class="shelves three">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+            <div class="shelves four">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+
+        </div>
+
+
+        <div class="content eng">
+
+            <div class="contentBox r1 c0 eng" onclick="window.open('https://fiopress.github.io/fio%20interview.pdf');">
+                fio Member interview
+            </div>
+
+
+            <div class="contentBox r2 c0" onclick="window.open('https://fiopress.github.io/1');">
+                (Old) Homepage
+            </div>
+
+
+            <div class="contentBox r3 c0" onclick="window.open('https://fiopress.github.io/1');">
+                Turkish<br>ice cream
+            </div>
+
+
+
+            <!-- ==== -->
+
+            <div class="new contentBox c1 ">New!</div>
+
+
+            <div class="contentBox r1 c1" onclick="window.open('https://fiopress.github.io/fio_aftertalk.pdf');">
+                <u>Aftertalk Talkbook</u>
+            </div>
+            <div class="contentBox r2 c1" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdBNvu6PaxaGMG2uCkpoG2_AfShv93TwzoFQdRfsov5NbgQuQ/viewform?usp=send_form');">
+                T-shirt Shop
+
+            </div>
+
+            <div class="contentBox r3 c1" onclick="window.open('https://fiopress.github.io/fake');">
+                Aftertalk<br>application
+            </div>
+
+            <div class="contentBox r4 c1" onclick="window.open('https://defiant-bit-d0d.notion.site/2c9b0e19b39447a2beb3252c4d0989c4');">
+                《STANDUP!》 BTS
+            </div>
+            <div class="contentBox r5 c1" onclick="window.open('https://fiopress.github.io/2');">
+                Exhibition Entrance
+            </div>
+
+
+            <!-- ==== -->
+
+
+            <div class="contentBox r1 c2" onclick="window.open('https://pbs.twimg.com/media/D50XpAnUcAUGWBg.jpg');">
+
+                Graduate show<br>improvement plan: HOW TO
+            </div>
+
+
+            <div class="contentBox r1 c3" onclick="window.open('https://image.newdaily.co.kr/site/data/img/2010/03/04/2010030400056_0.png');">
+                <u>???</u>
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="shelves one">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+            <div class="shelves two">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+            <div class="shelves three">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+            <div class="shelves four">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+
+        </div>
+
+
+
+
+
+        <div class="contentBg"></div>
+        <div class="faq" onclick="window.open('https://fiopress.github.io/FAQ');"><a href="https://fiopress.github.io/FAQ" id="faqlink" target="_blank">자주 물을 질문들↗<br> Frequently Asked Questions </a>
+        </div>
+        <div class="credit" onclick="window.open('http://www.instagram.com/fio_press');"><span id="creditContent"><a href="http://www.instagram.com/fio_press" target="_blank">Designed by fio in seoul.<br>
+                    All right, thank you.</a></span> </div>
+
+
+
+
+
+
+
+    </div>
+
+    <div class="ground"></div>
+    <div class="molding"></div>
+    <div class="cabinetBg">
+
+    </div>
+
+    <div class="mnBra">[</div>
+    <div class="mnKit">]</div>
+
+    <div class="titleBra">(</div>
+    <div class="titleKit">)</div>
+
+    <div class="contentBra"></div>
+    <div class="contentKit"></div>
+
+
+    <img src="./love.png" alt="사랑합니다." class="shutterImg">
+    <!--
+    <img src="./concent.png" alt="콘센트" class="concent">
+    <img src="./towel.png" alt="타월" class="towel">
+    <img src="./needle.png" alt="니들" class="needle">
+    <img src="./flower.png" alt="플라워" class="flower">
+    <img src="./theater.png" alt="극장" class="theater">
+    <img src="./welcome.png" alt="티비" class="welcome">
+-->
+
+
+
+
     <script>
-        var hide = document.querySelector('body');
+        var index = 1;
+        var indexZero = document.querySelector(".ep0");
+        var indexOne = document.querySelector(".ep1");
+        var indexTwo = document.querySelector(".ep2");
+        var indexThree = document.querySelector(".ep3");
 
-        function unhide() {
+        var columnZero = document.getElementsByClassName("c0");
+        var columnOne = document.getElementsByClassName("c1");
+        var columnTwo = document.getElementsByClassName("c2");
+        var columnThree = document.getElementsByClassName("c3");
 
-            if (vw > 431) {
-                if (vw / vh > 0.68) {
-                    hide.style.cssText = "background-image: url('sen5.png'); background-position: center; background-size: cover;"
-                } else {
-                    hide.style.cssText = "background-image: url('sen5.png'); background-position: 60% 10%; background-size: cover;"
+        var engTranslate = document.querySelector(".engTranslate");
+        var korTranslate = document.querySelector(".korTranslate");
 
-                }
+        var eng = document.getElementsByClassName("eng");
+        var kor = document.getElementsByClassName("kor");
 
-            } else {
-                hide.style.cssText = "background-image: ; background-position: ; background-size: ;"
 
+        const handle = document.querySelector(".handle");
+        const shutter = document.querySelector(".shutterImg")
+
+
+        console.log(columnOne.length)
+
+
+
+        engTranslate.addEventListener('click', () => {
+
+            for (var i = 0; i < kor.length; i++) {
+                kor[i].style.display = "none";
             }
+
+            for (var i = 0; i < eng.length; i++) {
+                eng[i].style.display = "flex";
+            }
+
+        });
+
+        korTranslate.addEventListener('click', () => {
+
+            for (var i = 0; i < eng.length; i++) {
+                eng[i].style.display = "none";
+            }
+
+            for (var i = 0; i < kor.length; i++) {
+                kor[i].style.display = "flex";
+            }
+
+        });
+
+
+
+
+
+        indexZero.addEventListener('click', () => {
+
+            handle.style.background = "var(--c0pr)"
+            document.querySelector(".ep0").style.background = "var(--c0pr)"
+            document.querySelector(".ep0").style.color = "var(--text)"
+            document.querySelector(".ep0").style.border = "1px solid #2a2a2a"
+
+
+            document.querySelector(".ep1").style.background = "none "
+            document.querySelector(".ep1").style.color = "var(--sctext)"
+            document.querySelector(".ep1").style.border = "0px "
+
+            document.querySelector(".ep2").style.background = "none "
+            document.querySelector(".ep2").style.color = "var(--sctext)"
+            document.querySelector(".ep2").style.border = "0px "
+
+            document.querySelector(".ep3").style.background = "none "
+            document.querySelector(".ep3").style.color = "var(--sctext)"
+            document.querySelector(".ep3").style.border = "0px "
+
+
+
+            for (var i = 0; i < columnZero.length; i++) {
+                columnZero[i].style.visibility = "visible";
+            }
+
+            for (var i = 0; i < columnOne.length; i++) {
+                columnOne[i].style.visibility = "hidden";
+            }
+
+            for (var i = 0; i < columnTwo.length; i++) {
+                columnTwo[i].style.visibility = "hidden";
+            }
+
+            for (var i = 0; i < columnThree.length; i++) {
+                columnThree[i].style.visibility = "hidden";
+            }
+
+
+
+        });
+
+        indexOne.addEventListener('click', () => {
+
+            handle.style.background = "var(--c1pr)"
+
+            document.querySelector(".ep0").style.background = "none"
+            document.querySelector(".ep0").style.color = "var(--sctext)"
+            document.querySelector(".ep0").style.border = "0px"
+
+
+            document.querySelector(".ep1").style.background = "var(--c1pr)"
+            document.querySelector(".ep1").style.color = "var(--text)"
+            document.querySelector(".ep1").style.border = "1px solid #2a2a2a "
+
+            document.querySelector(".ep2").style.background = "none "
+            document.querySelector(".ep2").style.color = "var(--sctext)"
+            document.querySelector(".ep2").style.border = "0px "
+
+            document.querySelector(".ep3").style.background = "none "
+            document.querySelector(".ep3").style.color = "var(--sctext)"
+            document.querySelector(".ep3").style.border = "0px "
+
+
+
+            for (var i = 0; i < columnZero.length; i++) {
+                columnZero[i].style.visibility = "hidden";
+            }
+
+            for (var i = 0; i < columnOne.length; i++) {
+                columnOne[i].style.visibility = "visible";
+            }
+
+            for (var i = 0; i < columnTwo.length; i++) {
+                columnTwo[i].style.visibility = "hidden";
+            }
+
+            for (var i = 0; i < columnThree.length; i++) {
+                columnThree[i].style.visibility = "hidden";
+            }
+
+        });
+
+        indexTwo.addEventListener('click', () => {
+            handle.style.background = "var(--c2pr)"
+
+            document.querySelector(".ep0").style.background = "none"
+            document.querySelector(".ep0").style.color = "var(--sctext)"
+            document.querySelector(".ep0").style.border = "0px"
+
+
+            document.querySelector(".ep1").style.background = "none"
+            document.querySelector(".ep1").style.color = "var(--sctext)"
+            document.querySelector(".ep1").style.border = "0px"
+
+            document.querySelector(".ep2").style.background = "var(--c2pr)"
+            document.querySelector(".ep2").style.color = "var(--text)"
+            document.querySelector(".ep2").style.border = "1px solid #2a2a2a "
+
+            document.querySelector(".ep3").style.background = "none "
+            document.querySelector(".ep3").style.color = "var(--sctext)"
+            document.querySelector(".ep3").style.border = "0px "
+
+
+
+
+            for (var i = 0; i < columnZero.length; i++) {
+                columnZero[i].style.visibility = "hidden";
+            }
+
+            for (var i = 0; i < columnOne.length; i++) {
+                columnOne[i].style.visibility = "hidden";
+            }
+
+            for (var i = 0; i < columnTwo.length; i++) {
+                columnTwo[i].style.visibility = "visible";
+            }
+
+            for (var i = 0; i < columnThree.length; i++) {
+                columnThree[i].style.visibility = "hidden";
+            }
+        });
+
+        indexThree.addEventListener('click', () => {
+            handle.style.background = "var(--c3pr)"
+
+
+            document.querySelector(".ep0").style.background = "none"
+            document.querySelector(".ep0").style.color = "var(--sctext)"
+            document.querySelector(".ep0").style.border = "0px"
+
+
+            document.querySelector(".ep1").style.background = "none"
+            document.querySelector(".ep1").style.color = "var(--sctext)"
+            document.querySelector(".ep1").style.border = "0px"
+
+            document.querySelector(".ep2").style.background = "none"
+            document.querySelector(".ep2").style.color = "var(--sccext)"
+            document.querySelector(".ep2").style.border = "0px"
+
+            document.querySelector(".ep3").style.background = "var(--c3pr)"
+            document.querySelector(".ep3").style.color = "var(--text)"
+            document.querySelector(".ep3").style.border = "1px solid #2a2a2a "
+
+
+
+
+            for (var i = 0; i < columnZero.length; i++) {
+                columnZero[i].style.visibility = "hidden";
+            }
+
+            for (var i = 0; i < columnOne.length; i++) {
+                columnOne[i].style.visibility = "hidden";
+            }
+
+            for (var i = 0; i < columnTwo.length; i++) {
+                columnTwo[i].style.visibility = "hidden";
+            }
+
+            for (var i = 0; i < columnThree.length; i++) {
+                columnThree[i].style.visibility = "visible";
+            }
+        });
+
+
+
+
+
+
+
+
+        function copyToClipboard(val) {
+            const t = document.createElement("textarea");
+            document.body.appendChild(t);
+            t.value = val;
+            t.select();
+            document.execCommand('copy');
+            document.body.removeChild(t);
         }
 
-        function hides() {
-            hide.style.cssText = "background-image: ; background-position: ; background-size: ;"
+        function copy() {
+            copyToClipboard('iof0081@gmail.com');
+            console.log('Copied!');
+
         }
+
+        const shutterAni = [{
+                transform: 'translateY(0)'
+            },
+            {
+                transform: 'translateY(' + document.documentElement.clientHeight + 'px)',
+                offset: 0.25
+            },
+            {
+                transform: 'translateY(' + document.documentElement.clientHeight + 'px)',
+                offset: 0.75
+            },
+            {
+                transform: 'translateY(0)',
+                offset: 1
+            }
+        ];
+
+        const timing = {
+            duration: 3500,
+            iterations: 1,
+        }
+
+
+
+        handle.addEventListener('click', () => {
+            shutter.animate(shutterAni, timing);
+        });
 
     </script>
 </body>
