@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+body {
+    --bg: #ffffff;
+    --text: #090909;
+    --prim: #ff4fd6;
+    background-color: var(--bg);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    margin: 0;
+    width:100vw;
+    height:100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    
+
+}
+a{
+    text-decoration: none;
+    color: var(--text);
+
+}
+a:active, :hover{
+    color: var(--prim);
+
+}
+
+ul,
+li {
+    list-style: none;
+    margin:0;
+
+}
+
+.menu {
+    display: flex;
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+        font-size: 16px;
+        letter-spacing: 5px;
+
+
+}
+
+.menu-item {
+    padding-right: 32px;
+    text-align: center;
+white-space : nowrap; 
+}
+
+.welcome{
+    position: absolute;
+width: 259px;
+height: 360px;
+left: calc(50% - 259px/2 + 2px);
+top: calc(50% - 360px/2 - 63.5px);
+}
+
+
+
+.welcomesub{
+    position: absolute;
+width: 188px;
+height: 22px;
+left: calc(50% - 185px/2 + 5px);
+top: calc(50% - 22px/2 + 122px);
+    font-size: 15px;
+line-height: 22px;
+/* identical to box height */
+
+text-align: center;
+letter-spacing: 0.15em;
+
+    color: var(--text);
+    
+}
+
+.logo{
+    z-index: -1;
+}
+
+.left{
+    width: 600px;
+    position: absolute;
+    left: -480px;
+    top: -500px;
+}
+
+.right{
+    width: 600px;
+    position: absolute;
+    right: -380px;
+    top: -1200px;
+    
+}
+.fio{
+    position: absolute;
+width: 38.57px;
+height: 30px;
+left: 110px;
+bottom: 18px;
+}
