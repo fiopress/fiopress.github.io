@@ -1,56 +1,1700 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-    <link rel="favicon" href="./data/hand.ico" type="image/x-icon" sizes="16x16">
-    <title>WELCOME 2 NEWJOLS</title>
 
-    <meta name="description" content="뉴졸스는 1978년에 창립된 역사 깊은 단체다. 창립이후 졸업전시 분야의 개선과 발전을 목적으로 꾸준히 노력하여 이제는 4천여 명의 국내외 회원과 함께 졸업전시를 선도하는 국제적인 집단으로 거듭날 준비가 되었다.">
-    <meta name="distrubution" content="NEWJOLS">
+<head>
+
+    <meta charset="UTF-8">
+    <link rel="favicon" href="./favicon.ico" type="image/x-icon" sizes="16x16">
+    <title>fio press</title>
+    
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-537MCJT');</script>
+<!-- End Google Tag Manager -->
+    
+    
+
+    <meta name="description" content="안녕하세요. 지속적인 재미를 추구하는 창작 집단 fio press입니다. 이 사이트는 fio press의 활동 기록을 담은 캐비넷이자 전시 공간입니다. 24시간 운영됩니다.">
+    <meta name="distrubution" content="fio press">
     <meta name="location" content="seoul">
-    <meta name="keywords" content="뉴졸스, 한국디자인졸업전시준비위원회, 에프아이오, fio, NEWJOLS">
+    <meta name="keywords" content="fio, fio press, 에프아이오">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <meta itemprop="name" content="NEWJOLS">
-    <meta itemprop="description" content="뉴졸스는 1978년에 창립된 역사 깊은 단체다. 창립이후 졸업전시 분야의 개선과 발전을 목적으로 꾸준히 노력하여 이제는 4천여 명의 국내외 회원과 함께 졸업전시를 선도하는 국제적인 집단으로 거듭날 준비가 되었다.">
-    <meta itemprop="image" content="./data/hand.png">
-        
+    <meta itemprop="name" content="fio press">
+    <meta itemprop="description" content="창작 집단 fio press입니다.">
+    <meta itemprop="image" content="./logo2.png">
+    
+    
+    <meta name="naver-site-verification" content="cf4a31f699f2030fc29416c8b2e4a4871d300a2e" />
+    
     <meta property="og:type" content="website"> 
-    <meta property="og:title" content="NEWJOLS">
-    <meta property="og:description" content="뉴졸스는 1978년에 창립된 역사 깊은 단체다. 창립이후 졸업전시 분야의 개선과 발전을 목적으로 꾸준히 노력하여 이제는 4천여 명의 국내외 회원과 함께 졸업전시를 선도하는 국제적인 집단으로 거듭날 준비가 되었다.">
-    <meta property="og:image" content="./data/hand.png">
-    <meta property="og:url" content="https://???????/">
+    <meta property="og:title" content="fio press">
+    <meta property="og:description" content="창작 집단 fio press입니다.">
+    <meta property="og:image" content="./logo2.png">
+    <meta property="og:url" content="https://fiopress.github.io/">
 
-    <link href="./style.css" rel="stylesheet" type="text/css" />
-    
-    
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
+
+   
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+        body {
+            --bg: #E0E0E0;
+            --c0pr: #61bdff;
+            --c0scnd: #bae2ff;
+
+            --c1pr: #b8fc38;
+            --c1scnd: #b2baa7;
+
+            --c2pr: #ff75ca;
+            --c2scnd: #e3c3a8;
+
+            --c3pr: #766bff;
+            --c3scnd: #b2baa7;
+
+
+            --box: #929786;
+            --deepbox: #7F8375;
+            --line: #090909;
+            --text: #090909;
+            --sctext: #323330;
+            background-color: var(--bg);
+            cursor: grab;
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+
+        }
+
+        .handleLine {
+            border-left: 1.5px solid var(--text);
+            position: absolute;
+            left: 50%;
+            right: 50%;
+            top: calc(100vw/390*-17);
+            bottom: 96.92%;
+
+        }
+
+        .handle {
+            box-sizing: border-box;
+
+            position: absolute;
+            left: 48%;
+            right: 48%;
+            height: calc(100vw/390*21);
+            top: calc(100vw/390*9);
+
+            bottom: 96.09%;
+
+            background: var(--c1pr);
+            border: 1.5px solid var(--line);
+            border-radius: 100px;
+        }
+
+        .handle::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 350%;
+            height: 250%;
+        }
+
+        #logo {
+            width: calc(100vw/390*88);
+            position: absolute;
+            left: calc(100vw/390*14);
+            top: calc(100vw/390*50);
+        }
+
+        .navs {
+            display: flex;
+            align-items: space-between;
+            position: absolute;
+            top: calc(100vw/390*54);
+            right: 2.4%;
+
+        }
+
+        .nav {
+            box-sizing: border-box;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 2px 10px 4px;
+            margin: 0px 0px 0px 5px;
+            border: 1px solid #000000;
+            border-radius: 1.5px;
+        }
+
+        .menu {
+            box-sizing: border-box;
+            position: absolute;
+            left: 5%;
+            right: 5%;
+            top: calc(100vw/390*95);
+            height: calc(100vw/390*52);
+            background: var(--box);
+            border: 1px solid var(--line);
+            border-radius: 1px 1px 0px 0px;
+
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+
+
+
+
+        .title {
+            box-sizing: border-box;
+
+            position: absolute;
+            left: 5%;
+            right: 5%;
+            top: calc(100vw/390*146);
+            height: calc(100vw/390*109);
+
+            background: var(--box);
+            border: 1px solid var(--line);
+        }
+
+        .titleIndex {
+            position: absolute;
+            left: 4.62%;
+            right: 4.62%;
+            top: calc(100vw/390*9);
+            height: calc(100vw/390*14);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 9px;
+            margin-bottom: -5px;
+
+            font-weight: 500;
+            font-size: calc(100vw/390*13);
+            line-height: 31px;
+            letter-spacing: 0.07em;
+
+            color: var(--)
+        }
+
+        .mainTitle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.05em;
+
+
+            position: absolute;
+            left: 5%;
+            right: 5%;
+            top: calc(100vw/390*44);
+
+            height: calc(100vw/390*30);
+            font-weight: 500;
+            font-size: calc(100vw/390*20);
+            line-height: calc(100vw/390*25);
+            color: var(--text)
+        }
+
+
+        .content {
+            position: absolute;
+            left: 5%;
+            right: 5%;
+            top: calc(100vw/390*254);
+            height: calc(100vw/390*413);
+
+            background: var(--box);
+            border: 1px solid var(--line);
+        }
+
+
+
+        .faq {
+            box-sizing: border-box;
+
+            position: absolute;
+            left: 5%;
+            right: 50%;
+            top: calc(100vw/390*666);
+            height: calc(100vw/390*72);
+
+            background: var(--deepbox);
+            border: 1px solid var(--line);
+
+
+        }
+
+        .credit {
+            box-sizing: border-box;
+
+            position: absolute;
+            left: 49.74%;
+            right: 5%;
+            top: calc(100vw/390*666);
+            height: calc(100vw/390*72);
+            background: var(--deepbox);
+            border: 1px solid var(--line);
+
+
+        }
+
+
+        a:visited,
+        a:active,
+        a:focus,
+        a:hover,
+        a:link {
+            color: var(--text);
+        }
+
+
+        #creditContent {
+
+            position: absolute;
+            height: 72px;
+            left: 0%;
+            right: 0%;
+            top: calc(50% - 72px/2 - 0px);
+            font-weight: 500;
+            font-size: calc(100vw/390*11);
+            line-height: calc(100vw/390*16);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: var(--text);
+        }
+
+
+        #faqlink {
+
+            position: absolute;
+            height: 72px;
+            left: 0%;
+            right: 0%;
+            top: calc(50% - 72px/2 - 0px);
+            font-weight: 500;
+            font-size: calc(100vw/390*11);
+            line-height: calc(100vw/390*16);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: var(--text);
+        }
+
+
+
+        /*  #dash {
+            position: absolute;
+            height: 17px;
+            left: 0%;
+            right: 0%;
+            top: calc(50% - 17px/2 - 18px);
+        
+            font-style: normal;
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 17px;
+            display: flex;
+            justify-content: center;
+        
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: var(--text);
+            text-decoration: none;
+        }
+        
+        #mail {
+            position: absolute;
+            height: 17px;
+            left: 0%;
+            right: 0%;
+            top: calc(50% - 15px/2 + 9px);
+            text-decoration: none;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 17px;
+            display: flex;
+            justify-content: center;
+        
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: var(--text);
+        
+        
+        } */
+
+
+        .shelvesline {
+            width: 100%;
+            height: 1px;
+            background: var(--text);
+        }
+
+        .ein {
+            position: absolute;
+            top: 0%;
+        }
+
+        .zwei {
+            position: absolute;
+            top: 100%;
+        }
+
+        .one {
+            position: absolute;
+            width: 80%;
+            left: 10%;
+
+            height: 5.25px;
+            top: calc(100vw/390*105);
+        }
+
+        .two {
+            position: absolute;
+            width: 80%;
+            height: 5.25px;
+            left: 10%;
+            top: calc(100vw/390*197);
+
+        }
+
+        .three {
+            position: absolute;
+            width: 80%;
+            height: 5.25px;
+            left: 10%;
+            top: calc(100vw/390*289);
+
+        }
+
+        .four {
+            position: absolute;
+            width: 80%;
+            height: 5.25px;
+            left: 10%;
+            top: calc(100vw/390*381);
+
+        }
+
+
+
+        .contentBox {
+            box-sizing: border-box;
+            position: absolute;
+            background: var(--c1pr);
+            border: 1px solid #000000;
+            border-radius: 2px;
+            font-size: calc(100vw/390*17.5);
+            line-height: calc(100vw/390*21);
+            text-underline-position: under;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+        }
+
+        .new {
+            z-index: 1;
+            box-sizing: border-box;
+            font-size: calc(100vw/390*15);
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 5px 6px 5px;
+
+            position: absolute;
+            left: calc(100vw/390*34);
+            top: calc(100vw/390*18);
+
+            background: #ffff18;
+            border: 1px solid #000000;
+            border-radius: 2px;
+        }
+
+
+        .r1 {
+
+            height: calc(100vw/390*62);
+            left: 12%;
+            right: 12%;
+            top: calc(100vw/390*31);
+        }
+
+
+
+        .r2 {
+            right: 51.8%;
+            height: calc(100vw/390*62);
+            left: 12%;
+            top: calc(100vw/390*123);
+            background: var(--c1scnd);
+
+        }
+
+
+        .r3 {
+            height: calc(100vw/390*62);
+            left: 51.8%;
+            right: 12%;
+
+            top: calc(100vw/390*123);
+            background: var(--c1scnd);
+        }
+
+        .r4 {
+            height: calc(100vw/390*62);
+            left: 12%;
+            right: 12%;
+
+            top: calc(100vw/390*215);
+            background: var(--c1scnd);
+        }
+
+        .r5 {
+            height: calc(100vw/390*62);
+            left: 12%;
+            right: 12%;
+
+            top: calc(100vw/390*306);
+            background: var(--c1scnd);
+
+        }
+
+
+
+        /*  sup {
+            font-size: calc(100vw/390*13);
+            margin-top: calc(100vw/390*-14);
+            margin-left: calc(100vw/390*0.3);
+        }
+        
+        .l-arrow {
+            position: absolute;
+            width: calc(100vw/390*32);
+            left: 86.15%;
+            left: 5.64%;
+            top: calc(100vw/390*185);
+        }
+        
+        .r-arrow {
+        
+            position: absolute;
+            width: calc(100vw/390*32);
+            left: 86.15%;
+            right: 5.64%;
+            top: calc(100vw/390*185);
+        
+        } */
+
+
+        .mn {
+            font-size: calc(100vw/390*18);
+
+            border-radius: 2px;
+            margin: 0px calc(100vw/390*13);
+            ;
+            padding: 0px calc(100vw/390*6) calc(100vw/390*3) calc(100vw/390*6);
+            color: var(--sctext);
+
+        }
+
+        .ep1 {
+            background: var(--c1pr);
+            color: var(--text);
+            border: 1px solid #2a2a2a;
+        }
+
+        .ground {
+            z-index: -999;
+            left: 0;
+            position: absolute;
+            width: 100vw;
+            height: calc(100vw/390*131);
+            top: calc(100vw/390*644);
+            background: #373B2E;
+        }
+
+        .molding {
+            z-index: -999;
+
+            left: 0px;
+            width: 100vw;
+            height: calc(100vw/390*16);
+            position: absolute;
+            top: calc(100vw/390*629);
+            border-top: 1px solid #000000;
+
+        }
+
+
+
+        .mnBra {
+            position: absolute;
+            height: calc(100vw/390*92);
+            ;
+            left: 7.4%;
+            top: calc(100vw/390*95);
+            font-weight: 300;
+            font-size: calc(100vw/390*30);
+            text-align: center;
+            color: var(--sctext)
+        }
+
+        .mnKit {
+            position: absolute;
+            height: calc(100vw/390*92);
+            ;
+            right: 7.4%;
+            top: calc(100vw/390*95);
+            font-weight: 300;
+            font-size: calc(100vw/390*30);
+            text-align: center;
+
+            color: var(--sctext)
+        }
+
+
+
+        .titleBra {
+            position: absolute;
+            height: calc(100vw/390*92);
+            ;
+            left: 5.1%;
+            top: calc(100vw/390*130);
+            font-weight: 100;
+            font-size: calc(100vw/390*82);
+            -webkit-text-stroke: 1px var(--box);
+            text-align: center;
+            color: var(--sctext)
+        }
+
+        .titleKit {
+            position: absolute;
+            height: calc(100vw/390*92);
+            ;
+            right: 5.1%;
+            top: calc(100vw/390*130);
+            font-weight: 100;
+            font-size: calc(100vw/390*82);
+            -webkit-text-stroke: 1px var(--box);
+            text-align: center;
+            color: var(--sctext)
+        }
+
+
+        .contentBra {
+            position: absolute;
+            width: calc(100vw/390*1.5);
+            left: calc(100vw/390*38);
+            top: calc(100vw/390*280);
+            height: calc(100vw/390*370);
+            background: var(--sctext);
+        }
+
+        .contentKit {
+            position: absolute;
+            width: calc(100vw/390*1.5);
+            right: calc(100vw/390*38);
+            top: calc(100vw/390*280);
+            height: calc(100vw/390*370);
+            background: var(--sctext);
+        }
+
+
+
+        .cabinetBg {
+            z-index: -999;
+            position: absolute;
+            width: calc(100vw/390*368);
+            height: calc(100vw/390*659);
+            top: calc(100vw/390*86);
+            left: calc(100vw/390*11);
+            background: #272925;
+            border: 1px solid var(--sctext);
+        }
+
+
+
+        .shutterImg {
+            z-index: 999;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            object-position: 50% 0%;
+            position: absolute;
+            top: -100vh;
+
+        }
+
+        /* .animation {
+            animation: shutter-ani 3.5s ease-in-out;
+        
+        } */
+
+
+
+
+
+        @keyframes shutter-ani {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            30% {
+                transform: translate(0, 100vh);
+            }
+
+            70% {
+                transform: translate(0, 100vh);
+
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+
+        }
+
+
+        .c0,
+        .c2,
+        .c3 {
+            visibility: hidden;
+        }
+
+        .r1.c0 {
+            background: var(--c0pr)
+        }
+
+        .r1.c2 {
+            background: var(--c2pr)
+        }
+
+
+        .r1.c3 {
+            background: var(--box);
+            border: 1px dashed #393b36;
+        }
+
+        .eng .mainTitle {
+            font-size: calc(100vw/390*17);
+            line-height: calc(100vw/390*23);
+        }
+
+        .eng .contentBox {
+            letter-spacing: 0.04em;
+
+        }
+
+
+        .eng {
+            display: none;
+        }
+
+
+        .concent,
+        .towel,
+        .needle,
+        .theater,
+        .welcome,
+        .flower {
+
+            width: 0px;
+            height: 0px;
+        }
+
+
+
+
+        @media (min-width: 450px) {
+
+            .handleLine {
+                top: -15px;
+                height: 30px;
+
+            }
+
+            .handle {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 20px;
+                height: 30px;
+                top: 9px;
+
+
+            }
+
+
+            #logo {
+                width: 102px;
+                position: absolute;
+                left: calc(50% - 102px/2 - 133px);
+                top: calc(50% - 34.93px/2 - 345.5px);
+            }
+
+            .cabinetBg {
+                z-index: -999;
+                position: absolute;
+                width: 370px;
+                height: 657px;
+                left: calc(50% - 370px/2);
+                top: calc(50% - 657px/2 + 8.5px);
+            }
+
+            .menu {
+                box-sizing: border-box;
+                position: absolute;
+                width: 356px;
+                height: 52px;
+                left: calc(50% - 356px/2);
+                top: calc(50% - 52px/2 - 286px);
+
+            }
+
+
+            .mainTitle {
+                letter-spacing: 0.05em;
+
+                top: 44px;
+
+                height: 30px;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 25px;
+            }
+
+            .eng .mainTitle {
+                font-size: 17px;
+                line-height: 23px;
+            }
+
+            .titleIndex {
+
+                top: 9px;
+                height: 14px;
+
+                font-size: 13px;
+
+
+                color: var(--)
+            }
+
+
+
+
+            .navs {
+                width: 48px;
+                height: 25px;
+                left: calc(50% - 48px/2 + 162px);
+                top: calc(50% - 25px/2 - 339.5px);
+            }
+
+            .title {
+                width: 356px;
+                height: 109px;
+                left: calc(50% - 356px/2);
+                top: calc(50% - 109px/2 - 206.5px);
+            }
+
+            .content {
+                width: 354px;
+                height: 413px;
+                left: calc(50% - 356px/2);
+                top: calc(50% - 413px/2 + 53.5px);
+            }
+
+            .faq {
+                width: 179px;
+                height: 72px;
+                left: calc(50% - 178px/2 - 89px);
+                top: calc(50% - 72px/2 + 295px);
+            }
+
+            .credit {
+                width: 180px;
+                height: 72px;
+                left: calc(50% - 179px/2 + 87.5px);
+                top: calc(50% - 72px/2 + 295px);
+            }
+
+
+
+            #creditContent {
+                font-size: 11px;
+                line-height: 16px;
+
+            }
+
+
+            #faqlink {
+                font-size: 11px;
+                line-height: 16px;
+            }
+
+
+            .one {
+
+                top: 105px;
+            }
+
+            .two {
+                top: 197px;
+
+
+            }
+
+            .three {
+
+                top: 289px;
+
+            }
+
+            .four {
+
+                top: 381px;
+
+            }
+
+
+
+
+            .contentBox {
+                font-size: 17.5px;
+                line-height: 21px;
+
+            }
+
+            .new {
+                font-size: 15px;
+                left: 34px;
+                top: 18px;
+            }
+
+
+            .r1 {
+                height: 62px;
+                top: 31px;
+            }
+
+
+
+            .r2 {
+                height: 62px;
+                top: 123px;
+
+            }
+
+
+            .r3 {
+                height: 62px;
+                top: 123px;
+            }
+
+            .r4 {
+                height: 62px;
+
+
+                top: 215px;
+            }
+
+            .r5 {
+                height: 62px;
+                top: 306px;
+
+            }
+
+            .mn {
+                font-size: 18px;
+                margin: 0px 13px;
+                padding: 0px 6px 3px 6px;
+            }
+
+            .ground {
+                height: calc(50% + 131px/2 - 302.5px);
+                top: calc(50% - 131px/2 + 302.5px);
+                background: #373B2E;
+            }
+
+            .molding {
+                left: 0%;
+                right: 0%;
+                top: calc(50% - 16px/2 + 230px);
+            }
+
+
+
+            .mnBra {
+                width: 34px;
+                left: calc(50% - 34px/2 - 161.5px);
+                top: calc(50% - 30px/2 - 296px);
+
+
+                font-size: 30px;
+
+            }
+
+            .mnKit {
+                width: 34px;
+                left: calc(50% - 34px/2 + 161.5px);
+                top: calc(50% - 30px/2 - 296px);
+                font-size: 30px;
+
+
+            }
+
+
+
+            .titleBra {
+                width: 37px;
+                font-size: 82px;
+                left: calc(50% - 37px/2 - 161.5px);
+                top: calc(50% - 92px/2 - 230px);
+
+            }
+
+            .titleKit {
+                width: 37px;
+                left: calc(50% - 37px/2 + 161.5px);
+                top: calc(50% - 92px/2 - 230px);
+
+
+                font-size: 82px;
+            }
+
+
+            .contentBra {
+                height: 370px;
+                width: 1.5px;
+                left: calc(50% - 1px/2 - 158.5px);
+                top: calc(50% - 370px/2 + 57px);
+                background: var(--sctext);
+            }
+
+            .contentKit {
+                height: 370px;
+                width: 1.5px;
+                left: calc(50% - 1px/2 + 156.5px);
+                top: calc(50% - 370px/2 + 57px);
+            }
+
+
+            .shutterImg {
+                z-index: 999;
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
+                object-position: 50% 50%;
+                position: absolute;
+                top: -100vh;
+
+            }
+
+            .concent {
+                position: absolute;
+                width: 28.2px;
+                height: 47px;
+                left: calc(50% - 28.2px/2 + 260px);
+                top: calc(50% - 47px/2 + 160px);
+            }
+
+            .theater {
+                position: absolute;
+                width: 294.4px;
+                height: 411.2px;
+                left: calc(50% - 294.4px/2 - 725.8px);
+                top: calc(50% - 411.2px/2 + 102.6px);
+
+
+            }
+
+            .flower {
+                position: absolute;
+                width: 124px;
+                height: 711.6px;
+                left: calc(50% - 124px/2 + 722px);
+                top: calc(50% - 711.6px/2 - 48.2px);
+            }
+
+            .towel {
+                position: absolute;
+                width: 142.4px;
+                height: 293.6px;
+                left: calc(50% - 142.4px/2 - 1590.8px);
+                top: calc(50% - 293.6px/2 + 160.8px);
+
+            }
+
+            .needle {
+                position: absolute;
+                width: 213.2px;
+                height: 433.6px;
+                left: calc(50% - 213.2px/2 - 1159.4px);
+                top: calc(50% - 433.6px/2 + 90.8px);
+
+            }
+
+            .welcome {
+                position: absolute;
+                width: 468px;
+                height: 578.4px;
+                left: calc(50% - 468px/2 + 1260px);
+                top: calc(50% - 578.4px/2 + 19.2px);
+            }
+
+
+        }
+
+    </style>
+
 
 </head>
+
+
+
+
+
 <body>
 
-  <ul class="menu">
-      <li class="menu-item"><a href="#" class="menu-link">소개</a></li>
-      <li class="menu-item"><a href="#" class="menu-link">연구일지</a></li>
-      <li class="menu-item"><a href="#" class="menu-link">자료실</a></li>
-      <li class="menu-item"><a href="./chattingroom.html" class="menu-link">담론장</a></li>
-      
-  </ul>
-  
-  
-  <img src="./data/welcome.png" alt="" class="welcome">
-  <p class="welcomesub">자네 지금 웃음이 나오나?</p>
-  
-  <img class="logo left" src="./data/logo-left.svg" alt="">
-    <img class="logo right" src="./data/logo-right.svg" alt="">
-      <img class="fio logo" src="./data/fiologo.svg" alt="">
 
-   
-   
 
-   
-   <script src="./script.js"></script>
-   
-   
+
+    <div class="handleLine"></div>
+    <div class="handle"></div>
+
+
+    <div class="navs">
+        <span class="nav korTranslate eng"> Kor</span>
+        <span class="nav engTranslate kor"> Eng</span>
+
+
+    </div>
+
+    <div class="cabinet">
+
+
+        <img src="./logo3.png" alt="fio 로고" id="logo">
+        <div class="menu">
+            <span class="mn ep0">0</span>
+            <span class="mn ep1">1</span>
+            <span class="mn ep2">2</span>
+            <span class="mn ep3">3</span>
+
+
+
+        </div>
+
+
+
+        <div class="title kor">
+
+            <!-- ==== -->
+
+            <span class="c0 titleIndex">
+                여는 문장
+            </span>
+            <span class="c0 mainTitle">
+                우리는 어디서 왔고,<br>무엇이며, 어디로 가는가?
+            </span>
+
+
+            <span class="c1 titleIndex">
+                첫 번째 문장
+            </span>
+            <span class="c1 mainTitle">
+
+                웹 전시는 어쩜 <br>이리도 만만한가?
+            </span>
+            <!-- ==== -->
+
+
+
+
+            <span class="c2 titleIndex">
+                두 번째 문장
+            </span>
+            <span class="c2 mainTitle">
+                디자인 졸업전시,<br>이게 맞나?
+            </span>
+
+
+
+
+            <!-- ==== -->
+
+            <span class="c3 titleIndex">
+                세 번째 문장
+            </span>
+            <span class="c3 mainTitle">
+                베일에 감추어짐<br>
+
+            </span>
+
+
+
+        </div>
+
+        <div class="title eng">
+
+            <!-- ==== -->
+
+
+            <span class="c0 titleIndex">
+                Opening Sentence
+            </span>
+            <span class="c0 mainTitle">
+                Where Do We Come From? <br> What Are We? Where Are We Going?
+            </span>
+
+
+            <!-- ==== -->
+
+
+
+            <span class="c1 titleIndex">
+                First Sentence
+            </span>
+            <span class="c1 mainTitle">
+                Why is the web exhibition<br>so easy-peasy?
+
+            </span>
+
+
+
+            <span class="c2 titleIndex">
+                Second Sentence
+            </span>
+            <span class="c2 mainTitle">
+
+
+                What's wrong with <br>design graduate show?
+
+            </span>
+
+
+
+
+            <span class="c3 titleIndex">
+                Third Sentence
+            </span>
+            <span class="c3 mainTitle">
+                Hidden in a veil.<br>
+
+            </span>
+
+
+
+
+        </div>
+
+
+
+
+        <div class="content kor">
     
+    <a class="contentBox r1 c0" href="https://fiopress.github.io/fio%20interview.pdf"target="_blank">                fio 멤버 인터뷰
+ </a>
+
+            <a class="contentBox r2 c0" href="https://fiopress.github.io/1"target="_blank">
+                (구) 홈페이지
+            </a>
+
+
+            <a class="contentBox r3 c0" href="https://fiopress.github.io/1"target="_blank">
+                튀르키예<br>아이스크림
+            </a>
+
+
+            <!-- ==== -->
+
+            <div class="new contentBox c1" >새 소식!</div>
+
+
+
+
+            <a class="contentBox r1 c1" href="https://fiopress.github.io/fio_aftertalk.pdf" target="_blank">
+                <u>애프터토크 담화집</u>
+            </a>
+            <a class="contentBox r2 c1" href="https://docs.google.com/forms/d/e/1FAIpQLSdBNvu6PaxaGMG2uCkpoG2_AfShv93TwzoFQdRfsov5NbgQuQ/viewform?usp=send_form" target="_blank">
+                티셔츠 구매
+            </a>
+
+            <a class="contentBox r3 c1" href="https://fiopress.github.io/fake" target="_blank">
+                애프터토크<br>신청
+            </a>
+
+            <a class="contentBox r4 c1" href="https://defiant-bit-d0d.notion.site/2c9b0e19b39447a2beb3252c4d0989c4" target="_blank">
+                《STANDUP!》 후일담
+            </a>
+            <a class="contentBox r5 c1" href="https://fiopress.github.io/2" target="_blank">
+                전시입장로
+            </a>
+
+
+            <!-- ==== -->
+
+                        <div class="new contentBox c2" >곧이어!</div>
+
+
+            <a class="contentBox r1 c2" href="https://pbs.twimg.com/media/D50XpAnUcAUGWBg.jpg" target="_blank">
+                미지의 협회 발촉 준비 중
+            </a>
+
+
+            <a class="contentBox r1 c3" href="https://image.newdaily.co.kr/site/data/img/2010/03/04/2010030400056_0.png"target="_blank">
+                <u>???</u>
+            </a>
+
+
+
+
+
+
+
+
+
+            <div class="shelves one">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+            <div class="shelves two">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+            <div class="shelves three">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+            <div class="shelves four">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+
+        </div>
+
+
+        <div class="content eng">
+
+             <a class="contentBox r1 c0" href="https://fiopress.github.io/fio%20interview.pdf"target="_blank"> 
+                fio Member interview
+            </a>
+
+
+            <a class="contentBox r2 c0" href="https://fiopress.github.io/1" target="_blank">
+                (Old) Homepage
+            </a>
+
+
+            <a class="contentBox r3 c0" href="https://fiopress.github.io/1" target="_blank">
+                Turkish<br>ice cream
+            </a>
+
+
+
+            <!-- ==== -->
+
+            <div class="new contentBox c1">New!</div>
+
+
+            <a class="contentBox r1 c1" href="https://fiopress.github.io/fio_aftertalk.pdf" target="_blank">
+                <u>Aftertalk Talkbook</u>
+            </a>
+            <a class="contentBox r2 c1" href="https://docs.google.com/forms/d/e/1FAIpQLSdBNvu6PaxaGMG2uCkpoG2_AfShv93TwzoFQdRfsov5NbgQuQ/viewform?usp=send_form" target="_blank">
+                T-shirt Shop
+
+            </a>
+
+            <a class="contentBox r3 c1" href="https://fiopress.github.io/fake" target="_blank">
+                Aftertalk<br>application
+            </a>
+
+            <a class="contentBox r4 c1" href="https://defiant-bit-d0d.notion.site/2c9b0e19b39447a2beb3252c4d0989c4" target="_blank">
+                《STANDUP!》 BTS
+            </a>
+            <a class="contentBox r5 c1" href="https://fiopress.github.io/2" target="_blank">
+                Exhibition Entrance
+            </a>
+
+
+            <!-- ==== -->
+
+
+            <a class="contentBox r1 c2" href="https://pbs.twimg.com/media/D50XpAnUcAUGWBg.jpg" target="_blank">
+
+            </a>
+
+
+            <a class="contentBox r1 c3" href="https://image.newdaily.co.kr/site/data/img/2010/03/04/2010030400056_0.png" target="_blank">
+                <u>???</u>
+            </a>
+
+            <div class="shelves one">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+            <div class="shelves two">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+            <div class="shelves three">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+            <div class="shelves four">
+                <div class="shelvesline ein"></div>
+                <div class="shelvesline zwei"></div>
+            </div>
+
+        </div>
+
+
+
+
+
+        <div class="contentBg"></div>
+        <div class="faq" onclick="window.open('https://fiopress.github.io/FAQ');"><a href="https://fiopress.github.io/FAQ" id="faqlink" target="_blank">자주 물을 질문들↗<br> Frequently Asked Questions </a>
+        </div>
+        <div class="credit" onclick="window.open('http://www.instagram.com/fio_press');"><span id="creditContent"><a href="http://www.instagram.com/fio_press" target="_blank">Designed by fio in seoul.<br>
+                    All right, thank you.</a></span> </div>
+
+
+
+
+
+
+
+    </div>
+
+    <div class="ground"></div>
+    <div class="molding"></div>
+    <div class="cabinetBg">
+
+    </div>
+
+    <div class="mnBra">[</div>
+    <div class="mnKit">]</div>
+
+    <div class="titleBra">(</div>
+    <div class="titleKit">)</div>
+
+    <div class="contentBra"></div>
+    <div class="contentKit"></div>
+
+
+    <img src="./love.png" alt="사랑합니다." class="shutterImg">
+    <!--
+    <img src="./concent.png" alt="콘센트" class="concent">
+    <img src="./towel.png" alt="타월" class="towel">
+    <img src="./needle.png" alt="니들" class="needle">
+    <img src="./flower.png" alt="플라워" class="flower">
+    <img src="./theater.png" alt="극장" class="theater">
+    <img src="./welcome.png" alt="티비" class="welcome">
+-->
+
+
+
+
+    <script>
+        var index = 1;
+        var indexZero = document.querySelector(".ep0");
+        var indexOne = document.querySelector(".ep1");
+        var indexTwo = document.querySelector(".ep2");
+        var indexThree = document.querySelector(".ep3");
+
+        var columnZero = document.getElementsByClassName("c0");
+        var columnOne = document.getElementsByClassName("c1");
+        var columnTwo = document.getElementsByClassName("c2");
+        var columnThree = document.getElementsByClassName("c3");
+
+        var engTranslate = document.querySelector(".engTranslate");
+        var korTranslate = document.querySelector(".korTranslate");
+
+        var eng = document.getElementsByClassName("eng");
+        var kor = document.getElementsByClassName("kor");
+
+
+        const handle = document.querySelector(".handle");
+        const shutter = document.querySelector(".shutterImg")
+
+
+        console.log(columnOne.length)
+
+
+
+        engTranslate.addEventListener('click', () => {
+
+            for (var i = 0; i < kor.length; i++) {
+                kor[i].style.display = "none";
+            }
+
+            for (var i = 0; i < eng.length; i++) {
+                eng[i].style.display = "flex";
+            }
+
+        });
+
+        korTranslate.addEventListener('click', () => {
+
+            for (var i = 0; i < eng.length; i++) {
+                eng[i].style.display = "none";
+            }
+
+            for (var i = 0; i < kor.length; i++) {
+                kor[i].style.display = "flex";
+            }
+
+        });
+
+
+
+
+
+        indexZero.addEventListener('click', () => {
+
+            handle.style.background = "var(--c0pr)"
+            document.querySelector(".ep0").style.background = "var(--c0pr)"
+            document.querySelector(".ep0").style.color = "var(--text)"
+            document.querySelector(".ep0").style.border = "1px solid #2a2a2a"
+
+
+            document.querySelector(".ep1").style.background = "none "
+            document.querySelector(".ep1").style.color = "var(--sctext)"
+            document.querySelector(".ep1").style.border = "0px "
+
+            document.querySelector(".ep2").style.background = "none "
+            document.querySelector(".ep2").style.color = "var(--sctext)"
+            document.querySelector(".ep2").style.border = "0px "
+
+            document.querySelector(".ep3").style.background = "none "
+            document.querySelector(".ep3").style.color = "var(--sctext)"
+            document.querySelector(".ep3").style.border = "0px "
+
+
+
+            for (var i = 0; i < columnZero.length; i++) {
+                columnZero[i].style.visibility = "visible";
+            }
+
+            for (var i = 0; i < columnOne.length; i++) {
+                columnOne[i].style.visibility = "hidden";
+            }
+
+            for (var i = 0; i < columnTwo.length; i++) {
+                columnTwo[i].style.visibility = "hidden";
+            }
+
+            for (var i = 0; i < columnThree.length; i++) {
+                columnThree[i].style.visibility = "hidden";
+            }
+
+
+
+        });
+
+        indexOne.addEventListener('click', () => {
+
+            handle.style.background = "var(--c1pr)"
+
+            document.querySelector(".ep0").style.background = "none"
+            document.querySelector(".ep0").style.color = "var(--sctext)"
+            document.querySelector(".ep0").style.border = "0px"
+
+
+            document.querySelector(".ep1").style.background = "var(--c1pr)"
+            document.querySelector(".ep1").style.color = "var(--text)"
+            document.querySelector(".ep1").style.border = "1px solid #2a2a2a "
+
+            document.querySelector(".ep2").style.background = "none "
+            document.querySelector(".ep2").style.color = "var(--sctext)"
+            document.querySelector(".ep2").style.border = "0px "
+
+            document.querySelector(".ep3").style.background = "none "
+            document.querySelector(".ep3").style.color = "var(--sctext)"
+            document.querySelector(".ep3").style.border = "0px "
+
+
+
+            for (var i = 0; i < columnZero.length; i++) {
+                columnZero[i].style.visibility = "hidden";
+            }
+
+            for (var i = 0; i < columnOne.length; i++) {
+                columnOne[i].style.visibility = "visible";
+            }
+
+            for (var i = 0; i < columnTwo.length; i++) {
+                columnTwo[i].style.visibility = "hidden";
+            }
+
+            for (var i = 0; i < columnThree.length; i++) {
+                columnThree[i].style.visibility = "hidden";
+            }
+
+        });
+
+        indexTwo.addEventListener('click', () => {
+            handle.style.background = "var(--c2pr)"
+
+            document.querySelector(".ep0").style.background = "none"
+            document.querySelector(".ep0").style.color = "var(--sctext)"
+            document.querySelector(".ep0").style.border = "0px"
+
+
+            document.querySelector(".ep1").style.background = "none"
+            document.querySelector(".ep1").style.color = "var(--sctext)"
+            document.querySelector(".ep1").style.border = "0px"
+
+            document.querySelector(".ep2").style.background = "var(--c2pr)"
+            document.querySelector(".ep2").style.color = "var(--text)"
+            document.querySelector(".ep2").style.border = "1px solid #2a2a2a "
+
+            document.querySelector(".ep3").style.background = "none "
+            document.querySelector(".ep3").style.color = "var(--sctext)"
+            document.querySelector(".ep3").style.border = "0px "
+
+
+
+
+            for (var i = 0; i < columnZero.length; i++) {
+                columnZero[i].style.visibility = "hidden";
+            }
+
+            for (var i = 0; i < columnOne.length; i++) {
+                columnOne[i].style.visibility = "hidden";
+            }
+
+            for (var i = 0; i < columnTwo.length; i++) {
+                columnTwo[i].style.visibility = "visible";
+            }
+
+            for (var i = 0; i < columnThree.length; i++) {
+                columnThree[i].style.visibility = "hidden";
+            }
+        });
+
+        indexThree.addEventListener('click', () => {
+            handle.style.background = "var(--c3pr)"
+
+
+            document.querySelector(".ep0").style.background = "none"
+            document.querySelector(".ep0").style.color = "var(--sctext)"
+            document.querySelector(".ep0").style.border = "0px"
+
+
+            document.querySelector(".ep1").style.background = "none"
+            document.querySelector(".ep1").style.color = "var(--sctext)"
+            document.querySelector(".ep1").style.border = "0px"
+
+            document.querySelector(".ep2").style.background = "none"
+            document.querySelector(".ep2").style.color = "var(--sccext)"
+            document.querySelector(".ep2").style.border = "0px"
+
+            document.querySelector(".ep3").style.background = "var(--c3pr)"
+            document.querySelector(".ep3").style.color = "var(--text)"
+            document.querySelector(".ep3").style.border = "1px solid #2a2a2a "
+
+
+
+
+            for (var i = 0; i < columnZero.length; i++) {
+                columnZero[i].style.visibility = "hidden";
+            }
+
+            for (var i = 0; i < columnOne.length; i++) {
+                columnOne[i].style.visibility = "hidden";
+            }
+
+            for (var i = 0; i < columnTwo.length; i++) {
+                columnTwo[i].style.visibility = "hidden";
+            }
+
+            for (var i = 0; i < columnThree.length; i++) {
+                columnThree[i].style.visibility = "visible";
+            }
+        });
+
+
+
+
+
+
+
+
+        function copyToClipboard(val) {
+            const t = document.createElement("textarea");
+            document.body.appendChild(t);
+            t.value = val;
+            t.select();
+            document.execCommand('copy');
+            document.body.removeChild(t);
+        }
+
+        function copy() {
+            copyToClipboard('iof0081@gmail.com');
+            console.log('Copied!');
+
+        }
+
+        const shutterAni = [{
+                transform: 'translateY(0)'
+            },
+            {
+                transform: 'translateY(' + document.documentElement.clientHeight + 'px)',
+                offset: 0.25
+            },
+            {
+                transform: 'translateY(' + document.documentElement.clientHeight + 'px)',
+                offset: 0.75
+            },
+            {
+                transform: 'translateY(0)',
+                offset: 1
+            }
+        ];
+
+        const timing = {
+            duration: 3500,
+            iterations: 1,
+        }
+
+
+
+        handle.addEventListener('click', () => {
+            shutter.animate(shutterAni, timing);
+        });
+
+    </script>
 </body>
+
 </html>
