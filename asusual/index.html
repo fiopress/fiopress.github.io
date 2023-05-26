@@ -69,14 +69,14 @@
 
 
 
-                <div class="grid-item off" onclick="bingo(this, 0)"> <span class="text"> 대머리문어 </span>
+                <div class="grid-item off" onclick="bingo(this, 0)"> <span class="text"> 대머리호민 </span>
                     <img class="image" src="./o.png" alt="">
                 </div>
 
                 <div class="grid-item off" onclick="bingo(this, 5)"> <span class="text"> 뉴진스 </span>
                     <img class="image" src="./x.png" alt="">
                 </div>
-                <div class="grid-item off" onclick="bingo(this, 5)"><span class="text"> 엄피컨 </span>
+                <div class="grid-item off" onclick="bingo(this, 5)"><span class="text"> 조자룡 </span>
                     <img class="image" src="./x.png" alt="">
                 </div>
                 <div class="grid-item off" onclick="bingo(this, 5)"><span class="text"> 샤랄라공주 </span>
@@ -262,7 +262,14 @@
         var finalCircle = document.getElementsByClassName("finalCircle");
         var directive = document.getElementsByClassName("directive");
                 var buttons = document.getElementsByClassName("buttons");
+        
+        var container = document.getElementsByClassName("container");
 
+    var UserAgent = navigator.userAgent;
+            if (UserAgent.match(/iPhone|iPod|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i) != null || UserAgent.match(/LG|SAMSUNG|Samsung/) != null){
+        container[0].style.height = "calc(100vh - 75px)"    
+        }
+        
 
 
 
