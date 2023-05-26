@@ -31,7 +31,7 @@ body::-webkit-scrollbar {
 .btnContainer {
     position: absolute;
     left: 50%;
-    top: 48%;
+    top: 50%;
     transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
@@ -312,6 +312,15 @@ span {
 
 }
 
+@media (max-width:480px) {
+    
+.container {
+    margin-top: -30px;
+}
+
+
+}
+
 
 
 
@@ -483,13 +492,4 @@ span {
 }
 }
 
-@media (max-width:480px) {
-    .container {
-    height: 70vh;
 
-     margin-top: -40px;
-
-    }
-
-
-}
