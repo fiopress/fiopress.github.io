@@ -21,7 +21,7 @@ body::-webkit-scrollbar {
 }
 
 .container {
-    height:100vh;
+        height:calc(100vh - 75px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -312,15 +312,7 @@ span {
 
 }
 
-@media (max-width:480px) {
-    
-.container {
-        height:calc(100vh - 75px);
 
-    }
-
-
-}
 
 
 

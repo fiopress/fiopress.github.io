@@ -266,8 +266,10 @@
         var container = document.getElementsByClassName("container");
 
     var UserAgent = navigator.userAgent;
-            if (UserAgent.match(/iPhone|iPod|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i) != null || UserAgent.match(/LG|SAMSUNG|Samsung/) != null){
-        container[0].style.height = "calc(100vh - 75px)"    
+            if (UserAgent.match(/iPhone|iPod|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i) != null || UserAgent.match(/LG|SAMSUNG|Samsung/) != null){}
+        else {
+            container[0].style.height = "calc(100vh)"    
+
         }
         
 
