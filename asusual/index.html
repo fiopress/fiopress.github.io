@@ -264,13 +264,29 @@
                 var buttons = document.getElementsByClassName("buttons");
         
         var container = document.getElementsByClassName("container");
+        
+         const isMobile = () => {
+  try {
+    document.createEvent("TouchEvent");
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+        
 
     var UserAgent = navigator.userAgent;
             if (UserAgent.match(/iPhone|iPod|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i) != null || UserAgent.match(/LG|SAMSUNG|Samsung/) != null){}
         else {
-            container[0].style.height = "calc(100vh)"    
-
+            container[0].style.height = "100vh" ;
         }
+        
+      
+        
+        if(isMobile){
+            container[0].style.height = "calc(100vh - 75px)"   
+        }
+
         
 
 
