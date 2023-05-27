@@ -312,6 +312,12 @@ span {
 
 }
 
+@media (max-width:480px){
+    .directive {
+            padding-bottom: 40px;
+
+    }
+}
 
 
 

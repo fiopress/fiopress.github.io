@@ -502,8 +502,20 @@
                     
                         
 
-                    }, 7000);
+                    }, 7200);
                     
+                    
+                    setTimeout(function() {
+       
+                        for (i = 0; i < list.length; i++) {
+                                                   
+                            
+                            audioList[buttonNumber][list[i]].currentTime = 0;                            
+                        }
+                        
+
+
+                    }, 8800);
                     
 
 
@@ -516,8 +528,7 @@
                             
                             bigs[list[i]].style.visibility = "visible";
                             console.log(bigs[list[i]]);
-                            
-                            audioList[buttonNumber][list[i]].currentTime = 0;
+
                             audioList[buttonNumber][list[i]].play();
                             
                             
@@ -526,7 +537,7 @@
                         
 
 
-                    }, 8800);
+                    }, 9000);
 
                 }
 
