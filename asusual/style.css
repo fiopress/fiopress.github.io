@@ -12,6 +12,7 @@ body {
     align-items: center;
     white-space: nowrap;
     font-family: 'Noto Sans KR', sans-serif;
+    
 
 
 }
@@ -44,27 +45,52 @@ body::-webkit-scrollbar {
 
 .btnContainer > button {
     display: inline-block;
-    padding: 7px 10px;
-    background: linear-gradient(#504644, #494d32);
+    padding: 1.6px 15px 2.4px 15.8px;
     border: none;
-    color: #747e41;
     text-align: center;
     text-decoration: none;
     transition: background 0.3s ease;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
-    border-radius: 3px;
-    margin: 8px;
-    letter-spacing: 0.6px;
-    word-spacing: -2px;
+    border-radius: 1px;
+    margin: 7.5px;
+    font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+    
 }
 
-button:hover {
+.pp{
+background: linear-gradient(#5c7b8e, #6653b5);
+        color: #272029;
+    
 
-    color: #272029;
-    background: linear-gradient(#8b4a8b, #595d43);
-    transition: 0.2s;
 }
+.pp:hover{
+     color: #272029;
+    background: linear-gradient(#5c7b8e, #466171);
+        transition: 0.3s;
+}
+
+.ll{
+background: linear-gradient(#6653b5, #617633);
+        color: #272029;
+
+}
+.ll:hover{
+     color: #272029;
+    background: linear-gradient(#6653b5, #57469b);
+        transition: 0.3s;
+}
+.yy{
+    background: linear-gradient(#9b6b60, #6653b5);
+        color: #272029;
+}
+.yy:hover{
+     color: #272029;
+    background: linear-gradient(#865c52, #9b6b60);
+        transition: 0.3s;
+}
+
 
 .grid-container {
     display: none;
@@ -73,6 +99,7 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 img {
@@ -146,6 +173,7 @@ span {
     padding: 20px;
     text-align: center;
     border-radius: 1px;
+    
 }
 
 .on {
