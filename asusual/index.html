@@ -15,12 +15,14 @@
 <body>
 
     <div class="container">
+       <div class="welcome">fio Memeber's Pick<br>🍸 <i>5 Best blended <i class="meme">Meme</i> Cocktails </i>🍸 </div>
         <div class="btnContainer">
-            <button class="buttons pp" onclick="showGrid(0)">P1</button>
-            <button class="buttons ll" onclick="showGrid(1)">L1</button>
-            <button class="buttons bb" onclick="showGrid(2)">L2</button>
-            <button class="buttons cc" onclick="showGrid(3)">L3</button>
-            <button class="buttons yy" onclick="showGrid(4)">Y1</button>
+        
+            <button class="buttons pp" onclick="showGrid(0)">Park</button>
+            <button class="buttons ll" onclick="showGrid(1)">Lha1</button>
+            <button class="buttons bb" onclick="showGrid(2)">Lha2</button>
+            <button class="buttons cc" onclick="showGrid(3)">Lha3</button>
+            <button class="buttons yy" onclick="showGrid(4)">Yeom</button>
         </div>
         <div class="directive">
             Enjoy. As Usual...
@@ -28,6 +30,8 @@
 
 
         <div class="P1 grid-container">
+           
+           
             <div class="display">
                 <div class="circle c1"> </div>
                 <div class="circle c2"> </div>
@@ -37,8 +41,8 @@
             </div>
 
             <div class="question">
-                다음 들리는 소리의 정확한 출처는?
-            </div>
+                다음 들리는 소리의 정확한 출처를 고르시오
+                            </div>
             <div class="life">
                 <div class="heart">
                     <div class="lifeIcon">
@@ -404,6 +408,10 @@
 
 
     </div>
+    
+    <footer>
+        Copyright 2023. fiopress. All rights reserved. <br>Developed and Designed by parkjiho.
+    </footer>
 
     <script>
         var life = 5;
@@ -412,6 +420,8 @@
         var finalCircle = document.getElementsByClassName("finalCircle");
         var directive = document.getElementsByClassName("directive");
         var buttons = document.getElementsByClassName("buttons");
+                var welcome = document.getElementsByClassName("welcome");
+
 
         var container = document.getElementsByClassName("container");
 
@@ -507,6 +517,7 @@
 
 
             finalCircle[0].style.display = "none";
+            welcome[0].style.display = "none";
 
 
 
