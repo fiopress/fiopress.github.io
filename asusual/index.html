@@ -434,24 +434,22 @@
             }
         };
 
-
+ var gridPadding = 15;
         var UserAgent = navigator.userAgent;
         if (UserAgent.match(/iPhone|iPod|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i) != null || UserAgent.match(/LG|SAMSUNG|Samsung/) != null) {} else {
-            container[0].style.height = "100vh";
+            container[0].style.marginTop = "-30px";
+            
         }
 
 
 
         if (isMobile) {
-            container[0].style.height = "calc(100vh - 75px)"
+            container[0].style.marginTop = "-30px";           
         }
 
 
 
-
-
-
-        var gridPadding = 60;
+       
 
         var P1audioList = [
             new Audio('https://cdn.jsdelivr.net/gh/fiopress/fiopress.github.io/asusual/P1.mp3'),
