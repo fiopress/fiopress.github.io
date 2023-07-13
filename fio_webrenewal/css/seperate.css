@@ -158,6 +158,7 @@ chapter:hover +.chapter.new > .header > .title > .description{
 }
 
 img{
+    display: none;
     position: absolute;
     width: 50px;
     left: 3px;
