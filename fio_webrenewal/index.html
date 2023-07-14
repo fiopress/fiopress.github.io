@@ -29,7 +29,7 @@
 
     <meta
       name="description"
-      content="안녕하세요. 지속적인 재미를 추구하는 창작 집단 fio press입니다. 이 사이트는 fio press의 활동 기록을 담은 캐비넷이자 전시 공간입니다. 24시간 운영됩니다."
+      content="안녕하세요. 지속적인 재미를 추구하는 창작 집단 fio press입니다. 이 사이트는 fio press의 활동 기록을 담은 전시 공간입니다. 24시간 운영됩니다."
     />
     <meta name="distrubution" content="fio press" />
     <meta name="location" content="seoul" />
@@ -51,12 +51,12 @@
     <meta property="og:image" content="./logo2.png" />
     <meta property="og:url" content="https://fiopress.github.io/" />
 
-    <link rel="stylesheet" id="changeStyle" href="./css/latin.css" />
+    <link rel="stylesheet" id="changeStyle" href="./css/style.css" />
     <script>
       window.onload = function () {
-        var cssFiles = ["./css/latin.css", "./css/seperate.css"];
-        var test = false;
-        var tester = "./css/seperate.css";
+        var cssFiles = ["./css/style.css"];
+        var test = true;
+        var tester = "./css/style.css";
         if (test) {
           var indexNum = cssFiles.indexOf(tester);
           cssFiles = cssFiles.slice(indexNum, indexNum + 1);
@@ -69,118 +69,95 @@
   </head>
   <body>
     <div class="container">
-
-      <span id="more" onclick="more()">more...</span>
       <div class="chapter">
-        <div class="header">
-        <span class="title"><span class="chapter-number one">chapter 1. </span><span class="description">웹 전시는 어쩜 이리도 만만한가?</span></span>
-        <span class="subtitle">STANDUP!</span>
-        </div>
+         <div class="chapter-number">chapter 1.</div>
+      <div class="content">
+        <span class="description">
+        웹 전시는 어쩜 이리도 만만한가?
+      </span>
+      <span class="title">
+        《STANDUP!》
+      </span>
         <ul>
-         
           <li class="list-item">
-            <a
-              target="_blank"
-              href="https://defiant-bit-d0d.notion.site/2c9b0e19b39447a2beb3252c4d0989c4"
-              >proposal</a
-            >
+            <a class="links"target="_blank" href="https://defiant-bit-d0d.notion.site/2c9b0e19b39447a2beb3252c4d0989c4">proposal</a>
           </li>
           <li class="list-item">
-            <a target="_blank" href="https://fiopress.org/2">entrance</a>
+            <a class="links" target="_blank" href="https://fiopress.org/2">entrance</a>
           </li>
            <li class="list-item">
-            <a target="_blank" href="https://fiopress.org/fio_aftertalk.pdf"
-              >aftertalk</a
-            >
-          </li>
-         
-         
-        </ul>
-      </div>
-
-
-      <div class="chapter">
-        <div class="header">
-        <span class="title"><span class="chapter-number two ">chapter 2. </span> <span class="description">디자인 졸업전시, 이게 맞나?</span></span>
-        <span class="subtitle">Newjols</span>
-      </div>
-
-        <ul>
-          <li class="list-item">
-            <a target="_blank" href="#section3">proposal</a>
-          </li>
-           <li class="list-item">
-            <a target="_blank" href="https://www.newjols.com/">website</a>
-          </li>
-          <li class="list-item"><a target="_blank" href="#section2">SNS</a></li>
-          
-        </ul>
-      </div>
-
-
-
-      <div class="chapter">
-        <div class="header">
-        <span class="title"><span class="chapter-number three">chapter 3. </span> <span class="description">아는만큼 들린다?</span></span>
-        
-        <span class="subtitle">5 Best Blended Meme Cocktails</span>
-        </div>
-        <ul>
-          <li class="list-item">
-            <a target="_blank" href="#section1">website</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="chapter new">
-        <div class="header" onclick="more()">
-        <span class="title"><span class="chapter-number four">chapter 4. </span> <span class="description">우리는 얼마나 닮았을까?</span></span>
-        
-        <span class="subtitle">Napolitan Project</span>
-        </div>
-        <ul>
-          <li class="list-item new">
-            <a target="_blank" href="#section1">proposal</a>
+            <a class="links" target="_blank" href="https://fiopress.org/fio_aftertalk.pdf">aftertalk</a>
           </li>
         </ul>
       </div>
     </div>
 
-    <footer>
-     <a href="https://www.instagram.com/fio_press/" target="_blank"> <img class="svg" src="./logo.svg" alt=""></a>
-    </footer>
-    <script>
-      var moreBtn = document.getElementById('more');
-      var toggle = true
-      var chapter = document.getElementsByClassName('chapter');
-      var validNum = 1;
-      if(toggle){
-        for (var i=0; i<chapter.length - validNum; i++){
-          chapter[i].style.display = "none";
-        }
-      function more(){
-        if(toggle){
-          for (var i=0; i<chapter.length - validNum; i++){
-          chapter[i].style.display = "flex";
-          toggle = false;
-        }
-        moreBtn.style.display = "none"
-
-      }
-      else{
-          for (var i=0; i<chapter.length -1; i++){
-          chapter[i].style.display = "none";
-          toggle = true;
-        }
+      <div class="chapter">
+         <div class="chapter-number">chapter 2.</div>
+      <div class="content">
+        <span class="description">
+          디자인 졸업전시, 이게 맞나?
+      </span>
+      <span class="title">
+        《Newjols》
+      </span>
+      <ul>
+        <li class="list-item">
+          <a target="_blank" href="#section3">proposal</a>
+        </li>
+         <li class="list-item">
+          <a target="_blank" href="https://www.newjols.com/">website</a>
+        </li>
+        <li class="list-item"><a target="_blank" href="#section2">SNS</a></li>
+      </ul>
+      </div>
+    </div>
+    
+      <div class="chapter">
+         <div class="chapter-number">chapter 3.</div>
+      <div class="content">
+        <span class="description">
+          어디까지 들릴까?
+      </span>
+      <span class="title">
+        《5 Best Blended Meme Cocktails》
+      </span>
+      <ul>
+        <li class="list-item">
+          <a target="_blank" href="https://fiopress.org/asusual/">website</a>
+        </li>
+      </ul>
+      </div>
+    </div>
     
 
-        }
-        
-      }
+    
+      <div class="chapter">
+         <div class="chapter-number">chapter 4.</div>
+      <div class="content">
+        <span class="description">
+          인간과 AI, 얼마나 닮았을까?
+      </span>
+      <span class="title">
+        《Napolitan Project》
+      </span>
+      <ul>
+        <li class="list-item new">
+          <a target="_blank" href="#section1">proposal</a>
+        </li>
+      </ul>
+      </div>
+    </div>
+    
 
-      }
+    </div>
 
-</script>
+    <footer>
+      Copyright 2023. fiopress. All rights reserved. <br>Developed and Designed by @parkjiho
+  </footer>
+
+     <a href="https://www.instagram.com/fio_press/" target="_blank"> <img class="svg" src="./logo.svg" alt=""></a>
+   
 
   </body>
 </html>
