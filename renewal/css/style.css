@@ -53,14 +53,13 @@ font-weight: 400;
     flex-direction: column;
 }
 .content > span{
-    margin-bottom: 3px;
+    margin-bottom: 3.5px;
 }
 
 .description{
     margin-left: -0.3px;
 }
 .title{
-    padding-top: 1px;
 }
 
 img{
