@@ -39,11 +39,20 @@ left: 24px;
 font-weight: 400;
 
 }
+@media (max-width:480px){
+    .container {
+        top: 12px;
+
+    }
+
+}
+
+
 .chapter{
     display: flex;
     justify-content: left;
     align-items: top;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
 }
 .chapter-number{
     margin-right: 17.5px;
@@ -53,13 +62,17 @@ font-weight: 400;
     flex-direction: column;
 }
 .content > span{
-    margin-bottom: 3.5px;
+    margin-bottom: 3px;
 }
 
 .description{
     margin-left: -1px;
 }
 
+.title{
+    margin-top: 1px;
+
+}
 
 img{
     position: fixed;
