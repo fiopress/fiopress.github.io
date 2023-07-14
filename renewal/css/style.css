@@ -57,13 +57,12 @@ font-weight: 400;
 }
 
 .description{
-    margin-left: -0.3px;
-}
-.title{
+    margin-left: -0.6px;
 }
 
+
 img{
-    position: absolute;
+    position: fixed;
 bottom: 14px;
     right: 20px;
 
@@ -71,7 +70,7 @@ bottom: 14px;
 }
 
 footer{
-    position: absolute;
+    position: fixed;
     bottom:14px;
     color: #9f9f9f;
     opacity: 0.3;
