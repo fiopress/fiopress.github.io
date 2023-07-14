@@ -4,6 +4,7 @@
 body {
     --bg: #F4F6F8;
     --text:  #121212;
+
 	font-family: 'Pretendard Variable';
     white-space: nowrap;
     margin: 0px;
@@ -67,13 +68,13 @@ font-weight: 400;
 img{
     position: absolute;
     height: 40px;
-    bottom: 16px;
+    bottom: 12px;
     right: 24px;
 }
 
 footer{
     position: absolute;
-    bottom:16px;
+    bottom:12px;
     color: #9f9f9f;
     opacity: 0.3;
     left: 24px;
