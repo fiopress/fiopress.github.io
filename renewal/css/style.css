@@ -43,10 +43,10 @@ font-weight: 400;
     display: flex;
     justify-content: left;
     align-items: top;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
 }
 .chapter-number{
-    margin-right: 20px;
+    margin-right: 17.5px;
 }
 .content{
     display: flex;
@@ -57,7 +57,7 @@ font-weight: 400;
 }
 
 .description{
-    margin-left: -0.6px;
+    margin-left: -1px;
 }
 
 
