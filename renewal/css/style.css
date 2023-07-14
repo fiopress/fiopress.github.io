@@ -67,14 +67,15 @@ font-weight: 400;
 
 img{
     position: absolute;
+bottom: 14px;
+    right: 20px;
+
     height: 40px;
-    bottom: 12px;
-    right: 16px;
 }
 
 footer{
     position: absolute;
-    bottom:12px;
+    bottom:14px;
     color: #9f9f9f;
     opacity: 0.3;
     left: 24px;
