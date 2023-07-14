@@ -44,17 +44,24 @@ font-weight: 400;
     display: flex;
     justify-content: left;
     align-items: top;
-    padding-bottom: 38px;
+    margin-bottom: 38px;
 }
 .chapter-number{
-    margin-right: 19px;
+    margin-right: 20px;
 }
 .content{
     display: flex;
     flex-direction: column;
 }
 .content > span{
-    margin-bottom: 4px;
+    margin-bottom: 3px;
+}
+
+.description{
+    margin-left: -0.4px;
+}
+.title{
+    padding-top: 1px;
 }
 
 img{
